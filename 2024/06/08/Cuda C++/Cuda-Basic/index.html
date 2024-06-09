@@ -22,28 +22,30 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInDown"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Timeline 5.21 Submit 5.25 Coding Test 5.31 Technical Interview 1">
+    <meta name="description" content="What is CudaCuda是一种并行计算架构，旨在利用GPU的并行计算能力，用于通用计算。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="灵犀互娱 测开">
-<meta property="og:url" content="http://example.com/2024/05/31/Summer%20Intership/%E7%81%B5%E7%8A%80%E4%BA%92%E5%A8%B1-%E6%B5%8B%E5%BC%80/index.html">
+<meta property="og:title" content="Cuda Basic">
+<meta property="og:url" content="http://example.com/2024/06/08/Cuda%20C++/Cuda-Basic/index.html">
 <meta property="og:site_name" content="OakForSure&#39;s Blog">
-<meta property="og:description" content="Timeline 5.21 Submit 5.25 Coding Test 5.31 Technical Interview 1">
+<meta property="og:description" content="What is CudaCuda是一种并行计算架构，旨在利用GPU的并行计算能力，用于通用计算。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-05-31T15:09:10.000Z">
-<meta property="article:modified_time" content="2024-06-05T16:20:57.264Z">
+<meta property="og:image" content="http://example.com/2024/06/08/Cuda%20C++/Cuda-Basic/Cuda_Model.png">
+<meta property="article:published_time" content="2024-06-08T11:20:08.000Z">
+<meta property="article:modified_time" content="2024-06-08T13:10:28.876Z">
 <meta property="article:author" content="OakForSure">
-<meta property="article:tag" content="Summer Intership">
+<meta property="article:tag" content="Cuda">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2024/06/08/Cuda%20C++/Cuda-Basic/Cuda_Model.png">
 
 
-<link rel="canonical" href="http://example.com/2024/05/31/Summer%20Intership/%E7%81%B5%E7%8A%80%E4%BA%92%E5%A8%B1-%E6%B5%8B%E5%BC%80/">
+<link rel="canonical" href="http://example.com/2024/06/08/Cuda%20C++/Cuda-Basic/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2024/05/31/Summer%20Intership/%E7%81%B5%E7%8A%80%E4%BA%92%E5%A8%B1-%E6%B5%8B%E5%BC%80/","path":"2024/05/31/Summer Intership/灵犀互娱-测开/","title":"灵犀互娱 测开"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2024/06/08/Cuda%20C++/Cuda-Basic/","path":"2024/06/08/Cuda C++/Cuda-Basic/","title":"Cuda Basic"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>灵犀互娱 测开 | OakForSure's Blog</title>
+<title>Cuda Basic | OakForSure's Blog</title>
   
 
 
@@ -115,7 +117,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Timeline"><span class="nav-number">1.</span> <span class="nav-text">Timeline</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Coding-Test"><span class="nav-number">2.</span> <span class="nav-text">Coding Test</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C"><span class="nav-number">2.1.</span> <span class="nav-text">三数之和</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%9E%E6%BA%AF%E5%9B%9E%E6%96%87%E6%95%B0"><span class="nav-number">2.2.</span> <span class="nav-text">回溯回文数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Technical-Interview-1"><span class="nav-number">3.</span> <span class="nav-text">Technical Interview 1</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Question"><span class="nav-number">3.1.</span> <span class="nav-text">Question</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-Cuda"><span class="nav-number">1.</span> <span class="nav-text">What is Cuda</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Heterogeneous-Computing-%E5%BC%82%E6%9E%84%E8%AE%A1%E7%AE%97"><span class="nav-number">2.</span> <span class="nav-text">Heterogeneous Computing 异构计算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Host-%E4%B8%BB%E6%9C%BA-Device-%E8%AE%BE%E5%A4%87"><span class="nav-number">2.1.</span> <span class="nav-text">Host 主机 &amp; Device 设备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CPU%E7%9A%84%E7%89%B9%E7%82%B9"><span class="nav-number">2.2.</span> <span class="nav-text">CPU的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GPU%E7%9A%84%E7%89%B9%E7%82%B9"><span class="nav-number">2.3.</span> <span class="nav-text">GPU的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CPU-Threads-GPU-Threads"><span class="nav-number">2.4.</span> <span class="nav-text">CPU Threads &amp; GPU Threads</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cuda%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%9E%8B"><span class="nav-number">3.</span> <span class="nav-text">Cuda编程模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Thread-%E7%BA%BF%E7%A8%8B"><span class="nav-number">3.1.</span> <span class="nav-text">Thread 线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Block-%E7%BA%BF%E7%A8%8B%E5%9D%97"><span class="nav-number">3.2.</span> <span class="nav-text">Block 线程块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Grid-%E7%BD%91%E6%A0%BC"><span class="nav-number">3.3.</span> <span class="nav-text">Grid 网格</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -173,7 +175,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/31/Summer%20Intership/%E7%81%B5%E7%8A%80%E4%BA%92%E5%A8%B1-%E6%B5%8B%E5%BC%80/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/08/Cuda%20C++/Cuda-Basic/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -186,12 +188,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="灵犀互娱 测开 | OakForSure's Blog">
+      <meta itemprop="name" content="Cuda Basic | OakForSure's Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          灵犀互娱 测开
+          Cuda Basic
         </h1>
 
         <div class="post-meta-container">
@@ -203,15 +205,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2024-05-31 23:09:10" itemprop="dateCreated datePublished" datetime="2024-05-31T23:09:10+08:00">2024-05-31</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-06-06 00:20:57" itemprop="dateModified" datetime="2024-06-06T00:20:57+08:00">2024-06-06</time>
+      <time title="Created: 2024-06-08 19:20:08 / Modified: 21:10:28" itemprop="dateCreated datePublished" datetime="2024-06-08T19:20:08+08:00">2024-06-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -219,7 +215,11 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Summer-Intership/" itemprop="url" rel="index"><span itemprop="name">Summer Intership</span></a>
+          <a href="/categories/Prallel-Programming/" itemprop="url" rel="index"><span itemprop="name">Prallel Programming</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Prallel-Programming/Cuda/" itemprop="url" rel="index"><span itemprop="name">Cuda</span></a>
         </span>
     </span>
 
@@ -239,54 +239,32 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h3 id="Timeline"><a href="#Timeline" class="headerlink" title="Timeline"></a>Timeline</h3><ul>
-<li><strong>5.21</strong> Submit</li>
-<li><strong>5.25</strong> Coding Test</li>
-<li><strong>5.31</strong> Technical Interview 1</li>
-</ul>
+    <div class="post-body" itemprop="articleBody"><h2 id="What-is-Cuda"><a href="#What-is-Cuda" class="headerlink" title="What is Cuda"></a>What is Cuda</h2><p>Cuda是一种并行计算架构，旨在<strong>利用GPU</strong>的并行计算能力，用于通用计算。</p>
 <span id="more"></span>
 
-<h3 id="Coding-Test"><a href="#Coding-Test" class="headerlink" title="Coding Test"></a>Coding Test</h3><p>两道题全A. Quite easy actually.  </p>
-<h4 id="三数之和"><a href="#三数之和" class="headerlink" title="三数之和"></a>三数之和</h4><p>只是变更了一下背景，换汤不换药。</p>
-<h4 id="回溯回文数"><a href="#回溯回文数" class="headerlink" title="回溯回文数"></a>回溯回文数</h4><p>Leetcode 原题。相关题目：复原IP地址。</p>
-<h3 id="Technical-Interview-1"><a href="#Technical-Interview-1" class="headerlink" title="Technical Interview 1"></a>Technical Interview 1</h3><p>因为得知华为面试表现非常好，所以觉得多半是稳下来了有offer了，所以面得很随意。</p>
-<h4 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h4><ol>
-<li>玩什么游戏</li>
-<li>如何进行游戏测试</li>
-<li>项目<ol>
-<li><p>什么是粘包问题</p>
-</li>
-<li><p>只有服务器会出现粘包吗</p>
-<p>客户端也会，只要有缓冲的都会</p>
-</li>
-<li><p>服务器的最大并发数是多少</p>
-<p>没用专业工具测试过，但是自己写了个脚本统计发送和接收速率</p>
-</li>
-<li><p>介绍一下线程池</p>
-<p>我说我这个项目的线程池和普通的线程池不一样，我这个线程池任务都是交给iocontext处理的</p>
-</li>
-</ol>
-</li>
-<li>C++八股<ol>
-<li>智能指针种类</li>
-<li>C++内存管理</li>
-</ol>
-</li>
-<li>操作系统八股<ol>
-<li>虚拟内存有什么用</li>
-<li>进程 线程 协程的区别</li>
-</ol>
-</li>
-<li>智力题<ol>
-<li>100个球，一次可以拿1-5个球，你先拿，如何确保你拿到最后那个球</li>
-<li>两个玻璃珠，一个足够高的建筑，如何得到玻璃珠刚好碎掉的层高</li>
-</ol>
-</li>
-<li>你的优点是什么</li>
-<li>你的缺点是什么</li>
-</ol>
-<p>整场面试下来回答的很随意，也是顺利的挂掉了。面试官也是一丝不苟的样子，很严肃。</p>
-
+<h2 id="Heterogeneous-Computing-异构计算"><a href="#Heterogeneous-Computing-异构计算" class="headerlink" title="Heterogeneous Computing 异构计算"></a>Heterogeneous Computing 异构计算</h2><p><strong>背景：</strong>经过 30 多年的发展，通过提升 <strong>CPU 时钟频率和内核数量</strong>来提高计算能力的传统方式遇到散热和能耗瓶颈。但是日益复杂的工作负载背后需要强大的算力进行支撑。</p>
+<p><strong>目的：</strong>更高的吞吐，更低的时延，更低的成本。</p>
+<p><strong>定义：</strong>使用不同类型指令集和体系架构的计算单元组成系统的计算方式</p>
+<p>CPU+GPU就是其中一种异构计算系统，需要CPU和GPU协同工作。</p>
+<h3 id="Host-主机-Device-设备"><a href="#Host-主机-Device-设备" class="headerlink" title="Host 主机 &amp; Device 设备"></a>Host 主机 &amp; Device 设备</h3><p><strong>主机：</strong>CPU及其内存<br><strong>设备：</strong>GPU及其内存</p>
+<h3 id="CPU的特点"><a href="#CPU的特点" class="headerlink" title="CPU的特点"></a>CPU的特点</h3><ul>
+<li><em><strong>快速执行单一指令流。</strong></em>乱序执行、寄存器重命名、分支预测、越来越大的cache，这些设计都是为了<strong>加速单一线程</strong>的执行速度</li>
+<li>每个核心只支持1或2个线程</li>
+<li>切换线程的代价是数百个时钟周期</li>
+<li>通过SIMD（单指令多数据）处理矢量数据</li>
+</ul>
+<h3 id="GPU的特点"><a href="#GPU的特点" class="headerlink" title="GPU的特点"></a>GPU的特点</h3><ul>
+<li><em><strong>快速执行大量的并行指令流。</strong></em>处理器阵列、多线程管理、共享内存、内存控制器，这些设计并不着眼于提高单一线程的执行速度，而是为了使GPU可以同时执行成千上万的线程，实现线程间通信，并提供极高的内存带宽</li>
+<li>对于支持Cuda的GPU，每个流处理器可以同时处理1024个线程</li>
+<li>切换线程的代价是0，事实上GPU通常每个时钟周期都切换线程</li>
+<li>使用SIMT（单指令多线程）处理矢量数据。SIMT的好处是无需开发者费力把数据凑成合适的矢量长度，并且SIMT允许每个线程有不同的分支</li>
+</ul>
+<h3 id="CPU-Threads-GPU-Threads"><a href="#CPU-Threads-GPU-Threads" class="headerlink" title="CPU Threads &amp; GPU Threads"></a>CPU Threads &amp; GPU Threads</h3><p><strong>GPU Threads的生成代价小，是轻量级的线程；CPU Threads的生成代价大，是重量级的线程。</strong>CPU Threads虽然生成的代价高于GPU Threads，但其<strong>执行效率高于GPU Threads，</strong>所以GPU Threads无法在个体的比较上取胜，只有在<strong>数量上取胜</strong>。在这个意义上来讲，CPU Threads好比是一头强壮的公牛在耕地，GPU Threads好比是1000头弱小的小牛在耕地。因此，为了保证体现GPU并行计算的优点，线程的数目必须足够多。</p>
+<h2 id="Cuda编程模型"><a href="#Cuda编程模型" class="headerlink" title="Cuda编程模型"></a>Cuda编程模型</h2><p><img src="/2024/06/08/Cuda%20C++/Cuda-Basic/Cuda_Model.png" alt="Cuda编程模型" title="Cuda编程模型"></p>
+<h3 id="Thread-线程"><a href="#Thread-线程" class="headerlink" title="Thread 线程"></a>Thread 线程</h3><p>每个线程执行相同代码，但是处理不同的数据。</p>
+<h3 id="Block-线程块"><a href="#Block-线程块" class="headerlink" title="Block 线程块"></a>Block 线程块</h3><p>线程被组织成线程块，一个线程块中有多个线程。一个线程块中的线程可以<strong>共享数据</strong>，并且可以同步他们的执行。</p>
+<h3 id="Grid-网格"><a href="#Grid-网格" class="headerlink" title="Grid 网格"></a>Grid 网格</h3><p>线程块被组织成网格，一个网格中有多个线程块。</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Grid</span></span><br><span class="line">└── Block(<span class="number">0</span>)</span><br><span class="line">    ├── <span class="built_in">Thread</span>(<span class="number">0</span>)</span><br><span class="line">    ├── <span class="built_in">Thread</span>(<span class="number">1</span>)</span><br><span class="line">    └── ...</span><br><span class="line">└── Block(<span class="number">1</span>)</span><br><span class="line">    ├── <span class="built_in">Thread</span>(<span class="number">0</span>)</span><br><span class="line">    ├── <span class="built_in">Thread</span>(<span class="number">1</span>)</span><br><span class="line">    └── ...</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -295,20 +273,20 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Summer-Intership/" rel="tag"># Summer Intership</a>
+              <a href="/tags/Cuda/" rel="tag"># Cuda</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2024/05/16/Summer%20Intership/%E5%8D%8E%E4%B8%BA%E6%95%B0%E9%80%9A%E9%80%9A%E7%94%A8%E8%BD%AF%E5%BC%80/" rel="prev" title="华为数通通用软开">
-                  <i class="fa fa-angle-left"></i> 华为数通通用软开
+                <a href="/2024/06/08/Blog%20Improvement/Migration-Record/" rel="prev" title="Migration Record">
+                  <i class="fa fa-angle-left"></i> Migration Record
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2024/06/04/Whatever/Why-Blog/" rel="next" title="Why Blog?">
-                  Why Blog? <i class="fa fa-angle-right"></i>
+                <a href="/2024/06/08/Blog%20Improvement/Insert-Image/" rel="next" title="Insert Image">
+                  Insert Image <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>

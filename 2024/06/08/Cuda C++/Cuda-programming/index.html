@@ -22,28 +22,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInDown"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Timeline 5.21 Submit 5.25 Coding Test 5.31 Technical Interview 1">
+    <meta name="description" content="Cuda编程Cuda编程的移植将计算密集型函数移植到GPU上以实现并行化，而其他顺序执行的代码仍然在CPU上执行">
 <meta property="og:type" content="article">
-<meta property="og:title" content="灵犀互娱 测开">
-<meta property="og:url" content="http://example.com/2024/05/31/Summer%20Intership/%E7%81%B5%E7%8A%80%E4%BA%92%E5%A8%B1-%E6%B5%8B%E5%BC%80/index.html">
+<meta property="og:title" content="Cuda programming">
+<meta property="og:url" content="http://example.com/2024/06/08/Cuda%20C++/Cuda-programming/index.html">
 <meta property="og:site_name" content="OakForSure&#39;s Blog">
-<meta property="og:description" content="Timeline 5.21 Submit 5.25 Coding Test 5.31 Technical Interview 1">
+<meta property="og:description" content="Cuda编程Cuda编程的移植将计算密集型函数移植到GPU上以实现并行化，而其他顺序执行的代码仍然在CPU上执行">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-05-31T15:09:10.000Z">
-<meta property="article:modified_time" content="2024-06-05T16:20:57.264Z">
+<meta property="article:published_time" content="2024-06-08T12:49:24.000Z">
+<meta property="article:modified_time" content="2024-06-08T13:10:18.394Z">
 <meta property="article:author" content="OakForSure">
-<meta property="article:tag" content="Summer Intership">
+<meta property="article:tag" content="Cuda">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/2024/05/31/Summer%20Intership/%E7%81%B5%E7%8A%80%E4%BA%92%E5%A8%B1-%E6%B5%8B%E5%BC%80/">
+<link rel="canonical" href="http://example.com/2024/06/08/Cuda%20C++/Cuda-programming/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2024/05/31/Summer%20Intership/%E7%81%B5%E7%8A%80%E4%BA%92%E5%A8%B1-%E6%B5%8B%E5%BC%80/","path":"2024/05/31/Summer Intership/灵犀互娱-测开/","title":"灵犀互娱 测开"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2024/06/08/Cuda%20C++/Cuda-programming/","path":"2024/06/08/Cuda C++/Cuda-programming/","title":"Cuda programming"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>灵犀互娱 测开 | OakForSure's Blog</title>
+<title>Cuda programming | OakForSure's Blog</title>
   
 
 
@@ -115,7 +115,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Timeline"><span class="nav-number">1.</span> <span class="nav-text">Timeline</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Coding-Test"><span class="nav-number">2.</span> <span class="nav-text">Coding Test</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C"><span class="nav-number">2.1.</span> <span class="nav-text">三数之和</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%9E%E6%BA%AF%E5%9B%9E%E6%96%87%E6%95%B0"><span class="nav-number">2.2.</span> <span class="nav-text">回溯回文数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Technical-Interview-1"><span class="nav-number">3.</span> <span class="nav-text">Technical Interview 1</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Question"><span class="nav-number">3.1.</span> <span class="nav-text">Question</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Cuda%E7%BC%96%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">Cuda编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Cuda%E7%BC%96%E7%A8%8B%E7%9A%84%E7%A7%BB%E6%A4%8D"><span class="nav-number">1.1.</span> <span class="nav-text">Cuda编程的移植</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B"><span class="nav-number">1.2.</span> <span class="nav-text">简单处理流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">1.3.</span> <span class="nav-text">关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#global"><span class="nav-number">1.3.1.</span> <span class="nav-text">global</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#host"><span class="nav-number">1.3.2.</span> <span class="nav-text">host</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#device"><span class="nav-number">1.3.3.</span> <span class="nav-text">device</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#managed"><span class="nav-number">1.3.4.</span> <span class="nav-text">managed</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E7%BD%AE%E5%8F%98%E9%87%8F"><span class="nav-number">1.4.</span> <span class="nav-text">内置变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#GridDim"><span class="nav-number">1.4.1.</span> <span class="nav-text">GridDim</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GridIndex"><span class="nav-number">1.4.2.</span> <span class="nav-text">GridIndex</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -173,7 +173,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/31/Summer%20Intership/%E7%81%B5%E7%8A%80%E4%BA%92%E5%A8%B1-%E6%B5%8B%E5%BC%80/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/08/Cuda%20C++/Cuda-programming/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -186,12 +186,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="灵犀互娱 测开 | OakForSure's Blog">
+      <meta itemprop="name" content="Cuda programming | OakForSure's Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          灵犀互娱 测开
+          Cuda programming
         </h1>
 
         <div class="post-meta-container">
@@ -203,15 +203,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2024-05-31 23:09:10" itemprop="dateCreated datePublished" datetime="2024-05-31T23:09:10+08:00">2024-05-31</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-06-06 00:20:57" itemprop="dateModified" datetime="2024-06-06T00:20:57+08:00">2024-06-06</time>
+      <time title="Created: 2024-06-08 20:49:24 / Modified: 21:10:18" itemprop="dateCreated datePublished" datetime="2024-06-08T20:49:24+08:00">2024-06-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -219,7 +213,11 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Summer-Intership/" itemprop="url" rel="index"><span itemprop="name">Summer Intership</span></a>
+          <a href="/categories/Prallel-Programming/" itemprop="url" rel="index"><span itemprop="name">Prallel Programming</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Prallel-Programming/Cuda/" itemprop="url" rel="index"><span itemprop="name">Cuda</span></a>
         </span>
     </span>
 
@@ -239,54 +237,28 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h3 id="Timeline"><a href="#Timeline" class="headerlink" title="Timeline"></a>Timeline</h3><ul>
-<li><strong>5.21</strong> Submit</li>
-<li><strong>5.25</strong> Coding Test</li>
-<li><strong>5.31</strong> Technical Interview 1</li>
-</ul>
+    <div class="post-body" itemprop="articleBody"><h2 id="Cuda编程"><a href="#Cuda编程" class="headerlink" title="Cuda编程"></a>Cuda编程</h2><h3 id="Cuda编程的移植"><a href="#Cuda编程的移植" class="headerlink" title="Cuda编程的移植"></a>Cuda编程的移植</h3><p>将计算密集型函数移植到GPU上以实现并行化，而其他顺序执行的代码仍然在CPU上执行</p>
 <span id="more"></span>
 
-<h3 id="Coding-Test"><a href="#Coding-Test" class="headerlink" title="Coding Test"></a>Coding Test</h3><p>两道题全A. Quite easy actually.  </p>
-<h4 id="三数之和"><a href="#三数之和" class="headerlink" title="三数之和"></a>三数之和</h4><p>只是变更了一下背景，换汤不换药。</p>
-<h4 id="回溯回文数"><a href="#回溯回文数" class="headerlink" title="回溯回文数"></a>回溯回文数</h4><p>Leetcode 原题。相关题目：复原IP地址。</p>
-<h3 id="Technical-Interview-1"><a href="#Technical-Interview-1" class="headerlink" title="Technical Interview 1"></a>Technical Interview 1</h3><p>因为得知华为面试表现非常好，所以觉得多半是稳下来了有offer了，所以面得很随意。</p>
-<h4 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h4><ol>
-<li>玩什么游戏</li>
-<li>如何进行游戏测试</li>
-<li>项目<ol>
-<li><p>什么是粘包问题</p>
-</li>
-<li><p>只有服务器会出现粘包吗</p>
-<p>客户端也会，只要有缓冲的都会</p>
-</li>
-<li><p>服务器的最大并发数是多少</p>
-<p>没用专业工具测试过，但是自己写了个脚本统计发送和接收速率</p>
-</li>
-<li><p>介绍一下线程池</p>
-<p>我说我这个项目的线程池和普通的线程池不一样，我这个线程池任务都是交给iocontext处理的</p>
-</li>
+<h3 id="简单处理流程"><a href="#简单处理流程" class="headerlink" title="简单处理流程"></a>简单处理流程</h3><ol>
+<li>分配host内存,并进行数据初始化</li>
+<li>分配device内存,并从host将数据copy到device上<br><code>cudaMalloc</code> &amp; <code>cudaMemcpy</code></li>
+<li>调用Cuda的核函数在device上完成指定的运算<br><code>&lt;&lt;&lt;gridDim, blockDim&gt;&gt;&gt;</code></li>
+<li>将device上的运算结果copy到host上</li>
+<li>释放device和host上分配的内存<br><code>cudaFree</code> &amp; <code>delete[] or free[]</code></li>
 </ol>
-</li>
-<li>C++八股<ol>
-<li>智能指针种类</li>
-<li>C++内存管理</li>
-</ol>
-</li>
-<li>操作系统八股<ol>
-<li>虚拟内存有什么用</li>
-<li>进程 线程 协程的区别</li>
-</ol>
-</li>
-<li>智力题<ol>
-<li>100个球，一次可以拿1-5个球，你先拿，如何确保你拿到最后那个球</li>
-<li>两个玻璃珠，一个足够高的建筑，如何得到玻璃珠刚好碎掉的层高</li>
-</ol>
-</li>
-<li>你的优点是什么</li>
-<li>你的缺点是什么</li>
-</ol>
-<p>整场面试下来回答的很随意，也是顺利的挂掉了。面试官也是一丝不苟的样子，很严肃。</p>
+<h3 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h3><h4 id="global"><a href="#global" class="headerlink" title="global"></a><strong>global</strong></h4><p>声明在设备上<strong>执行</strong>的内核函数。主机代码也可以<strong>调用</strong>。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">__global__ <span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> n, <span class="type">float</span> *x, <span class="type">float</span> *y)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> index = threadIdx.x;</span><br><span class="line">    <span class="type">int</span> stride = blockDim.x;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = index; i &lt; n; i += stride) &#123;</span><br><span class="line">        y[i] = x[i] + y[i];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h4 id="host"><a href="#host" class="headerlink" title="host"></a><strong>host</strong></h4><p>声明仅在主机上<strong>执行</strong>的函数。这个关键字在大多数情况下是可选的，因为主机代码默认在主机上执行。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">__host__ <span class="type">void</span> <span class="title">printHello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Hello from the host!\n&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="device"><a href="#device" class="headerlink" title="device"></a><strong>device</strong></h4><p>声明仅在设备上执行的函数。这些函数<strong>不能从Host代码中调用</strong>，只能从其他设备或内核函数中调用。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">__device__ <span class="type">float</span> <span class="title">multiply</span><span class="params">(<span class="type">float</span> a, <span class="type">float</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a * b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="managed"><a href="#managed" class="headerlink" title="managed"></a><strong>managed</strong></h4><p>声明托管内存，使其在主机和设备之间可访问。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">__managed__ <span class="type">int</span> data;</span><br></pre></td></tr></table></figure>
+<h3 id="内置变量"><a href="#内置变量" class="headerlink" title="内置变量"></a>内置变量</h3><h4 id="GridDim"><a href="#GridDim" class="headerlink" title="GridDim"></a>GridDim</h4><h4 id="GridIndex"><a href="#GridIndex" class="headerlink" title="GridIndex"></a>GridIndex</h4>
     </div>
 
     
@@ -295,21 +267,18 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Summer-Intership/" rel="tag"># Summer Intership</a>
+              <a href="/tags/Cuda/" rel="tag"># Cuda</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2024/05/16/Summer%20Intership/%E5%8D%8E%E4%B8%BA%E6%95%B0%E9%80%9A%E9%80%9A%E7%94%A8%E8%BD%AF%E5%BC%80/" rel="prev" title="华为数通通用软开">
-                  <i class="fa fa-angle-left"></i> 华为数通通用软开
+                <a href="/2024/06/08/Blog%20Improvement/Insert-Image/" rel="prev" title="Insert Image">
+                  <i class="fa fa-angle-left"></i> Insert Image
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2024/06/04/Whatever/Why-Blog/" rel="next" title="Why Blog?">
-                  Why Blog? <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>
