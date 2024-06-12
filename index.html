@@ -126,7 +126,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -260,6 +260,172 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/11/Cmake/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="OakForSure">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="OakForSure's Blog">
+      <meta itemprop="description" content="Sense of Purpose">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | OakForSure's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/06/11/Cmake/" class="post-title-link" itemprop="url">Cmake</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-06-11 17:25:29 / Modified: 17:48:31" itemprop="dateCreated datePublished" datetime="2024-06-11T17:25:29+08:00">2024-06-11</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="makefile的缺点"><a href="#makefile的缺点" class="headerlink" title="makefile的缺点"></a>makefile的缺点</h2><ul>
+<li><em><strong>项目越大手写越复杂</strong></em>：makefile在一些简单的工程下，完全可以人工手写，但是当工程非常大的时候，手写makefile也是非常麻烦。</li>
+<li><em><strong>平台兼容性差</strong></em>：陆陆续续出现了各种不同平台的makefile，有GNU make、QT 的 qmake，微软的 MSnmake，BSD Make（pmake），Makepp等等。这些 Make 工具遵循着不同的规范和标准，所执行的 Makefile 格式也千差万别。</li>
+</ul>
+<h2 id="cmake的诞生"><a href="#cmake的诞生" class="headerlink" title="cmake的诞生"></a>cmake的诞生</h2><p>cmake是makefile的上层工具，可以更简单的生成makefile给下面的make用，cmake还能跨平台生成makefile。cmake简化了自己手写makefile的工作量，并且生成可移植的makefile。</p>
+<h2 id="手写CMakeLists-txt"><a href="#手写CMakeLists-txt" class="headerlink" title="手写CMakeLists.txt"></a>手写CMakeLists.txt</h2><h3 id="基本结构"><a href="#基本结构" class="headerlink" title="基本结构"></a>基本结构</h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">project</span>(xxx)                          <span class="comment">#指定项目名称，大写</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">add_subdirectory</span>(子文件夹名称)                  </span><br><span class="line"></span><br><span class="line"><span class="keyword">add_library</span>(库文件名称 STATIC 文件)                    <span class="comment">#通常子目录(二选一)</span></span><br><span class="line"><span class="keyword">add_executable</span>(可执行文件名称 文件)                     <span class="comment">#通常父目录(二选一)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">include_directories</span>(路径)                              <span class="comment">#必须</span></span><br><span class="line"><span class="keyword">link_directories</span>(路径)                                 <span class="comment">#必须</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">target_link_libraries</span>(库文件名称/可执行文件名称 链接的库文件名称)       <span class="comment">#必须</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/11/Design%20Pattern/Composite/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="OakForSure">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="OakForSure's Blog">
+      <meta itemprop="description" content="Sense of Purpose">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | OakForSure's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/06/11/Design%20Pattern/Composite/" class="post-title-link" itemprop="url">Composite</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-06-11 17:14:44 / Modified: 17:34:10" itemprop="dateCreated datePublished" datetime="2024-06-11T17:14:44+08:00">2024-06-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Design-Pattern/" itemprop="url" rel="index"><span itemprop="name">Design Pattern</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>组合模式的介绍及其C++实现。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/06/11/Design%20Pattern/Composite/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/10/Design%20Pattern/Builder/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -290,18 +456,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2024-06-10 00:54:39 / Modified: 14:30:19" itemprop="dateCreated datePublished" datetime="2024-06-10T00:54:39+08:00">2024-06-10</time>
+      <time title="Created: 2024-06-10 00:54:39" itemprop="dateCreated datePublished" datetime="2024-06-10T00:54:39+08:00">2024-06-10</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
+        <i class="far fa-calendar-check"></i>
       </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Design-Pattern/" itemprop="url" rel="index"><span itemprop="name">Design Pattern</span></a>
-        </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-06-11 17:34:14" itemprop="dateModified" datetime="2024-06-11T17:34:14+08:00">2024-06-11</time>
     </span>
 
   
@@ -314,15 +477,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="建造者模式"><a href="#建造者模式" class="headerlink" title="建造者模式"></a>建造者模式</h2><h3 id="情形"><a href="#情形" class="headerlink" title="情形"></a>情形</h3><p>一个复杂对象的构建过程与它的表示分离，使得同样的构建过程可以创建不同的表示。<br>比如娃娃工厂要造娃娃，每个娃娃有头有身子有手有腿。根据身子的胖瘦、头发的颜色还能给娃娃分成不同的种类</p>
-<h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p><strong>抽象建造者类</strong><code>builder</code>：定义接口。对于娃娃这个产品，就有<code>createHead()</code>,<code>createBody()</code>,<code>createHand()</code>.<code>creatLeg()</code>这四个接口。<br><strong>具体建造者类</strong><code>FatBuilder、BrownBuilder</code>：给出抽象类接口的具体实现。对于一个fat娃娃就有一个FatBuilder，对于棕色头发的美女就有一个BrownBuilder。<br><strong>指挥者类</strong><code>Director</code>：调用具体建造者对娃娃进行建造，传入一个具体的建造者，然后使用这个建造者进行建造，一般的指挥者是固定的成分，用户也可以自己决定要不要某些部分。<br><strong>产品类</strong><code>Doll</code>：最终产品，成员变量为各个组成部分。</p>
-<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><h3 id="枚举类"><a href="#枚举类" class="headerlink" title="枚举类"></a>枚举类</h3><p>枚举出产品各个部分都有哪些种类：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="title class_">BODY_TYPE</span> &#123;</span><br><span class="line">    Fat,    <span class="comment">// 肥胖身材</span></span><br><span class="line">    Mid,    <span class="comment">// 中等身材</span></span><br><span class="line">    Thin    <span class="comment">// 瘦小身材</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">enum</span> <span class="title class_">HEAD_TYPE</span> &#123;</span><br><span class="line">    Blck ,  <span class="comment">// 黑色</span></span><br><span class="line">    Red,    <span class="comment">// 红色</span></span><br><span class="line">    Brown   <span class="comment">// 棕色</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h3 id="产品类"><a href="#产品类" class="headerlink" title="产品类"></a>产品类</h3><p><em><strong>定义出产品的组成部分</strong></em>。剩下的产品的行为接口可以自己进行个性化。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 产品类，定义了产品的组成部分，以及输出产品自己的信息</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Doll</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        cout &lt;&lt; head &lt;&lt; endl;</span><br><span class="line">        cout &lt;&lt; body &lt;&lt; endl;</span><br><span class="line">        cout &lt;&lt; hand &lt;&lt; endl;</span><br><span class="line">        cout &lt;&lt; leg &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    string head;</span><br><span class="line">    string body;</span><br><span class="line">    string hand;</span><br><span class="line">    string leg;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h3 id="抽象建造者类"><a href="#抽象建造者类" class="headerlink" title="抽象建造者类"></a>抽象建造者类</h3>
+          <p>建造者模式的介绍及其C++实现。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/06/10/Design%20Pattern/Builder/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -386,7 +549,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-06-10 00:55:15" itemprop="dateModified" datetime="2024-06-10T00:55:15+08:00">2024-06-10</time>
+      <time title="Modified: 2024-06-11 17:33:52" itemprop="dateModified" datetime="2024-06-11T17:33:52+08:00">2024-06-11</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -408,8 +571,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="简单工厂模式"><a href="#简单工厂模式" class="headerlink" title="简单工厂模式"></a>简单工厂模式</h2><h3 id="情形"><a href="#情形" class="headerlink" title="情形"></a>情形</h3><p>军工厂可以生产各种型号的飞机，比如J-20，Y-20，H-20。目前的态势需要哪种主力机型，军工厂就生产哪个机型。</p>
-<h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p><strong>工厂类</strong><code>AircraftFactory</code>：定义一个用于创建指定的具体实例的接口<code>CreateAircraft()</code><br><strong>抽象产品类</strong><code>Aircraft</code>：作为所有具体飞机的父类，<em><strong>抽象类</strong></em>。<br><strong>具体产品类</strong><code>J20\Y20\H20</code>：工厂类创建的就是这些类的实例。</p>
+          <p>工厂模式的介绍及其C++实现。包含简单工厂模式、工厂方法模式、抽象工厂模式。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2024/06/09/Design%20Pattern/Factory/#more" rel="contents">
@@ -853,194 +1015,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2024/06/08/Whatever/After-ZhuHai/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/05/Whatever/Trip-to-ZhuHai/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="OakForSure">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="OakForSure's Blog">
-      <meta itemprop="description" content="Sense of Purpose">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | OakForSure's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/06/05/Whatever/Trip-to-ZhuHai/" class="post-title-link" itemprop="url">Trip to ZhuHai</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2024-06-05 21:44:56" itemprop="dateCreated datePublished" datetime="2024-06-05T21:44:56+08:00">2024-06-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-06-08 11:28:04" itemprop="dateModified" datetime="2024-06-08T11:28:04+08:00">2024-06-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Whatever/" itemprop="url" rel="index"><span itemprop="name">Whatever</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="6-5-day-1"><a href="#6-5-day-1" class="headerlink" title="6.5 day 1"></a>6.5 day 1</h3><h4 id="13-50"><a href="#13-50" class="headerlink" title="13:50"></a>13:50</h4><p>I arrived at the Zhuhai campus and managed to find the BnB I had booked. Since I didn’t add the host on WeChat, I initially went to the wrong location. It was raining, and I felt really exhausted.</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/06/05/Whatever/Trip-to-ZhuHai/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/05/English/ZhuHai-blog/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="OakForSure">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="OakForSure's Blog">
-      <meta itemprop="description" content="Sense of Purpose">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | OakForSure's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/06/05/English/ZhuHai-blog/" class="post-title-link" itemprop="url">ZhuHai blog's vocab</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2024-06-05 21:44:56" itemprop="dateCreated datePublished" datetime="2024-06-05T21:44:56+08:00">2024-06-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-06-07 23:41:02" itemprop="dateModified" datetime="2024-06-07T23:41:02+08:00">2024-06-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/English/" itemprop="url" rel="index"><span itemprop="name">English</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="因为我没有加店主的微信，所以我一开始去了一个错的民宿地址"><a href="#因为我没有加店主的微信，所以我一开始去了一个错的民宿地址" class="headerlink" title="因为我没有加店主的微信，所以我一开始去了一个错的民宿地址"></a>因为我没有加店主的微信，所以我一开始去了一个错的民宿地址</h3><p>Since I didn’t <strong>add the host on Wechat</strong>, I initially <strong>went to the wrong location.</strong></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/06/05/English/ZhuHai-blog/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>

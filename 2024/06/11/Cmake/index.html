@@ -22,28 +22,27 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInDown"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Timeline 5.21 Submit 5.25 Coding Test 5.31 Technical Interview 1">
+    <meta name="description" content="makefile的缺点 项目越大手写越复杂：makefile在一些简单的工程下，完全可以人工手写，但是当工程非常大的时候，手写makefile也是非常麻烦。 平台兼容性差：陆陆续续出现了各种不同平台的makefile，有GNU make、QT 的 qmake，微软的 MSnmake，BSD Make（pmake），Makepp等等。这些 Make 工具遵循着不同的规范和标准，所执行的 Makefi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="灵犀互娱 测开">
-<meta property="og:url" content="http://example.com/2024/05/31/Summer%20Intership/%E7%81%B5%E7%8A%80%E4%BA%92%E5%A8%B1-%E6%B5%8B%E5%BC%80/index.html">
+<meta property="og:title" content="Cmake">
+<meta property="og:url" content="http://example.com/2024/06/11/Cmake/index.html">
 <meta property="og:site_name" content="OakForSure&#39;s Blog">
-<meta property="og:description" content="Timeline 5.21 Submit 5.25 Coding Test 5.31 Technical Interview 1">
+<meta property="og:description" content="makefile的缺点 项目越大手写越复杂：makefile在一些简单的工程下，完全可以人工手写，但是当工程非常大的时候，手写makefile也是非常麻烦。 平台兼容性差：陆陆续续出现了各种不同平台的makefile，有GNU make、QT 的 qmake，微软的 MSnmake，BSD Make（pmake），Makepp等等。这些 Make 工具遵循着不同的规范和标准，所执行的 Makefi">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-05-31T15:09:10.000Z">
-<meta property="article:modified_time" content="2024-06-05T16:20:57.264Z">
+<meta property="article:published_time" content="2024-06-11T09:25:29.000Z">
+<meta property="article:modified_time" content="2024-06-11T09:48:31.727Z">
 <meta property="article:author" content="OakForSure">
-<meta property="article:tag" content="Summer Intership">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/2024/05/31/Summer%20Intership/%E7%81%B5%E7%8A%80%E4%BA%92%E5%A8%B1-%E6%B5%8B%E5%BC%80/">
+<link rel="canonical" href="http://example.com/2024/06/11/Cmake/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2024/05/31/Summer%20Intership/%E7%81%B5%E7%8A%80%E4%BA%92%E5%A8%B1-%E6%B5%8B%E5%BC%80/","path":"2024/05/31/Summer Intership/灵犀互娱-测开/","title":"灵犀互娱 测开"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2024/06/11/Cmake/","path":"2024/06/11/Cmake/","title":"Cmake"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>灵犀互娱 测开 | OakForSure's Blog</title>
+<title>Cmake | OakForSure's Blog</title>
   
 
 
@@ -115,7 +114,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Timeline"><span class="nav-number">1.</span> <span class="nav-text">Timeline</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Coding-Test"><span class="nav-number">2.</span> <span class="nav-text">Coding Test</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C"><span class="nav-number">2.1.</span> <span class="nav-text">三数之和</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%9E%E6%BA%AF%E5%9B%9E%E6%96%87%E6%95%B0"><span class="nav-number">2.2.</span> <span class="nav-text">回溯回文数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Technical-Interview-1"><span class="nav-number">3.</span> <span class="nav-text">Technical Interview 1</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Question"><span class="nav-number">3.1.</span> <span class="nav-text">Question</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#makefile%E7%9A%84%E7%BC%BA%E7%82%B9"><span class="nav-number">1.</span> <span class="nav-text">makefile的缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cmake%E7%9A%84%E8%AF%9E%E7%94%9F"><span class="nav-number">2.</span> <span class="nav-text">cmake的诞生</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%8B%E5%86%99CMakeLists-txt"><span class="nav-number">3.</span> <span class="nav-text">手写CMakeLists.txt</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84"><span class="nav-number">3.1.</span> <span class="nav-text">基本结构</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -173,7 +172,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/31/Summer%20Intership/%E7%81%B5%E7%8A%80%E4%BA%92%E5%A8%B1-%E6%B5%8B%E5%BC%80/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/11/Cmake/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -186,12 +185,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="灵犀互娱 测开 | OakForSure's Blog">
+      <meta itemprop="name" content="Cmake | OakForSure's Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          灵犀互娱 测开
+          Cmake
         </h1>
 
         <div class="post-meta-container">
@@ -203,24 +202,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2024-05-31 23:09:10" itemprop="dateCreated datePublished" datetime="2024-05-31T23:09:10+08:00">2024-05-31</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-06-06 00:20:57" itemprop="dateModified" datetime="2024-06-06T00:20:57+08:00">2024-06-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Summer-Intership/" itemprop="url" rel="index"><span itemprop="name">Summer Intership</span></a>
-        </span>
+      <time title="Created: 2024-06-11 17:25:29 / Modified: 17:48:31" itemprop="dateCreated datePublished" datetime="2024-06-11T17:25:29+08:00">2024-06-11</time>
     </span>
 
   
@@ -239,53 +223,13 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h3 id="Timeline"><a href="#Timeline" class="headerlink" title="Timeline"></a>Timeline</h3><ul>
-<li><strong>5.21</strong> Submit</li>
-<li><strong>5.25</strong> Coding Test</li>
-<li><strong>5.31</strong> Technical Interview 1</li>
+    <div class="post-body" itemprop="articleBody"><h2 id="makefile的缺点"><a href="#makefile的缺点" class="headerlink" title="makefile的缺点"></a>makefile的缺点</h2><ul>
+<li><em><strong>项目越大手写越复杂</strong></em>：makefile在一些简单的工程下，完全可以人工手写，但是当工程非常大的时候，手写makefile也是非常麻烦。</li>
+<li><em><strong>平台兼容性差</strong></em>：陆陆续续出现了各种不同平台的makefile，有GNU make、QT 的 qmake，微软的 MSnmake，BSD Make（pmake），Makepp等等。这些 Make 工具遵循着不同的规范和标准，所执行的 Makefile 格式也千差万别。</li>
 </ul>
-<span id="more"></span>
+<h2 id="cmake的诞生"><a href="#cmake的诞生" class="headerlink" title="cmake的诞生"></a>cmake的诞生</h2><p>cmake是makefile的上层工具，可以更简单的生成makefile给下面的make用，cmake还能跨平台生成makefile。cmake简化了自己手写makefile的工作量，并且生成可移植的makefile。</p>
+<h2 id="手写CMakeLists-txt"><a href="#手写CMakeLists-txt" class="headerlink" title="手写CMakeLists.txt"></a>手写CMakeLists.txt</h2><h3 id="基本结构"><a href="#基本结构" class="headerlink" title="基本结构"></a>基本结构</h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">project</span>(xxx)                          <span class="comment">#指定项目名称，大写</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">add_subdirectory</span>(子文件夹名称)                  </span><br><span class="line"></span><br><span class="line"><span class="keyword">add_library</span>(库文件名称 STATIC 文件)                    <span class="comment">#通常子目录(二选一)</span></span><br><span class="line"><span class="keyword">add_executable</span>(可执行文件名称 文件)                     <span class="comment">#通常父目录(二选一)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">include_directories</span>(路径)                              <span class="comment">#必须</span></span><br><span class="line"><span class="keyword">link_directories</span>(路径)                                 <span class="comment">#必须</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">target_link_libraries</span>(库文件名称/可执行文件名称 链接的库文件名称)       <span class="comment">#必须</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="Coding-Test"><a href="#Coding-Test" class="headerlink" title="Coding Test"></a>Coding Test</h3><p>两道题全A. Quite easy actually.  </p>
-<h4 id="三数之和"><a href="#三数之和" class="headerlink" title="三数之和"></a>三数之和</h4><p>只是变更了一下背景，换汤不换药。</p>
-<h4 id="回溯回文数"><a href="#回溯回文数" class="headerlink" title="回溯回文数"></a>回溯回文数</h4><p>Leetcode 原题。相关题目：复原IP地址。</p>
-<h3 id="Technical-Interview-1"><a href="#Technical-Interview-1" class="headerlink" title="Technical Interview 1"></a>Technical Interview 1</h3><p>因为得知华为面试表现非常好，所以觉得多半是稳下来了有offer了，所以面得很随意。</p>
-<h4 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h4><ol>
-<li>玩什么游戏</li>
-<li>如何进行游戏测试</li>
-<li>项目<ol>
-<li><p>什么是粘包问题</p>
-</li>
-<li><p>只有服务器会出现粘包吗</p>
-<p>客户端也会，只要有缓冲的都会</p>
-</li>
-<li><p>服务器的最大并发数是多少</p>
-<p>没用专业工具测试过，但是自己写了个脚本统计发送和接收速率</p>
-</li>
-<li><p>介绍一下线程池</p>
-<p>我说我这个项目的线程池和普通的线程池不一样，我这个线程池任务都是交给iocontext处理的</p>
-</li>
-</ol>
-</li>
-<li>C++八股<ol>
-<li>智能指针种类</li>
-<li>C++内存管理</li>
-</ol>
-</li>
-<li>操作系统八股<ol>
-<li>虚拟内存有什么用</li>
-<li>进程 线程 协程的区别</li>
-</ol>
-</li>
-<li>智力题<ol>
-<li>100个球，一次可以拿1-5个球，你先拿，如何确保你拿到最后那个球</li>
-<li>两个玻璃珠，一个足够高的建筑，如何得到玻璃珠刚好碎掉的层高</li>
-</ol>
-</li>
-<li>你的优点是什么</li>
-<li>你的缺点是什么</li>
-</ol>
-<p>整场面试下来回答的很随意，也是顺利的挂掉了。面试官也是一丝不苟的样子，很严肃。</p>
 
     </div>
 
@@ -294,22 +238,16 @@
     
 
     <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/Summer-Intership/" rel="tag"># Summer Intership</a>
-          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2024/05/16/Summer%20Intership/%E5%8D%8E%E4%B8%BA%E6%95%B0%E9%80%9A%E9%80%9A%E7%94%A8%E8%BD%AF%E5%BC%80/" rel="prev" title="华为数通通用软开">
-                  <i class="fa fa-angle-left"></i> 华为数通通用软开
+                <a href="/2024/06/11/Design%20Pattern/Composite/" rel="prev" title="Composite">
+                  <i class="fa fa-angle-left"></i> Composite
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2024/06/04/Whatever/Why-Blog/" rel="next" title="Why Blog?">
-                  Why Blog? <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>
