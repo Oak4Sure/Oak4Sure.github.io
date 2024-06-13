@@ -30,7 +30,7 @@
 <meta property="og:description" content="Today I tried to migrate my blog from the original GitHub repository to a new one to separate my work account from my personal account. However, it took me quite a while.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-06-08T07:22:20.000Z">
-<meta property="article:modified_time" content="2024-06-08T12:45:34.072Z">
+<meta property="article:modified_time" content="2024-06-13T06:34:10.959Z">
 <meta property="article:author" content="OakForSure">
 <meta property="article:tag" content="Blog Migration">
 <meta name="twitter:card" content="summary">
@@ -115,7 +115,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-Github-account-and-set-up-the-SSH-key"><span class="nav-number">1.</span> <span class="nav-text">Create a new Github account and set up the SSH key</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Modify-config-yml"><span class="nav-number">2.</span> <span class="nav-text">Modify _config.yml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Modify-ssh-config"><span class="nav-number">3.</span> <span class="nav-text">Modify ssh config</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-Github-account-and-set-up-the-SSH-key"><span class="nav-number">1.</span> <span class="nav-text">Create a new Github account and set up the SSH key</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Add-the-private-key-to-ssh"><span class="nav-number">2.</span> <span class="nav-text">Add the private key to ssh</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Modify-config-yml"><span class="nav-number">3.</span> <span class="nav-text">Modify _config.yml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Modify-ssh-config"><span class="nav-number">4.</span> <span class="nav-text">Modify ssh config</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example"><span class="nav-number">5.</span> <span class="nav-text">Example</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -203,9 +203,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2024-06-08 15:22:20 / Modified: 20:45:34" itemprop="dateCreated datePublished" datetime="2024-06-08T15:22:20+08:00">2024-06-08</time>
+      <time title="Created: 2024-06-08 15:22:20" itemprop="dateCreated datePublished" datetime="2024-06-08T15:22:20+08:00">2024-06-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-06-13 14:34:10" itemprop="dateModified" datetime="2024-06-13T14:34:10+08:00">2024-06-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -237,12 +243,15 @@
 <span id="more"></span>
 
 <h3 id="Create-a-new-Github-account-and-set-up-the-SSH-key"><a href="#Create-a-new-Github-account-and-set-up-the-SSH-key" class="headerlink" title="Create a new Github account and set up the SSH key"></a>Create a new Github account and set up the SSH key</h3><p>Don’t use the same key as the old GitHub account. It will report that the public key is already in use. So, you had to generate a new SSH key for the new account.<br><code>ssh-keygen -t rsa -C &quot;Your new email&quot; -f &quot;new key&#39;s path with a new name&quot;</code><br>After that, use the new public key to set up your GitHub.</p>
+<h3 id="Add-the-private-key-to-ssh"><a href="#Add-the-private-key-to-ssh" class="headerlink" title="Add the private key to ssh"></a>Add the private key to ssh</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssh-add ~/.ssh/id_rsa_one</span><br><span class="line"></span><br><span class="line">ssh-add ~/.ssh/id_rsa_two</span><br></pre></td></tr></table></figure>
+
 <h3 id="Modify-config-yml"><a href="#Modify-config-yml" class="headerlink" title="Modify _config.yml"></a>Modify _config.yml</h3><p>In the deploy section, there is a repo key. Change the repo key to the new address.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 
 <p>However, it reported that <strong>ERROR: Permission to Oak4Sure&#x2F;Oak4Sure.github.io.git denied to old account.<br>fatal: Could not read from remote repository.<br>Please make sure you have the correct access rights<br>and the repository exists.</strong></p>
 <p>That’s because your SSH hasn’t been updated with the new public key; it is still using the old public key for the old account.</p>
-<h3 id="Modify-ssh-config"><a href="#Modify-ssh-config" class="headerlink" title="Modify ssh config"></a>Modify ssh config</h3><p>I searched for a solution, and they suggested modifying the <code>~/.ssh/config</code> file. However, it didn’t work.<br>So, I just deleted the old key and replaced it with the new one, and that worked for me.</p>
+<h3 id="Modify-ssh-config"><a href="#Modify-ssh-config" class="headerlink" title="Modify ssh config"></a>Modify ssh config</h3><p>I searched for a solution, and they suggested modifying the <code>~/.ssh/config</code> file. However, it didn’t work. Because as u modify the <code>config</code> file, and U named ur both github accounts, u should specify the nickname on the <code>_config.yml</code></p>
+<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><p>When u copy a ssh link on the github, u will get the formation as:<br><code>git@github.com:UserName/RepositoryName.git</code><br>U should modify it as:<br><code>git@HostName.github.com:UserName/RepositoryName.git</code><br>so that when u try to make a ssh connection, the ssh will parse the link using the <code>config</code> file u’ve already modified.</p>
 
     </div>
 
