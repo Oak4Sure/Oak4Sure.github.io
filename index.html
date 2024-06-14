@@ -132,12 +132,12 @@
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -260,7 +260,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/11/Cmake/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/14/Software%20Engineering/Design%20Pattern/Behavioral%20Pattern/Iterator/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -278,7 +278,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/06/11/Cmake/" class="post-title-link" itemprop="url">Cmake</a>
+          <a href="/2024/06/14/Software%20Engineering/Design%20Pattern/Behavioral%20Pattern/Iterator/" class="post-title-link" itemprop="url">Iterator 迭代器模式</a>
         </h2>
 
         <div class="post-meta-container">
@@ -292,85 +292,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2024-06-11 17:25:29 / Modified: 17:48:31" itemprop="dateCreated datePublished" datetime="2024-06-11T17:25:29+08:00">2024-06-11</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="makefile的缺点"><a href="#makefile的缺点" class="headerlink" title="makefile的缺点"></a>makefile的缺点</h2><ul>
-<li><em><strong>项目越大手写越复杂</strong></em>：makefile在一些简单的工程下，完全可以人工手写，但是当工程非常大的时候，手写makefile也是非常麻烦。</li>
-<li><em><strong>平台兼容性差</strong></em>：陆陆续续出现了各种不同平台的makefile，有GNU make、QT 的 qmake，微软的 MSnmake，BSD Make（pmake），Makepp等等。这些 Make 工具遵循着不同的规范和标准，所执行的 Makefile 格式也千差万别。</li>
-</ul>
-<h2 id="cmake的诞生"><a href="#cmake的诞生" class="headerlink" title="cmake的诞生"></a>cmake的诞生</h2><p>cmake是makefile的上层工具，可以更简单的生成makefile给下面的make用，cmake还能跨平台生成makefile。cmake简化了自己手写makefile的工作量，并且生成可移植的makefile。</p>
-<h2 id="手写CMakeLists-txt"><a href="#手写CMakeLists-txt" class="headerlink" title="手写CMakeLists.txt"></a>手写CMakeLists.txt</h2><h3 id="基本结构"><a href="#基本结构" class="headerlink" title="基本结构"></a>基本结构</h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">project</span>(xxx)                          <span class="comment">#指定项目名称，大写</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">add_subdirectory</span>(子文件夹名称)                  </span><br><span class="line"></span><br><span class="line"><span class="keyword">add_library</span>(库文件名称 STATIC 文件)                    <span class="comment">#通常子目录(二选一)</span></span><br><span class="line"><span class="keyword">add_executable</span>(可执行文件名称 文件)                     <span class="comment">#通常父目录(二选一)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">include_directories</span>(路径)                              <span class="comment">#必须</span></span><br><span class="line"><span class="keyword">link_directories</span>(路径)                                 <span class="comment">#必须</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">target_link_libraries</span>(库文件名称/可执行文件名称 链接的库文件名称)       <span class="comment">#必须</span></span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/11/Design%20Pattern/Composite/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="OakForSure">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="OakForSure's Blog">
-      <meta itemprop="description" content="Sense of Purpose">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | OakForSure's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/06/11/Design%20Pattern/Composite/" class="post-title-link" itemprop="url">Composite</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2024-06-11 17:14:44 / Modified: 17:34:10" itemprop="dateCreated datePublished" datetime="2024-06-11T17:14:44+08:00">2024-06-11</time>
+      <time title="Created: 2024-06-14 20:24:11 / Modified: 20:38:59" itemprop="dateCreated datePublished" datetime="2024-06-14T20:24:11+08:00">2024-06-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -378,7 +300,15 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Design-Pattern/" itemprop="url" rel="index"><span itemprop="name">Design Pattern</span></a>
+          <a href="/categories/Software-Engineering/" itemprop="url" rel="index"><span itemprop="name">Software Engineering</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Software-Engineering/Design-Pattern/" itemprop="url" rel="index"><span itemprop="name">Design Pattern</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Software-Engineering/Design-Pattern/Behavioral-Pattern/" itemprop="url" rel="index"><span itemprop="name">Behavioral Pattern</span></a>
         </span>
     </span>
 
@@ -392,10 +322,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>组合模式的介绍及其C++实现。</p>
+          <p>迭代器模式的介绍及其C++实现。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2024/06/11/Design%20Pattern/Composite/#more" rel="contents">
+              <a class="btn" href="/2024/06/14/Software%20Engineering/Design%20Pattern/Behavioral%20Pattern/Iterator/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -426,7 +356,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/10/Design%20Pattern/Builder/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/11/Software%20Engineering/Cmake/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -444,7 +374,203 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/06/10/Design%20Pattern/Builder/" class="post-title-link" itemprop="url">Builder</a>
+          <a href="/2024/06/11/Software%20Engineering/Cmake/" class="post-title-link" itemprop="url">Cmake</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-06-11 17:25:29" itemprop="dateCreated datePublished" datetime="2024-06-11T17:25:29+08:00">2024-06-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-06-14 20:37:35" itemprop="dateModified" datetime="2024-06-14T20:37:35+08:00">2024-06-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Software-Engineering/" itemprop="url" rel="index"><span itemprop="name">Software Engineering</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>使用Cmake来构建、管理大型软件项目。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/06/11/Software%20Engineering/Cmake/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/11/Software%20Engineering/Design%20Pattern/Structural%20Pattern/Composite/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="OakForSure">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="OakForSure's Blog">
+      <meta itemprop="description" content="Sense of Purpose">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | OakForSure's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/06/11/Software%20Engineering/Design%20Pattern/Structural%20Pattern/Composite/" class="post-title-link" itemprop="url">Composite 组合模式</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-06-11 17:14:44" itemprop="dateCreated datePublished" datetime="2024-06-11T17:14:44+08:00">2024-06-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-06-14 20:33:12" itemprop="dateModified" datetime="2024-06-14T20:33:12+08:00">2024-06-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Software-Engineering/" itemprop="url" rel="index"><span itemprop="name">Software Engineering</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Software-Engineering/Design-Pattern/" itemprop="url" rel="index"><span itemprop="name">Design Pattern</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Software-Engineering/Design-Pattern/Structural-Pattern/" itemprop="url" rel="index"><span itemprop="name">Structural Pattern</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>组合模式的介绍及其C++实现。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/06/11/Software%20Engineering/Design%20Pattern/Structural%20Pattern/Composite/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/10/Software%20Engineering/Design%20Pattern/Creating%20pattern/Builder/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="OakForSure">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="OakForSure's Blog">
+      <meta itemprop="description" content="Sense of Purpose">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | OakForSure's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/06/10/Software%20Engineering/Design%20Pattern/Creating%20pattern/Builder/" class="post-title-link" itemprop="url">Builder 建造者模式</a>
         </h2>
 
         <div class="post-meta-container">
@@ -464,7 +590,24 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-06-11 17:34:14" itemprop="dateModified" datetime="2024-06-11T17:34:14+08:00">2024-06-11</time>
+      <time title="Modified: 2024-06-14 20:33:07" itemprop="dateModified" datetime="2024-06-14T20:33:07+08:00">2024-06-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Software-Engineering/" itemprop="url" rel="index"><span itemprop="name">Software Engineering</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Software-Engineering/Design-Pattern/" itemprop="url" rel="index"><span itemprop="name">Design Pattern</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Software-Engineering/Design-Pattern/Creating-Pattern/" itemprop="url" rel="index"><span itemprop="name">Creating Pattern</span></a>
+        </span>
     </span>
 
   
@@ -480,7 +623,7 @@
           <p>建造者模式的介绍及其C++实现。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2024/06/10/Design%20Pattern/Builder/#more" rel="contents">
+              <a class="btn" href="/2024/06/10/Software%20Engineering/Design%20Pattern/Creating%20pattern/Builder/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -511,7 +654,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/09/Design%20Pattern/Factory/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/09/Software%20Engineering/Design%20Pattern/Creating%20pattern/Factory/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -529,7 +672,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/06/09/Design%20Pattern/Factory/" class="post-title-link" itemprop="url">Factory</a>
+          <a href="/2024/06/09/Software%20Engineering/Design%20Pattern/Creating%20pattern/Factory/" class="post-title-link" itemprop="url">Factory 工厂模式</a>
         </h2>
 
         <div class="post-meta-container">
@@ -549,7 +692,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-06-11 17:33:52" itemprop="dateModified" datetime="2024-06-11T17:33:52+08:00">2024-06-11</time>
+      <time title="Modified: 2024-06-14 20:33:05" itemprop="dateModified" datetime="2024-06-14T20:33:05+08:00">2024-06-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -557,7 +700,15 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Design-Pattern/" itemprop="url" rel="index"><span itemprop="name">Design Pattern</span></a>
+          <a href="/categories/Software-Engineering/" itemprop="url" rel="index"><span itemprop="name">Software Engineering</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Software-Engineering/Design-Pattern/" itemprop="url" rel="index"><span itemprop="name">Design Pattern</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Software-Engineering/Design-Pattern/Creating-Pattern/" itemprop="url" rel="index"><span itemprop="name">Creating Pattern</span></a>
         </span>
     </span>
 
@@ -574,7 +725,7 @@
           <p>工厂模式的介绍及其C++实现。包含简单工厂模式、工厂方法模式、抽象工厂模式。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2024/06/09/Design%20Pattern/Factory/#more" rel="contents">
+              <a class="btn" href="/2024/06/09/Software%20Engineering/Design%20Pattern/Creating%20pattern/Factory/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -672,86 +823,6 @@
             </div>
           <!--/noindex-->
         
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/08/Blog%20Improvement/Insert-Image/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="OakForSure">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="OakForSure's Blog">
-      <meta itemprop="description" content="Sense of Purpose">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | OakForSure's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/06/08/Blog%20Improvement/Insert-Image/" class="post-title-link" itemprop="url">Insert Image</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2024-06-08 20:46:32 / Modified: 21:10:50" itemprop="dateCreated datePublished" datetime="2024-06-08T20:46:32+08:00">2024-06-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Blog-Improvement/" itemprop="url" rel="index"><span itemprop="name">Blog Improvement</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          
       
     </div>
 
@@ -907,7 +978,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-06-13 14:34:10" itemprop="dateModified" datetime="2024-06-13T14:34:10+08:00">2024-06-13</time>
+      <time title="Modified: 2024-06-13 16:28:06" itemprop="dateModified" datetime="2024-06-13T16:28:06+08:00">2024-06-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">

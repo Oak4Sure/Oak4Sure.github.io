@@ -22,27 +22,25 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInDown"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="makefile的缺点 项目越大手写越复杂：makefile在一些简单的工程下，完全可以人工手写，但是当工程非常大的时候，手写makefile也是非常麻烦。 平台兼容性差：陆陆续续出现了各种不同平台的makefile，有GNU make、QT 的 qmake，微软的 MSnmake，BSD Make（pmake），Makepp等等。这些 Make 工具遵循着不同的规范和标准，所执行的 Makefi">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Cmake">
-<meta property="og:url" content="http://example.com/2024/06/11/Cmake/index.html">
+    <meta name="description" content="Sense of Purpose">
+<meta property="og:type" content="website">
+<meta property="og:title" content="OakForSure&#39;s Blog">
+<meta property="og:url" content="http://example.com/categories/Software-Engineering/index.html">
 <meta property="og:site_name" content="OakForSure&#39;s Blog">
-<meta property="og:description" content="makefile的缺点 项目越大手写越复杂：makefile在一些简单的工程下，完全可以人工手写，但是当工程非常大的时候，手写makefile也是非常麻烦。 平台兼容性差：陆陆续续出现了各种不同平台的makefile，有GNU make、QT 的 qmake，微软的 MSnmake，BSD Make（pmake），Makepp等等。这些 Make 工具遵循着不同的规范和标准，所执行的 Makefi">
+<meta property="og:description" content="Sense of Purpose">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-06-11T09:25:29.000Z">
-<meta property="article:modified_time" content="2024-06-11T09:48:31.727Z">
 <meta property="article:author" content="OakForSure">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/2024/06/11/Cmake/">
+<link rel="canonical" href="http://example.com/categories/Software-Engineering/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2024/06/11/Cmake/","path":"2024/06/11/Cmake/","title":"Cmake"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"en","comments":"","permalink":"","path":"categories/Software-Engineering/index.html","title":""}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Cmake | OakForSure's Blog</title>
+<title>Category: Software Engineering | OakForSure's Blog</title>
   
 
 
@@ -101,7 +99,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+    <div class="sidebar-inner sidebar-overview-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -114,7 +112,6 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#makefile%E7%9A%84%E7%BC%BA%E7%82%B9"><span class="nav-number">1.</span> <span class="nav-text">makefile的缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cmake%E7%9A%84%E8%AF%9E%E7%94%9F"><span class="nav-number">2.</span> <span class="nav-text">cmake的诞生</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%8B%E5%86%99CMakeLists-txt"><span class="nav-number">3.</span> <span class="nav-text">手写CMakeLists.txt</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84"><span class="nav-number">3.1.</span> <span class="nav-text">基本结构</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -135,12 +132,12 @@
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -161,103 +158,130 @@
 
     </div>
 
-    <div class="main-inner post posts-expand">
+    <div class="main-inner category posts-collapse">
 
 
   
-
-
-<div class="post-block">
   
   
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/11/Cmake/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="OakForSure">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="OakForSure's Blog">
-      <meta itemprop="description" content="Sense of Purpose">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Cmake | OakForSure's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          Cmake
+  <div class="post-block">
+    <div class="post-content">
+      <div class="collection-title">
+        <h1 class="collection-header">Software Engineering
+          <small>Category</small>
         </h1>
+      </div>
 
-        <div class="post-meta-container">
-          <div class="post-meta">
-
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
       
-
-      <time title="Created: 2024-06-11 17:25:29 / Modified: 17:48:31" itemprop="dateCreated datePublished" datetime="2024-06-11T17:25:29+08:00">2024-06-11</time>
-    </span>
-
-  
-    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">Views: </span>
-      <span id="busuanzi_value_page_pv"></span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody"><h2 id="makefile的缺点"><a href="#makefile的缺点" class="headerlink" title="makefile的缺点"></a>makefile的缺点</h2><ul>
-<li><em><strong>项目越大手写越复杂</strong></em>：makefile在一些简单的工程下，完全可以人工手写，但是当工程非常大的时候，手写makefile也是非常麻烦。</li>
-<li><em><strong>平台兼容性差</strong></em>：陆陆续续出现了各种不同平台的makefile，有GNU make、QT 的 qmake，微软的 MSnmake，BSD Make（pmake），Makepp等等。这些 Make 工具遵循着不同的规范和标准，所执行的 Makefile 格式也千差万别。</li>
-</ul>
-<h2 id="cmake的诞生"><a href="#cmake的诞生" class="headerlink" title="cmake的诞生"></a>cmake的诞生</h2><p>cmake是makefile的上层工具，可以更简单的生成makefile给下面的make用，cmake还能跨平台生成makefile。cmake简化了自己手写makefile的工作量，并且生成可移植的makefile。</p>
-<h2 id="手写CMakeLists-txt"><a href="#手写CMakeLists-txt" class="headerlink" title="手写CMakeLists.txt"></a>手写CMakeLists.txt</h2><h3 id="基本结构"><a href="#基本结构" class="headerlink" title="基本结构"></a>基本结构</h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">project</span>(xxx)                          <span class="comment">#指定项目名称，大写</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">add_subdirectory</span>(子文件夹名称)                  </span><br><span class="line"></span><br><span class="line"><span class="keyword">add_library</span>(库文件名称 STATIC 文件)                    <span class="comment">#通常子目录(二选一)</span></span><br><span class="line"><span class="keyword">add_executable</span>(可执行文件名称 文件)                     <span class="comment">#通常父目录(二选一)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">include_directories</span>(路径)                              <span class="comment">#必须</span></span><br><span class="line"><span class="keyword">link_directories</span>(路径)                                 <span class="comment">#必须</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">target_link_libraries</span>(库文件名称/可执行文件名称 链接的库文件名称)       <span class="comment">#必须</span></span><br></pre></td></tr></table></figure>
-
-
+    <div class="collection-year">
+      <span class="collection-header">2024</span>
     </div>
 
-    
-    
-    
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <div class="post-meta-container">
+        <time itemprop="dateCreated"
+              datetime="2024-06-14T20:24:11+08:00"
+              content="2024-06-14">
+          06-14
+        </time>
+      </div>
 
-    <footer class="post-footer">
+      <div class="post-title">
+          <a class="post-title-link" href="/2024/06/14/Software%20Engineering/Design%20Pattern/Behavioral%20Pattern/Iterator/" itemprop="url">
+            <span itemprop="name">Iterator 迭代器模式</span>
+          </a>
+      </div>
 
-        
-
-          <div class="post-nav">
-            <div class="post-nav-item">
-                <a href="/2024/06/11/Design%20Pattern/Composite/" rel="prev" title="Composite">
-                  <i class="fa fa-angle-left"></i> Composite
-                </a>
-            </div>
-            <div class="post-nav-item">
-            </div>
-          </div>
-    </footer>
+      
+    </header>
   </article>
-</div>
 
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <div class="post-meta-container">
+        <time itemprop="dateCreated"
+              datetime="2024-06-11T17:25:29+08:00"
+              content="2024-06-11">
+          06-11
+        </time>
+      </div>
 
+      <div class="post-title">
+          <a class="post-title-link" href="/2024/06/11/Software%20Engineering/Cmake/" itemprop="url">
+            <span itemprop="name">Cmake</span>
+          </a>
+      </div>
 
+      
+    </header>
+  </article>
 
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <div class="post-meta-container">
+        <time itemprop="dateCreated"
+              datetime="2024-06-11T17:14:44+08:00"
+              content="2024-06-11">
+          06-11
+        </time>
+      </div>
 
+      <div class="post-title">
+          <a class="post-title-link" href="/2024/06/11/Software%20Engineering/Design%20Pattern/Structural%20Pattern/Composite/" itemprop="url">
+            <span itemprop="name">Composite 组合模式</span>
+          </a>
+      </div>
+
+      
+    </header>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <div class="post-meta-container">
+        <time itemprop="dateCreated"
+              datetime="2024-06-10T00:54:39+08:00"
+              content="2024-06-10">
+          06-10
+        </time>
+      </div>
+
+      <div class="post-title">
+          <a class="post-title-link" href="/2024/06/10/Software%20Engineering/Design%20Pattern/Creating%20pattern/Builder/" itemprop="url">
+            <span itemprop="name">Builder 建造者模式</span>
+          </a>
+      </div>
+
+      
+    </header>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <div class="post-meta-container">
+        <time itemprop="dateCreated"
+              datetime="2024-06-09T16:51:22+08:00"
+              content="2024-06-09">
+          06-09
+        </time>
+      </div>
+
+      <div class="post-title">
+          <a class="post-title-link" href="/2024/06/09/Software%20Engineering/Design%20Pattern/Creating%20pattern/Factory/" itemprop="url">
+            <span itemprop="name">Factory 工厂模式</span>
+          </a>
+      </div>
+
+      
+    </header>
+  </article>
+
+    </div>
+  </div>
+  
+  
+  
 
 </div>
   </main>

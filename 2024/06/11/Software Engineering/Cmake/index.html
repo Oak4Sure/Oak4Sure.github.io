@@ -22,29 +22,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInDown"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="建造者模式的介绍及其C++实现。">
+    <meta name="description" content="使用Cmake来构建、管理大型软件项目。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Builder">
-<meta property="og:url" content="http://example.com/2024/06/10/Design%20Pattern/Builder/index.html">
+<meta property="og:title" content="Cmake">
+<meta property="og:url" content="http://example.com/2024/06/11/Software%20Engineering/Cmake/index.html">
 <meta property="og:site_name" content="OakForSure&#39;s Blog">
-<meta property="og:description" content="建造者模式的介绍及其C++实现。">
+<meta property="og:description" content="使用Cmake来构建、管理大型软件项目。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-06-09T16:54:39.000Z">
-<meta property="article:modified_time" content="2024-06-11T09:34:14.524Z">
+<meta property="article:published_time" content="2024-06-11T09:25:29.000Z">
+<meta property="article:modified_time" content="2024-06-14T12:37:35.237Z">
 <meta property="article:author" content="OakForSure">
-<meta property="article:tag" content="设计模式">
-<meta property="article:tag" content="建造者模式">
+<meta property="article:tag" content="Cmake">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/2024/06/10/Design%20Pattern/Builder/">
+<link rel="canonical" href="http://example.com/2024/06/11/Software%20Engineering/Cmake/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2024/06/10/Design%20Pattern/Builder/","path":"2024/06/10/Design Pattern/Builder/","title":"Builder"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2024/06/11/Software%20Engineering/Cmake/","path":"2024/06/11/Software Engineering/Cmake/","title":"Cmake"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Builder | OakForSure's Blog</title>
+<title>Cmake | OakForSure's Blog</title>
   
 
 
@@ -116,7 +115,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">建造者模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%83%85%E5%BD%A2"><span class="nav-number">1.1.</span> <span class="nav-text">情形</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E6%9E%84"><span class="nav-number">1.2.</span> <span class="nav-text">结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.3.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%9A%E4%B8%BE%E7%B1%BB"><span class="nav-number">1.4.</span> <span class="nav-text">枚举类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%A7%E5%93%81%E7%B1%BB"><span class="nav-number">1.5.</span> <span class="nav-text">产品类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%BD%E8%B1%A1%E5%BB%BA%E9%80%A0%E8%80%85%E7%B1%BB"><span class="nav-number">1.6.</span> <span class="nav-text">抽象建造者类</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#makefile%E7%9A%84%E7%BC%BA%E7%82%B9"><span class="nav-number">1.</span> <span class="nav-text">makefile的缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cmake%E7%9A%84%E8%AF%9E%E7%94%9F"><span class="nav-number">2.</span> <span class="nav-text">cmake的诞生</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%8B%E5%86%99CMakeLists-txt"><span class="nav-number">3.</span> <span class="nav-text">手写CMakeLists.txt</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84"><span class="nav-number">3.1.</span> <span class="nav-text">基本结构</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -137,12 +136,12 @@
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -174,7 +173,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/10/Design%20Pattern/Builder/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/11/Software%20Engineering/Cmake/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -187,12 +186,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Builder | OakForSure's Blog">
+      <meta itemprop="name" content="Cmake | OakForSure's Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Builder
+          Cmake
         </h1>
 
         <div class="post-meta-container">
@@ -205,14 +204,23 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2024-06-10 00:54:39" itemprop="dateCreated datePublished" datetime="2024-06-10T00:54:39+08:00">2024-06-10</time>
+      <time title="Created: 2024-06-11 17:25:29" itemprop="dateCreated datePublished" datetime="2024-06-11T17:25:29+08:00">2024-06-11</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-06-11 17:34:14" itemprop="dateModified" datetime="2024-06-11T17:34:14+08:00">2024-06-11</time>
+      <time title="Modified: 2024-06-14 20:37:35" itemprop="dateModified" datetime="2024-06-14T20:37:35+08:00">2024-06-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Software-Engineering/" itemprop="url" rel="index"><span itemprop="name">Software Engineering</span></a>
+        </span>
     </span>
 
   
@@ -231,18 +239,17 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>建造者模式的介绍及其C++实现。</p>
+    <div class="post-body" itemprop="articleBody"><p>使用Cmake来构建、管理大型软件项目。</p>
 <span id="more"></span>
 
-<h2 id="建造者模式"><a href="#建造者模式" class="headerlink" title="建造者模式"></a>建造者模式</h2><h3 id="情形"><a href="#情形" class="headerlink" title="情形"></a>情形</h3><p>一个复杂对象的构建过程与它的表示分离，使得同样的构建过程可以创建不同的表示。<br>比如娃娃工厂要造娃娃，每个娃娃有头有身子有手有腿。根据身子的胖瘦、头发的颜色还能给娃娃分成不同的种类</p>
-<h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p><strong>抽象建造者类</strong><code>builder</code>：定义接口。对于娃娃这个产品，就有<code>createHead()</code>,<code>createBody()</code>,<code>createHand()</code>.<code>creatLeg()</code>这四个接口。<br><strong>具体建造者类</strong><code>FatBuilder、BrownBuilder</code>：给出抽象类接口的具体实现。对于一个fat娃娃就有一个FatBuilder，对于棕色头发的美女就有一个BrownBuilder。<br><strong>指挥者类</strong><code>Director</code>：调用具体建造者对娃娃进行建造，传入一个具体的建造者，然后使用这个建造者进行建造，一般的指挥者是固定的成分，用户也可以自己决定要不要某些部分。<br><strong>产品类</strong><code>Doll</code>：最终产品，成员变量为各个组成部分。</p>
-<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><h3 id="枚举类"><a href="#枚举类" class="headerlink" title="枚举类"></a>枚举类</h3><p>枚举出产品各个部分都有哪些种类：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="title class_">BODY_TYPE</span> &#123;</span><br><span class="line">    Fat,    <span class="comment">// 肥胖身材</span></span><br><span class="line">    Mid,    <span class="comment">// 中等身材</span></span><br><span class="line">    Thin    <span class="comment">// 瘦小身材</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">enum</span> <span class="title class_">HEAD_TYPE</span> &#123;</span><br><span class="line">    Blck ,  <span class="comment">// 黑色</span></span><br><span class="line">    Red,    <span class="comment">// 红色</span></span><br><span class="line">    Brown   <span class="comment">// 棕色</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="makefile的缺点"><a href="#makefile的缺点" class="headerlink" title="makefile的缺点"></a>makefile的缺点</h2><ul>
+<li><em><strong>项目越大手写越复杂</strong></em>：makefile在一些简单的工程下，完全可以人工手写，但是当工程非常大的时候，手写makefile也是非常麻烦。</li>
+<li><em><strong>平台兼容性差</strong></em>：陆陆续续出现了各种不同平台的makefile，有GNU make、QT 的 qmake，微软的 MSnmake，BSD Make（pmake），Makepp等等。这些 Make 工具遵循着不同的规范和标准，所执行的 Makefile 格式也千差万别。</li>
+</ul>
+<h2 id="cmake的诞生"><a href="#cmake的诞生" class="headerlink" title="cmake的诞生"></a>cmake的诞生</h2><p>cmake是makefile的上层工具，可以更简单的生成makefile给下面的make用，cmake还能跨平台生成makefile。cmake简化了自己手写makefile的工作量，并且生成可移植的makefile。</p>
+<h2 id="手写CMakeLists-txt"><a href="#手写CMakeLists-txt" class="headerlink" title="手写CMakeLists.txt"></a>手写CMakeLists.txt</h2><h3 id="基本结构"><a href="#基本结构" class="headerlink" title="基本结构"></a>基本结构</h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">project</span>(xxx)                          <span class="comment">#指定项目名称，大写</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">add_subdirectory</span>(子文件夹名称)                  </span><br><span class="line"></span><br><span class="line"><span class="keyword">add_library</span>(库文件名称 STATIC 文件)                    <span class="comment">#通常子目录(二选一)</span></span><br><span class="line"><span class="keyword">add_executable</span>(可执行文件名称 文件)                     <span class="comment">#通常父目录(二选一)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">include_directories</span>(路径)                              <span class="comment">#必须</span></span><br><span class="line"><span class="keyword">link_directories</span>(路径)                                 <span class="comment">#必须</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">target_link_libraries</span>(库文件名称/可执行文件名称 链接的库文件名称)       <span class="comment">#必须</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="产品类"><a href="#产品类" class="headerlink" title="产品类"></a>产品类</h3><p><em><strong>定义出产品的组成部分</strong></em>。剩下的产品的行为接口可以自己进行个性化。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 产品类，定义了产品的组成部分，以及输出产品自己的信息</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Doll</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        cout &lt;&lt; head &lt;&lt; endl;</span><br><span class="line">        cout &lt;&lt; body &lt;&lt; endl;</span><br><span class="line">        cout &lt;&lt; hand &lt;&lt; endl;</span><br><span class="line">        cout &lt;&lt; leg &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    string head;</span><br><span class="line">    string body;</span><br><span class="line">    string hand;</span><br><span class="line">    string leg;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<h3 id="抽象建造者类"><a href="#抽象建造者类" class="headerlink" title="抽象建造者类"></a>抽象建造者类</h3>
     </div>
 
     
@@ -251,21 +258,20 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag"># 设计模式</a>
-              <a href="/tags/%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F/" rel="tag"># 建造者模式</a>
+              <a href="/tags/Cmake/" rel="tag"># Cmake</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2024/06/09/Design%20Pattern/Factory/" rel="prev" title="Factory">
-                  <i class="fa fa-angle-left"></i> Factory
+                <a href="/2024/06/11/Software%20Engineering/Design%20Pattern/Structural%20Pattern/Composite/" rel="prev" title="Composite 组合模式">
+                  <i class="fa fa-angle-left"></i> Composite 组合模式
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2024/06/11/Design%20Pattern/Composite/" rel="next" title="Composite">
-                  Composite <i class="fa fa-angle-right"></i>
+                <a href="/2024/06/14/Software%20Engineering/Design%20Pattern/Behavioral%20Pattern/Iterator/" rel="next" title="Iterator 迭代器模式">
+                  Iterator 迭代器模式 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
