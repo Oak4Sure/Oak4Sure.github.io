@@ -22,15 +22,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInDown"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Cuda编程Cuda编程的移植将计算密集型函数移植到GPU上以实现并行化，而其他顺序执行的代码仍然在CPU上执行">
+    <meta name="description" content="Brief introduction to cuda programming using C++.使用C++进行Cuda编程，进行GPU并行化。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Cuda programming">
+<meta property="og:title" content="Cuda Programming C++">
 <meta property="og:url" content="http://example.com/2024/06/08/Cuda%20C++/Cuda-programming/index.html">
 <meta property="og:site_name" content="OakForSure&#39;s Blog">
-<meta property="og:description" content="Cuda编程Cuda编程的移植将计算密集型函数移植到GPU上以实现并行化，而其他顺序执行的代码仍然在CPU上执行">
+<meta property="og:description" content="Brief introduction to cuda programming using C++.使用C++进行Cuda编程，进行GPU并行化。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-06-08T12:49:24.000Z">
-<meta property="article:modified_time" content="2024-06-08T13:10:18.394Z">
+<meta property="article:modified_time" content="2024-06-14T12:42:10.895Z">
 <meta property="article:author" content="OakForSure">
 <meta property="article:tag" content="Cuda">
 <meta name="twitter:card" content="summary">
@@ -40,10 +40,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2024/06/08/Cuda%20C++/Cuda-programming/","path":"2024/06/08/Cuda C++/Cuda-programming/","title":"Cuda programming"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2024/06/08/Cuda%20C++/Cuda-programming/","path":"2024/06/08/Cuda C++/Cuda-programming/","title":"Cuda Programming C++"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Cuda programming | OakForSure's Blog</title>
+<title>Cuda Programming C++ | OakForSure's Blog</title>
   
 
 
@@ -186,12 +186,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Cuda programming | OakForSure's Blog">
+      <meta itemprop="name" content="Cuda Programming C++ | OakForSure's Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Cuda programming
+          Cuda Programming C++
         </h1>
 
         <div class="post-meta-container">
@@ -203,9 +203,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2024-06-08 20:49:24 / Modified: 21:10:18" itemprop="dateCreated datePublished" datetime="2024-06-08T20:49:24+08:00">2024-06-08</time>
+      <time title="Created: 2024-06-08 20:49:24" itemprop="dateCreated datePublished" datetime="2024-06-08T20:49:24+08:00">2024-06-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-06-14 20:42:10" itemprop="dateModified" datetime="2024-06-14T20:42:10+08:00">2024-06-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -237,9 +243,10 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h2 id="Cuda编程"><a href="#Cuda编程" class="headerlink" title="Cuda编程"></a>Cuda编程</h2><h3 id="Cuda编程的移植"><a href="#Cuda编程的移植" class="headerlink" title="Cuda编程的移植"></a>Cuda编程的移植</h3><p>将计算密集型函数移植到GPU上以实现并行化，而其他顺序执行的代码仍然在CPU上执行</p>
+    <div class="post-body" itemprop="articleBody"><p>Brief introduction to cuda programming using C++.<br>使用C++进行Cuda编程，进行GPU并行化。</p>
 <span id="more"></span>
 
+<h2 id="Cuda编程"><a href="#Cuda编程" class="headerlink" title="Cuda编程"></a>Cuda编程</h2><h3 id="Cuda编程的移植"><a href="#Cuda编程的移植" class="headerlink" title="Cuda编程的移植"></a>Cuda编程的移植</h3><p>将计算密集型函数移植到GPU上以实现并行化，而其他顺序执行的代码仍然在CPU上执行</p>
 <h3 id="简单处理流程"><a href="#简单处理流程" class="headerlink" title="简单处理流程"></a>简单处理流程</h3><ol>
 <li>分配host内存,并进行数据初始化</li>
 <li>分配device内存,并从host将数据copy到device上<br><code>cudaMalloc</code> &amp; <code>cudaMemcpy</code></li>
