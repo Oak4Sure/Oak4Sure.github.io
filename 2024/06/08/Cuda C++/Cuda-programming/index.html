@@ -25,22 +25,24 @@
     <meta name="description" content="Brief introduction to Cuda Programming using C++.使用C++进行Cuda编程，进行GPU并行化。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Cuda Programming C++">
-<meta property="og:url" content="http://example.com/2024/06/08/Cuda%20C++/Cuda-programming/index.html">
+<meta property="og:url" content="http://example.com/2024/06/08/Cuda%20C++/Cuda-Programming/index.html">
 <meta property="og:site_name" content="OakForSure&#39;s Blog">
 <meta property="og:description" content="Brief introduction to Cuda Programming using C++.使用C++进行Cuda编程，进行GPU并行化。">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/Cuda-Programming/pic1.png">
 <meta property="article:published_time" content="2024-06-08T12:49:24.000Z">
-<meta property="article:modified_time" content="2024-06-16T10:51:48.332Z">
+<meta property="article:modified_time" content="2024-06-27T10:30:00.375Z">
 <meta property="article:author" content="OakForSure">
 <meta property="article:tag" content="Cuda">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/Cuda-Programming/pic1.png">
 
 
-<link rel="canonical" href="http://example.com/2024/06/08/Cuda%20C++/Cuda-programming/">
+<link rel="canonical" href="http://example.com/2024/06/08/Cuda%20C++/Cuda-Programming/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2024/06/08/Cuda%20C++/Cuda-programming/","path":"2024/06/08/Cuda C++/Cuda-programming/","title":"Cuda Programming C++"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2024/06/08/Cuda%20C++/Cuda-Programming/","path":"2024/06/08/Cuda C++/Cuda-Programming/","title":"Cuda Programming C++"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>Cuda Programming C++ | OakForSure's Blog</title>
@@ -115,7 +117,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Cuda%E7%BC%96%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">Cuda编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Cuda%E7%BC%96%E7%A8%8B%E7%9A%84%E7%A7%BB%E6%A4%8D"><span class="nav-number">1.1.</span> <span class="nav-text">Cuda编程的移植</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B"><span class="nav-number">1.2.</span> <span class="nav-text">简单处理流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">1.3.</span> <span class="nav-text">关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#global"><span class="nav-number">1.3.1.</span> <span class="nav-text">global</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#host"><span class="nav-number">1.3.2.</span> <span class="nav-text">host</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#device"><span class="nav-number">1.3.3.</span> <span class="nav-text">device</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#managed"><span class="nav-number">1.3.4.</span> <span class="nav-text">managed</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E7%BD%AE%E5%8F%98%E9%87%8F"><span class="nav-number">1.4.</span> <span class="nav-text">内置变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#GridDim"><span class="nav-number">1.4.1.</span> <span class="nav-text">GridDim</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GridIndex"><span class="nav-number">1.4.2.</span> <span class="nav-text">GridIndex</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Cuda%E7%BC%96%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">Cuda编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Cuda%E7%BC%96%E7%A8%8B%E7%9A%84%E7%A7%BB%E6%A4%8D"><span class="nav-number">1.1.</span> <span class="nav-text">Cuda编程的移植</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B"><span class="nav-number">1.2.</span> <span class="nav-text">简单处理流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">1.3.</span> <span class="nav-text">关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#global"><span class="nav-number">1.3.1.</span> <span class="nav-text">global</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#host"><span class="nav-number">1.3.2.</span> <span class="nav-text">host</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#device"><span class="nav-number">1.3.3.</span> <span class="nav-text">device</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#managed"><span class="nav-number">1.3.4.</span> <span class="nav-text">managed</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B8%E5%87%BD%E6%95%B0%E9%99%90%E5%88%B6%E6%9D%A1%E4%BB%B6"><span class="nav-number">1.4.</span> <span class="nav-text">核函数限制条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E7%BD%AE%E5%8F%98%E9%87%8F"><span class="nav-number">1.5.</span> <span class="nav-text">内置变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#GridDim"><span class="nav-number">1.5.1.</span> <span class="nav-text">GridDim</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GridIndex"><span class="nav-number">1.5.2.</span> <span class="nav-text">GridIndex</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#blockIdx"><span class="nav-number">1.5.3.</span> <span class="nav-text">blockIdx</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#blockDim"><span class="nav-number">1.5.4.</span> <span class="nav-text">blockDim</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#threadIdx"><span class="nav-number">1.5.5.</span> <span class="nav-text">threadIdx</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A1%AE%E5%AE%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E5%8F%B7"><span class="nav-number">1.6.</span> <span class="nav-text">确定线程编号</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%91%E9%87%8F%E7%9B%B8%E5%8A%A0"><span class="nav-number">2.</span> <span class="nav-text">向量相加</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%B2%E8%A1%8C%E4%BB%A3%E7%A0%81"><span class="nav-number">2.1.</span> <span class="nav-text">串行代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cuda-%E4%BD%BF%E7%94%A8%E4%B8%80%E4%B8%AABlock"><span class="nav-number">2.2.</span> <span class="nav-text">Cuda 使用一个Block</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%98%E5%9C%A8%E9%97%AE%E9%A2%98"><span class="nav-number">2.2.1.</span> <span class="nav-text">存在问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GPU%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86"><span class="nav-number">2.2.2.</span> <span class="nav-text">GPU内存管理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cuda%E4%BD%BF%E7%94%A8%E5%A4%9A%E4%B8%AABlock"><span class="nav-number">2.3.</span> <span class="nav-text">Cuda使用多个Block</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%98%E5%9C%A8%E9%97%AE%E9%A2%98-1"><span class="nav-number">2.3.1.</span> <span class="nav-text">存在问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%84%E7%90%86Cuda%E9%94%99%E8%AF%AF"><span class="nav-number">3.</span> <span class="nav-text">处理Cuda错误</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cuda-VS-OpenMP"><span class="nav-number">4.</span> <span class="nav-text">Cuda VS OpenMP</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -130,18 +132,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-count">20</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -173,7 +175,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/08/Cuda%20C++/Cuda-programming/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/08/Cuda%20C++/Cuda-Programming/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -211,7 +213,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-06-16 18:51:48" itemprop="dateModified" datetime="2024-06-16T18:51:48+08:00">2024-06-16</time>
+      <time title="Modified: 2024-06-27 18:30:00" itemprop="dateModified" datetime="2024-06-27T18:30:00+08:00">2024-06-27</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -266,7 +268,77 @@
 
 <h4 id="managed"><a href="#managed" class="headerlink" title="managed"></a><strong>managed</strong></h4><p>声明托管内存，使其在主机和设备之间可访问。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">__managed__ <span class="type">int</span> data;</span><br></pre></td></tr></table></figure>
-<h3 id="内置变量"><a href="#内置变量" class="headerlink" title="内置变量"></a>内置变量</h3><h4 id="GridDim"><a href="#GridDim" class="headerlink" title="GridDim"></a>GridDim</h4><h4 id="GridIndex"><a href="#GridIndex" class="headerlink" title="GridIndex"></a>GridIndex</h4>
+
+<h3 id="核函数限制条件"><a href="#核函数限制条件" class="headerlink" title="核函数限制条件"></a>核函数限制条件</h3><ul>
+<li>只能访问设备内存</li>
+<li>必须返回void</li>
+<li>不支持可变参数的函数<code>int func(int n_args, ...)</code></li>
+<li>参数不可为引用类型（无法访问主机内存）</li>
+<li>不支持静态变量（存在主机内存的数据段或者BSS段）</li>
+</ul>
+<h3 id="内置变量"><a href="#内置变量" class="headerlink" title="内置变量"></a>内置变量</h3><p><img src="/./Cuda-Programming/pic1.png" alt="alt text"></p>
+<h4 id="GridDim"><a href="#GridDim" class="headerlink" title="GridDim"></a>GridDim</h4><h4 id="GridIndex"><a href="#GridIndex" class="headerlink" title="GridIndex"></a>GridIndex</h4><h4 id="blockIdx"><a href="#blockIdx" class="headerlink" title="blockIdx"></a>blockIdx</h4><h4 id="blockDim"><a href="#blockDim" class="headerlink" title="blockDim"></a>blockDim</h4><h4 id="threadIdx"><a href="#threadIdx" class="headerlink" title="threadIdx"></a>threadIdx</h4><h3 id="确定线程编号"><a href="#确定线程编号" class="headerlink" title="确定线程编号"></a>确定线程编号</h3><p>使用内置变量threadIdx, blockIdx, blockDim</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> bid = blockIdx.x;</span><br><span class="line"><span class="type">int</span> tid = threadIdx.x;</span><br></pre></td></tr></table></figure>
+
+<h2 id="向量相加"><a href="#向量相加" class="headerlink" title="向量相加"></a>向量相加</h2><p>已知长度为n的两个向量a与b，求向量c，使c[i]&#x3D;a[i]+b[i]</p>
+<h3 id="串行代码"><a href="#串行代码" class="headerlink" title="串行代码"></a>串行代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">vector_add</span><span class="params">(<span class="type">int</span> *a, <span class="type">int</span>* b, <span class="type">int</span>* c, <span class="type">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">        c[i] = a[i] + b[i];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Cuda-使用一个Block"><a href="#Cuda-使用一个Block" class="headerlink" title="Cuda 使用一个Block"></a>Cuda 使用一个Block</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">__global__ <span class="type">void</span> <span class="title">vector_add</span><span class="params">(<span class="type">int</span> *a, <span class="type">int</span>* b, <span class="type">int</span>* c)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> tid = threadIdx.x;  <span class="comment">// 获取线程编号</span></span><br><span class="line">    c[tid] = a[tid] + b[tid];   <span class="comment">// 每个线程完成一个元素的加和</span></span><br><span class="line">&#125;</span><br><span class="line">vector_add&lt;&lt;&lt; <span class="number">1</span>, n &gt;&gt;&gt;(a, b, c);</span><br></pre></td></tr></table></figure>
+
+<h4 id="存在问题"><a href="#存在问题" class="headerlink" title="存在问题"></a>存在问题</h4><ul>
+<li>a, b, c为主内存地址，GPU无法访问</li>
+<li>block中有最大线程数限制：n必须不大于1024</li>
+<li>同一个block只在一个SM上执行：没有充分利用GPU计算资源</li>
+</ul>
+<h4 id="GPU内存管理"><a href="#GPU内存管理" class="headerlink" title="GPU内存管理"></a>GPU内存管理</h4><ul>
+<li>创建：<code>cudaMalloc</code></li>
+<li>拷贝：<code>cudaMemcpy</code><ul>
+<li>使用<code>cudaMemcpyHostToDevice</code>与<code>cudaMemcpyDeviceToHost</code>指明拷贝方向</li>
+</ul>
+</li>
+<li>释放：<code>cudaFree</code></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> *a_h, *b_h, *c_h; <span class="comment">//_h常用来表明主机内存</span></span><br><span class="line"><span class="type">int</span> *a_d, *b_d, *c_d; <span class="comment">//_d常用来表明设备内存</span></span><br><span class="line"><span class="type">int</span> n_bytes = <span class="built_in">sizeof</span>(<span class="type">int</span>)*n;</span><br><span class="line"><span class="built_in">cudaMalloc</span>((<span class="type">void</span>**)&amp;a_d, <span class="built_in">sizeof</span>(<span class="type">int</span>)*n);    <span class="comment">// 创建device内存</span></span><br><span class="line"><span class="built_in">cudaMemcpy</span>(a_d, a_h, n_bytes, cudaMemcpyHostToDevice);  <span class="comment">// 拷贝数据到device内存</span></span><br><span class="line">... <span class="comment">//same for b and cudaMalloc for c</span></span><br><span class="line">vector_add&lt;&lt;&lt; <span class="number">1</span>, n &gt;&gt;&gt;(a_d, b_d, c_d);  <span class="comment">// 调用核函数执行GPU代码</span></span><br><span class="line"><span class="built_in">cudaDeviceSynchronize</span>();    <span class="comment">// 等待所有加和操作完成，CPU再把结果拷贝回来</span></span><br><span class="line"><span class="built_in">cudaMemcpy</span>(c_h, c_d, n_bytes, cudaMemcpyDeviceToHost);</span><br><span class="line"><span class="built_in">cudaFree</span>(a_d);  <span class="comment">// 释放GPU内存</span></span><br><span class="line">... <span class="comment">//same for b and c</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="Cuda使用多个Block"><a href="#Cuda使用多个Block" class="headerlink" title="Cuda使用多个Block"></a>Cuda使用多个Block</h3><ul>
+<li>每个Block使用m个thread</li>
+<li>确定thread的全局编号</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">__global__ <span class="type">void</span> <span class="title">vector_add</span><span class="params">(<span class="type">int</span> *a, <span class="type">int</span>* b, <span class="type">int</span>* c)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> tid = blockDim.x * blockIdx.x + threadIdx.x;</span><br><span class="line">    c[tid] = a[tid] + b[tid];</span><br><span class="line">&#125;</span><br><span class="line">vector_add&lt;&lt;&lt; n/m, m&gt;&gt;&gt;(a, b, c);</span><br></pre></td></tr></table></figure>
+
+<h4 id="存在问题-1"><a href="#存在问题-1" class="headerlink" title="存在问题"></a>存在问题</h4><ul>
+<li>n无法被m整除</li>
+<li>需对n&#x2F;m向上取整，才是block的数量</li>
+<li>需判断tid是否超过n</li>
+<li><strong>一般每个block里面的线程数目m是确定的</strong></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">__global__ <span class="type">void</span> <span class="title">vector_add</span><span class="params">(<span class="type">int</span> *a, <span class="type">int</span>* b, <span class="type">int</span>* c, <span class="type">int</span> n)</span></span>&#123;</span><br><span class="line"><span class="type">int</span> tid = blockDim.x * blockIdx.x + threadIdx.x;</span><br><span class="line">    <span class="keyword">if</span> (tid &lt; n)&#123;   <span class="comment">// 判断tid是否越界</span></span><br><span class="line">        c[tid] = a[tid] + b[tid];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">divup</span><span class="params">(<span class="type">int</span> n, <span class="type">int</span> m)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> ((n%m)?(n/m+<span class="number">1</span>):(n/m));   <span class="comment">// 向上取整</span></span><br><span class="line">&#125;</span><br><span class="line">vector_add&lt;&lt;&lt; <span class="built_in">divup</span>(n,m), m&gt;&gt;&gt;(a, b, c, n);</span><br></pre></td></tr></table></figure>
+
+<h2 id="处理Cuda错误"><a href="#处理Cuda错误" class="headerlink" title="处理Cuda错误"></a>处理Cuda错误</h2><ul>
+<li>使用宏定义。</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> CHECK(call)</span></span><br><span class="line">\&#123;</span><br><span class="line">\ <span class="type">const</span> cudaError_t error = call;</span><br><span class="line">\ <span class="keyword">if</span> (error != cudaSuccess)&#123;</span><br><span class="line">\ <span class="built_in">printf</span>(<span class="string">&quot;Error: %s:%d, &quot;</span>, __FILE__, __LINE__);</span><br><span class="line">\ <span class="built_in">printf</span>(<span class="string">&quot;code:%d, reason: %s \n&quot;</span>,</span><br><span class="line">\ error, <span class="built_in">cudaGetErrorString</span>(error));</span><br><span class="line">\ <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">\ &#125;</span><br><span class="line">\&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>用法举例<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CHECK</span>(<span class="built_in">cudaMalloc</span>((<span class="type">void</span>**)&amp;a, n_bytes));</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="Cuda-VS-OpenMP"><a href="#Cuda-VS-OpenMP" class="headerlink" title="Cuda VS OpenMP"></a>Cuda VS OpenMP</h2><ul>
+<li>Cuda<ul>
+<li>由核函数指明并行代码</li>
+<li>主机代码调用核函数产生设备线程</li>
+<li>用户决定每个线程处理的任务</li>
+<li>异步执行，同步需要<code>cudaDeviceSynchronize()</code></li>
+</ul>
+</li>
+<li>OpenMP<ul>
+<li>由预处理指令与{}指明并行区域</li>
+<li>主线程产生从线程</li>
+<li>由调度算法将任务分配到线程上</li>
+<li>默认在并行区域结束的时候同步</li>
+</ul>
+</li>
+</ul>
+
     </div>
 
     
