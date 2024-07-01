@@ -22,30 +22,30 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInDown"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Brief introduction to Openmp.">
+    <meta name="description" content="Brief introduction to OpenMP.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Openmp">
-<meta property="og:url" content="http://example.com/2024/06/27/Prallel/Openmp/index.html">
+<meta property="og:title" content="OpenMP">
+<meta property="og:url" content="http://example.com/2024/06/27/Prallel/OpenMP/index.html">
 <meta property="og:site_name" content="OakForSure&#39;s Blog">
-<meta property="og:description" content="Brief introduction to Openmp.">
+<meta property="og:description" content="Brief introduction to OpenMP.">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/Openmp/image.png">
+<meta property="og:image" content="http://example.com/2024/06/27/Prallel/OpenMP/image.png">
 <meta property="article:published_time" content="2024-06-27T08:15:42.000Z">
-<meta property="article:modified_time" content="2024-06-27T09:05:24.092Z">
+<meta property="article:modified_time" content="2024-07-01T16:48:49.490Z">
 <meta property="article:author" content="OakForSure">
-<meta property="article:tag" content="Openmp">
+<meta property="article:tag" content="OpenMP">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/Openmp/image.png">
+<meta name="twitter:image" content="http://example.com/2024/06/27/Prallel/OpenMP/image.png">
 
 
-<link rel="canonical" href="http://example.com/2024/06/27/Prallel/Openmp/">
+<link rel="canonical" href="http://example.com/2024/06/27/Prallel/OpenMP/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2024/06/27/Prallel/Openmp/","path":"2024/06/27/Prallel/Openmp/","title":"Openmp"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2024/06/27/Prallel/OpenMP/","path":"2024/06/27/Prallel/OpenMP/","title":"OpenMP"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Openmp | OakForSure's Blog</title>
+<title>OpenMP | OakForSure's Blog</title>
   
 
 
@@ -117,7 +117,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Openmp%E4%BC%98%E7%82%B9"><span class="nav-number">1.</span> <span class="nav-text">Openmp优点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Openmp%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6"><span class="nav-number">2.</span> <span class="nav-text">Openmp运行机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Fork"><span class="nav-number">2.1.</span> <span class="nav-text">1.Fork</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Join"><span class="nav-number">2.2.</span> <span class="nav-text">2.Join</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8api%EF%BC%8COpenmp%E5%AE%8F"><span class="nav-number">3.</span> <span class="nav-text">常用api，Openmp宏</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pragma-omp-parallel"><span class="nav-number">3.1.</span> <span class="nav-text">#pragma omp parallel</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B6%E8%A1%8Cfor%E5%BE%AA%E7%8E%AF"><span class="nav-number">3.2.</span> <span class="nav-text">并行for循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8D%E5%8F%AF%E5%B9%B6%E8%A1%8C%E7%9A%84for%E5%BE%AA%E7%8E%AF"><span class="nav-number">3.3.</span> <span class="nav-text">不可并行的for循环</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E8%AF%AD%E6%B3%95%E9%99%90%E5%88%B6"><span class="nav-number">3.3.1.</span> <span class="nav-text">1. 语法限制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E6%95%B0%E6%8D%AE%E4%BE%9D%E8%B5%96"><span class="nav-number">3.3.2.</span> <span class="nav-text">2. 数据依赖</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#num-threads-int"><span class="nav-number">3.4.</span> <span class="nav-text">num_threads(int)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8C%E4%B8%80%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%A4%9A%E4%B8%AA%E8%AF%AD%E5%8F%A5%E6%98%AF%E5%90%A6%E8%BF%9E%E7%BB%AD%E6%89%A7%E8%A1%8C%EF%BC%9F"><span class="nav-number">4.</span> <span class="nav-text">同一线程的多个语句是否连续执行？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8C%E6%AD%A5%E6%9C%BA%E5%88%B6"><span class="nav-number">5.</span> <span class="nav-text">同步机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Openmp%E6%A2%AF%E5%BD%A2%E7%A7%AF%E5%88%86%E6%B3%95"><span class="nav-number">5.1.</span> <span class="nav-text">Openmp梯形积分法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%B2%E8%A1%8C%E7%89%88%E6%9C%AC"><span class="nav-number">5.1.1.</span> <span class="nav-text">串行版本</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#OpenMP%E4%BC%98%E7%82%B9"><span class="nav-number">1.</span> <span class="nav-text">OpenMP优点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OpenMP%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6"><span class="nav-number">2.</span> <span class="nav-text">OpenMP运行机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Fork"><span class="nav-number">2.1.</span> <span class="nav-text">1.Fork</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Join"><span class="nav-number">2.2.</span> <span class="nav-text">2.Join</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8api%EF%BC%8COpenMP%E5%AE%8F"><span class="nav-number">3.</span> <span class="nav-text">常用api，OpenMP宏</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pragma-omp-parallel"><span class="nav-number">3.1.</span> <span class="nav-text">#pragma omp parallel</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B6%E8%A1%8Cfor%E5%BE%AA%E7%8E%AF"><span class="nav-number">3.2.</span> <span class="nav-text">并行for循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8D%E5%8F%AF%E5%B9%B6%E8%A1%8C%E7%9A%84for%E5%BE%AA%E7%8E%AF"><span class="nav-number">3.3.</span> <span class="nav-text">不可并行的for循环</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E8%AF%AD%E6%B3%95%E9%99%90%E5%88%B6"><span class="nav-number">3.3.1.</span> <span class="nav-text">1. 语法限制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E6%95%B0%E6%8D%AE%E4%BE%9D%E8%B5%96"><span class="nav-number">3.3.2.</span> <span class="nav-text">2. 数据依赖</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#num-threads-int"><span class="nav-number">3.4.</span> <span class="nav-text">num_threads(int)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8C%E4%B8%80%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%A4%9A%E4%B8%AA%E8%AF%AD%E5%8F%A5%E6%98%AF%E5%90%A6%E8%BF%9E%E7%BB%AD%E6%89%A7%E8%A1%8C%EF%BC%9F"><span class="nav-number">4.</span> <span class="nav-text">同一线程的多个语句是否连续执行？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8C%E6%AD%A5%E6%9C%BA%E5%88%B6"><span class="nav-number">5.</span> <span class="nav-text">同步机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#OpenMP%E6%A2%AF%E5%BD%A2%E7%A7%AF%E5%88%86%E6%B3%95"><span class="nav-number">5.1.</span> <span class="nav-text">OpenMP梯形积分法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%B2%E8%A1%8C%E7%89%88%E6%9C%AC"><span class="nav-number">5.1.1.</span> <span class="nav-text">串行版本</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -175,7 +175,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/27/Prallel/Openmp/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/27/Prallel/OpenMP/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -188,12 +188,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Openmp | OakForSure's Blog">
+      <meta itemprop="name" content="OpenMP | OakForSure's Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Openmp
+          OpenMP
         </h1>
 
         <div class="post-meta-container">
@@ -205,9 +205,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2024-06-27 16:15:42 / Modified: 17:05:24" itemprop="dateCreated datePublished" datetime="2024-06-27T16:15:42+08:00">2024-06-27</time>
+      <time title="Created: 2024-06-27 16:15:42" itemprop="dateCreated datePublished" datetime="2024-06-27T16:15:42+08:00">2024-06-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-07-02 00:48:49" itemprop="dateModified" datetime="2024-07-02T00:48:49+08:00">2024-07-02</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -219,7 +225,7 @@
         </span>
           , 
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Prallel-Programming/Openmp/" itemprop="url" rel="index"><span itemprop="name">Openmp</span></a>
+          <a href="/categories/Prallel-Programming/OpenMP/" itemprop="url" rel="index"><span itemprop="name">OpenMP</span></a>
         </span>
     </span>
 
@@ -239,22 +245,22 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>Brief introduction to Openmp.</p>
+    <div class="post-body" itemprop="articleBody"><p>Brief introduction to OpenMP.</p>
 <hr>
 <span id="more"></span>
 
-<h2 id="Openmp优点"><a href="#Openmp优点" class="headerlink" title="Openmp优点"></a>Openmp优点</h2><ul>
+<h2 id="OpenMP优点"><a href="#OpenMP优点" class="headerlink" title="OpenMP优点"></a>OpenMP优点</h2><ul>
 <li>对代码侵入性小，无需改变串行代码。</li>
 <li>编译器实现的多线程，编译器优化效果好那么多线程效率就好。</li>
 </ul>
-<h2 id="Openmp运行机制"><a href="#Openmp运行机制" class="headerlink" title="Openmp运行机制"></a>Openmp运行机制</h2><h3 id="1-Fork"><a href="#1-Fork" class="headerlink" title="1.Fork"></a>1.Fork</h3><p>由主线程（master thread）创建一组从线程（slave threads）。</p>
+<h2 id="OpenMP运行机制"><a href="#OpenMP运行机制" class="headerlink" title="OpenMP运行机制"></a>OpenMP运行机制</h2><h3 id="1-Fork"><a href="#1-Fork" class="headerlink" title="1.Fork"></a>1.Fork</h3><p>由主线程（master thread）创建一组从线程（slave threads）。</p>
 <ul>
 <li>主线程编号<strong>永远为0（thread 0）</strong></li>
 <li>不保证线程的执行顺序，即执行编号不是0，1，2，3而是<strong>乱序执行</strong>。</li>
 </ul>
 <h3 id="2-Join"><a href="#2-Join" class="headerlink" title="2.Join"></a>2.Join</h3><p>同步终止所有线程并将控制权转移回至主线程。</p>
-<p><img src="/./Openmp/image.png" alt="运行机制" title="运行机制"></p>
-<h2 id="常用api，Openmp宏"><a href="#常用api，Openmp宏" class="headerlink" title="常用api，Openmp宏"></a>常用api，Openmp宏</h2><h3 id="pragma-omp-parallel"><a href="#pragma-omp-parallel" class="headerlink" title="#pragma omp parallel"></a>#pragma omp parallel</h3><p>通过<code>#pragma omp parallel</code>指明并行部分。</p>
+<p><img src="/2024/06/27/Prallel/OpenMP/image.png" alt="运行机制" title="运行机制"></p>
+<h2 id="常用api，OpenMP宏"><a href="#常用api，OpenMP宏" class="headerlink" title="常用api，OpenMP宏"></a>常用api，OpenMP宏</h2><h3 id="pragma-omp-parallel"><a href="#pragma-omp-parallel" class="headerlink" title="#pragma omp parallel"></a>#pragma omp parallel</h3><p>通过<code>#pragma omp parallel</code>指明并行部分。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="meta">#<span class="keyword">pragma</span> omp parallel</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Hello World\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
@@ -292,7 +298,7 @@
 
 <p>说明线程之间并不保证执行顺序。</p>
 <h2 id="同步机制"><a href="#同步机制" class="headerlink" title="同步机制"></a>同步机制</h2><ul>
-<li>Openmp是多线程<strong>共享内存架构</strong><ul>
+<li>OpenMP是多线程<strong>共享内存架构</strong><ul>
 <li>线程可以通过共享变量通信</li>
 </ul>
 </li>
@@ -307,7 +313,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="Openmp梯形积分法"><a href="#Openmp梯形积分法" class="headerlink" title="Openmp梯形积分法"></a>Openmp梯形积分法</h3><p>梯形积分法估算𝑦 &#x3D; 𝑓(𝑥)在[𝑎, 𝑏]区间上的积分</p>
+<h3 id="OpenMP梯形积分法"><a href="#OpenMP梯形积分法" class="headerlink" title="OpenMP梯形积分法"></a>OpenMP梯形积分法</h3><p>梯形积分法估算𝑦 &#x3D; 𝑓(𝑥)在[𝑎, 𝑏]区间上的积分</p>
 <h4 id="串行版本"><a href="#串行版本" class="headerlink" title="串行版本"></a>串行版本</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">h = (b-a)/n;    <span class="comment">// 每个小梯形的高</span></span><br><span class="line">approx = (<span class="built_in">f</span>(a) + <span class="built_in">f</span>(b))/<span class="number">2.0</span>;</span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">1</span>; i &lt; n; ++i)&#123;</span><br><span class="line">    x_i = a + i*h;</span><br><span class="line">    approx += <span class="built_in">f</span>(x_i);</span><br><span class="line">&#125;</span><br><span class="line">approx = h * approx;</span><br></pre></td></tr></table></figure>
     </div>
 
@@ -317,7 +323,7 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Openmp/" rel="tag"># Openmp</a>
+              <a href="/tags/OpenMP/" rel="tag"># OpenMP</a>
           </div>
 
         
