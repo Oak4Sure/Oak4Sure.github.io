@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-hant">
     <title type="text">Oak4Sure</title>
     <subtitle type="html">MemE 是一个强大且可高度定制的 GoHugo 博客主题，专为个人博客设计。</subtitle>
-    <updated>2024-07-20T21:42:36&#43;08:00</updated>
+    <updated>2024-07-20T21:50:49&#43;08:00</updated>
     <id>https://oak4sure.github.io/</id>
     <link rel="alternate" type="text/html" href="https://oak4sure.github.io/" />
     <link rel="self" type="application/atom&#43;xml" href="https://oak4sure.github.io/atom.xml" />
@@ -20,7 +20,7 @@
             <title type="text">July Intership Record</title>
             <link rel="alternate" type="text/html" href="https://oak4sure.github.io/life/intership-record-july/" />
             <id>https://oak4sure.github.io/life/intership-record-july/</id>
-            <updated>2024-07-20T21:37:15&#43;08:00</updated>
+            <updated>2024-07-20T21:43:00&#43;08:00</updated>
             <published>2024-07-17T23:55:51&#43;00:00</published>
             <author>
                     <name>Oak4Sure</name>
@@ -90,7 +90,7 @@
             <title type="text">Record One</title>
             <link rel="alternate" type="text/html" href="https://oak4sure.github.io/life/record-one/" />
             <id>https://oak4sure.github.io/life/record-one/</id>
-            <updated>2024-07-20T21:37:00&#43;08:00</updated>
+            <updated>2024-07-20T21:43:00&#43;08:00</updated>
             <published>2024-07-15T21:50:32&#43;00:00</published>
             <author>
                     <name>Oak4Sure</name>
@@ -214,7 +214,7 @@
             <title type="text">Before Summer Intership</title>
             <link rel="alternate" type="text/html" href="https://oak4sure.github.io/life/before-summer-intership/" />
             <id>https://oak4sure.github.io/life/before-summer-intership/</id>
-            <updated>2024-07-20T21:37:13&#43;08:00</updated>
+            <updated>2024-07-20T21:43:00&#43;08:00</updated>
             <published>2024-07-05T02:38:11&#43;00:00</published>
             <author>
                     <name>Oak4Sure</name>
@@ -359,7 +359,7 @@
             <title type="text">Final Exam 期末</title>
             <link rel="alternate" type="text/html" href="https://oak4sure.github.io/tech/final-exam/" />
             <id>https://oak4sure.github.io/tech/final-exam/</id>
-            <updated>2024-07-20T21:00:42&#43;08:00</updated>
+            <updated>2024-07-20T21:43:00&#43;08:00</updated>
             <published>2024-07-02T19:35:59&#43;00:00</published>
             <author>
                     <name>Oak4Sure</name>
@@ -843,7 +843,7 @@ E -&amp;gt; • a
             <title type="text">Cuda Memory 内存模型</title>
             <link rel="alternate" type="text/html" href="https://oak4sure.github.io/tech/cuda-memory/" />
             <id>https://oak4sure.github.io/tech/cuda-memory/</id>
-            <updated>2024-07-20T21:00:15&#43;08:00</updated>
+            <updated>2024-07-20T21:43:00&#43;08:00</updated>
             <published>2024-06-27T18:30:30&#43;00:00</published>
             <author>
                     <name>Oak4Sure</name>
@@ -1164,7 +1164,7 @@ Cuda的内存模型。&lt;/p&gt;
             <title type="text">OpenMP 编程</title>
             <link rel="alternate" type="text/html" href="https://oak4sure.github.io/tech/openmp/" />
             <id>https://oak4sure.github.io/tech/openmp/</id>
-            <updated>2024-07-20T21:00:49&#43;08:00</updated>
+            <updated>2024-07-20T21:43:00&#43;08:00</updated>
             <published>2024-06-27T16:15:42&#43;00:00</published>
             <author>
                     <name>Oak4Sure</name>
@@ -1780,7 +1780,7 @@ world(2)
             <title type="text">tp-link联洲提前批</title>
             <link rel="alternate" type="text/html" href="https://oak4sure.github.io/tech/tp-link/" />
             <id>https://oak4sure.github.io/tech/tp-link/</id>
-            <updated>2024-07-20T21:11:29&#43;08:00</updated>
+            <updated>2024-07-20T21:43:00&#43;08:00</updated>
             <published>2024-06-17T11:39:59&#43;00:00</published>
             <author>
                     <name>Oak4Sure</name>
@@ -1926,7 +1926,7 @@ int a=1用一个char指针去指他，对char指针解引用，看看是不是1&
             <title type="text">Iterator 迭代器模式</title>
             <link rel="alternate" type="text/html" href="https://oak4sure.github.io/tech/iterator/" />
             <id>https://oak4sure.github.io/tech/iterator/</id>
-            <updated>2024-07-19T22:48:34&#43;08:00</updated>
+            <updated>2024-07-20T21:43:00&#43;08:00</updated>
             <published>2024-06-14T20:24:11&#43;00:00</published>
             <author>
                     <name>Oak4Sure</name>
@@ -1979,7 +1979,7 @@ int a=1用一个char指针去指他，对char指针解引用，看看是不是1&
             <title type="text">Cmake</title>
             <link rel="alternate" type="text/html" href="https://oak4sure.github.io/tech/cmake/" />
             <id>https://oak4sure.github.io/tech/cmake/</id>
-            <updated>2024-07-20T21:06:16&#43;08:00</updated>
+            <updated>2024-07-20T21:43:00&#43;08:00</updated>
             <published>2024-06-11T17:25:29&#43;00:00</published>
             <author>
                     <name>Oak4Sure</name>
@@ -2064,7 +2064,7 @@ int a=1用一个char指针去指他，对char指针解引用，看看是不是1&
             <title type="text">Composite 组合模式</title>
             <link rel="alternate" type="text/html" href="https://oak4sure.github.io/tech/composite/" />
             <id>https://oak4sure.github.io/tech/composite/</id>
-            <updated>2024-07-19T22:48:43&#43;08:00</updated>
+            <updated>2024-07-20T21:43:00&#43;08:00</updated>
             <published>2024-06-11T17:14:44&#43;00:00</published>
             <author>
                     <name>Oak4Sure</name>
@@ -2120,7 +2120,7 @@ int a=1用一个char指针去指他，对char指针解引用，看看是不是1&
             <title type="text">Builder 建造者模式</title>
             <link rel="alternate" type="text/html" href="https://oak4sure.github.io/tech/builder/" />
             <id>https://oak4sure.github.io/tech/builder/</id>
-            <updated>2024-07-19T22:48:29&#43;08:00</updated>
+            <updated>2024-07-20T21:43:00&#43;08:00</updated>
             <published>2024-06-10T00:54:39&#43;00:00</published>
             <author>
                     <name>Oak4Sure</name>
@@ -2252,7 +2252,7 @@ int a=1用一个char指针去指他，对char指针解引用，看看是不是1&
             <title type="text">Factory 工厂模式</title>
             <link rel="alternate" type="text/html" href="https://oak4sure.github.io/tech/factory/" />
             <id>https://oak4sure.github.io/tech/factory/</id>
-            <updated>2024-07-20T21:04:54&#43;08:00</updated>
+            <updated>2024-07-20T21:43:00&#43;08:00</updated>
             <published>2024-06-09T16:51:22&#43;00:00</published>
             <author>
                     <name>Oak4Sure</name>
@@ -3292,7 +3292,7 @@ Build for H20
             <title type="text">Cuda Programming C&#43;&#43; 编程</title>
             <link rel="alternate" type="text/html" href="https://oak4sure.github.io/tech/cuda-programming/" />
             <id>https://oak4sure.github.io/tech/cuda-programming/</id>
-            <updated>2024-07-20T21:00:37&#43;08:00</updated>
+            <updated>2024-07-20T21:43:00&#43;08:00</updated>
             <published>2024-06-08T20:49:24&#43;00:00</published>
             <author>
                     <name>Oak4Sure</name>
@@ -3651,7 +3651,7 @@ Build for H20
             <title type="text">Cuda Basic 基础</title>
             <link rel="alternate" type="text/html" href="https://oak4sure.github.io/tech/cuda-basic/" />
             <id>https://oak4sure.github.io/tech/cuda-basic/</id>
-            <updated>2024-07-20T21:00:24&#43;08:00</updated>
+            <updated>2024-07-20T21:43:00&#43;08:00</updated>
             <published>2024-06-08T19:20:08&#43;00:00</published>
             <author>
                     <name>Oak4Sure</name>
@@ -3876,7 +3876,7 @@ Hello World from GPU!
             <title type="text">Migration Record</title>
             <link rel="alternate" type="text/html" href="https://oak4sure.github.io/tech/migration-record/" />
             <id>https://oak4sure.github.io/tech/migration-record/</id>
-            <updated>2024-07-20T21:11:14&#43;08:00</updated>
+            <updated>2024-07-20T21:43:00&#43;08:00</updated>
             <published>2024-06-08T15:22:20&#43;00:00</published>
             <author>
                     <name>Oak4Sure</name>
@@ -3966,7 +3966,7 @@ so that when u try to make a ssh connection, the ssh will parse the link using t
             <title type="text">After ZhuHai</title>
             <link rel="alternate" type="text/html" href="https://oak4sure.github.io/life/after-zhuhai/" />
             <id>https://oak4sure.github.io/life/after-zhuhai/</id>
-            <updated>2024-07-20T21:37:11&#43;08:00</updated>
+            <updated>2024-07-20T21:43:00&#43;08:00</updated>
             <published>2024-06-08T02:01:19&#43;00:00</published>
             <author>
                     <name>Oak4Sure</name>
@@ -4011,7 +4011,7 @@ so that when u try to make a ssh connection, the ssh will parse the link using t
             <title type="text">ZhuHai blog&#39;s vocab</title>
             <link rel="alternate" type="text/html" href="https://oak4sure.github.io/life/zhuhai-blog/" />
             <id>https://oak4sure.github.io/life/zhuhai-blog/</id>
-            <updated>2024-07-20T21:42:16&#43;08:00</updated>
+            <updated>2024-07-20T21:43:00&#43;08:00</updated>
             <published>2024-06-05T22:44:56&#43;00:00</published>
             <author>
                     <name>Oak4Sure</name>
@@ -4122,7 +4122,7 @@ He reluctantly handed over the keys.（他勉强地交出了钥匙。）&lt;/p&g
             <title type="text">Trip to ZhuHai</title>
             <link rel="alternate" type="text/html" href="https://oak4sure.github.io/life/trip-to-zhuhai/" />
             <id>https://oak4sure.github.io/life/trip-to-zhuhai/</id>
-            <updated>2024-07-20T21:42:12&#43;08:00</updated>
+            <updated>2024-07-20T21:43:00&#43;08:00</updated>
             <published>2024-06-05T21:44:56&#43;00:00</published>
             <author>
                     <name>Oak4Sure</name>
@@ -4540,7 +4540,7 @@ Mul 2,3
             <title type="text">腾讯WXG 客户端</title>
             <link rel="alternate" type="text/html" href="https://oak4sure.github.io/tech/wxg2/" />
             <id>https://oak4sure.github.io/tech/wxg2/</id>
-            <updated>2024-07-20T21:12:12&#43;08:00</updated>
+            <updated>2024-07-20T21:43:00&#43;08:00</updated>
             <published>2024-05-15T23:08:24&#43;00:00</published>
             <author>
                     <name>Oak4Sure</name>
@@ -4622,7 +4622,7 @@ Mul 2,3
             <title type="text">腾讯WXG 微信支付</title>
             <link rel="alternate" type="text/html" href="https://oak4sure.github.io/tech/wxg1/" />
             <id>https://oak4sure.github.io/tech/wxg1/</id>
-            <updated>2024-07-20T21:12:09&#43;08:00</updated>
+            <updated>2024-07-20T21:43:00&#43;08:00</updated>
             <published>2024-05-13T23:08:24&#43;00:00</published>
             <author>
                     <name>Oak4Sure</name>
