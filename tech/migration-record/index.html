@@ -370,9 +370,9 @@ so that when u try to make a ssh connection, the ssh will parse the link using t
         
 
         
-
+            <div id="disqus_thread"></div>
         
-            <div id="vcomments"></div>
+
         
 
         
@@ -419,56 +419,37 @@ so that when u try to make a ssh connection, the ssh will parse the link using t
     
 
         
-
-        
             <script>
     function loadComments() {
-        if (!document.getElementById('vcomments')) {
+        if (!document.getElementById('disqus_thread')) {
             return;
         }
-        if (typeof Valine === 'undefined') {
-            const getScript = (options) => {
-                const script = document.createElement('script');
-                script.defer = true;
-                script.crossOrigin = 'anonymous';
-                Object.keys(options).forEach((key) => {
-                    script[key] = options[key];
-                });
-                document.body.appendChild(script);
+        if (typeof DISQUS === 'undefined') {
+            const disqus_config = function() {
+                this.page.url = 'https:\/\/oak4sure.github.io\/tech\/migration-record\/';
+                this.page.identifier = '\/tech\/migration-record\/';
+                this.page.title = 'Migration Record';
             };
-            getScript({
-                src: 'https:\/\/cdn.jsdelivr.net\/npm\/valine@1.4.14\/dist\/Valine.min.js',
-                onload: () => {
-                    newValine();
+            (function() {
+                const d = document, s = d.createElement('script'); s.async = true;
+                s.src = 'https://.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        } else {
+            DISQUS.reset({
+                reload: true,
+                config: function() {
+                    this.page.url = 'https:\/\/oak4sure.github.io\/tech\/migration-record\/';
+                    this.page.identifier = '\/tech\/migration-record\/';
+                    this.page.title = 'Migration Record';
                 }
             });
-        } else {
-            newValine();
         }
     }
-    function newValine() {
-        new Valine({
-            el: '#vcomments',
-            appId: '',
-            appKey: '',
-            placeholder: 'Just go go',
-            path: location.pathname,
-            avatar: 'mm',
-            meta: ["nick","mail","link"],
-            pageSize:  10 ,
-            lang: 'zh-cn',
-            visitor:  false ,
-            highlight:  true ,
-            avatarForce:  false ,
-            recordIP:  false ,
-            serverURLs: '',
-            emojiCDN: '',
-            emojiMaps: {},
-            enableQQ:  false ,
-            requiredFields: []
-        });
-    }
 </script>
+
+        
 
         
 

@@ -524,9 +524,9 @@ Mul 2,3
         
 
         
-
+            <div id="disqus_thread"></div>
         
-            <div id="vcomments"></div>
+
         
 
         
@@ -573,56 +573,37 @@ Mul 2,3
     
 
         
-
-        
             <script>
     function loadComments() {
-        if (!document.getElementById('vcomments')) {
+        if (!document.getElementById('disqus_thread')) {
             return;
         }
-        if (typeof Valine === 'undefined') {
-            const getScript = (options) => {
-                const script = document.createElement('script');
-                script.defer = true;
-                script.crossOrigin = 'anonymous';
-                Object.keys(options).forEach((key) => {
-                    script[key] = options[key];
-                });
-                document.body.appendChild(script);
+        if (typeof DISQUS === 'undefined') {
+            const disqus_config = function() {
+                this.page.url = 'https:\/\/oak4sure.github.io\/tech\/%E5%8D%8E%E4%B8%BA%E6%95%B0%E9%80%9A%E9%80%9A%E7%94%A8%E8%BD%AF%E5%BC%80\/';
+                this.page.identifier = '\/tech\/%E5%8D%8E%E4%B8%BA%E6%95%B0%E9%80%9A%E9%80%9A%E7%94%A8%E8%BD%AF%E5%BC%80\/';
+                this.page.title = '华为数通通用软开';
             };
-            getScript({
-                src: 'https:\/\/cdn.jsdelivr.net\/npm\/valine@1.4.14\/dist\/Valine.min.js',
-                onload: () => {
-                    newValine();
+            (function() {
+                const d = document, s = d.createElement('script'); s.async = true;
+                s.src = 'https://.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        } else {
+            DISQUS.reset({
+                reload: true,
+                config: function() {
+                    this.page.url = 'https:\/\/oak4sure.github.io\/tech\/%E5%8D%8E%E4%B8%BA%E6%95%B0%E9%80%9A%E9%80%9A%E7%94%A8%E8%BD%AF%E5%BC%80\/';
+                    this.page.identifier = '\/tech\/%E5%8D%8E%E4%B8%BA%E6%95%B0%E9%80%9A%E9%80%9A%E7%94%A8%E8%BD%AF%E5%BC%80\/';
+                    this.page.title = '华为数通通用软开';
                 }
             });
-        } else {
-            newValine();
         }
     }
-    function newValine() {
-        new Valine({
-            el: '#vcomments',
-            appId: '',
-            appKey: '',
-            placeholder: 'Just go go',
-            path: location.pathname,
-            avatar: 'mm',
-            meta: ["nick","mail","link"],
-            pageSize:  10 ,
-            lang: 'zh-cn',
-            visitor:  false ,
-            highlight:  true ,
-            avatarForce:  false ,
-            recordIP:  false ,
-            serverURLs: '',
-            emojiCDN: '',
-            emojiMaps: {},
-            enableQQ:  false ,
-            requiredFields: []
-        });
-    }
 </script>
+
+        
 
         
 
