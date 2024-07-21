@@ -23,7 +23,7 @@
         
             <copyright>本文采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 许可协议，转载请注明出处。</copyright>
         
-        <lastBuildDate>Sat, 20 Jul 2024 21:50:49 &#43;0800</lastBuildDate>
+        <lastBuildDate>Sun, 21 Jul 2024 10:28:03 &#43;0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss&#43;xml" href="https://oak4sure.github.io/rss.xml" />
         
@@ -69,18 +69,20 @@
                 
                 
                 
-                
-                
+                    
+                    
                     
                         
+                        
+                        
                             
-                                
-                                
-                                
-                                    <category domain="https://oak4sure.github.io/categories/whatever/">Whatever</category>
-                                
+                                <category domain="https://oak4sure.github.io/life/">life\</category>
                             
                         
+                    
+                
+                
+                
                     
                         
                             
@@ -190,18 +192,20 @@
                 
                 
                 
-                
-                
+                    
+                    
                     
                         
+                        
+                        
                             
-                                
-                                
-                                
-                                    <category domain="https://oak4sure.github.io/categories/whatever/">Whatever</category>
-                                
+                                <category domain="https://oak4sure.github.io/life/">life\</category>
                             
                         
+                    
+                
+                
+                
                     
                         
                             
@@ -209,6 +213,12 @@
                                 
                                 
                                     <category domain="https://oak4sure.github.io/tags/summer-intership/">Summer Intership</category>
+                                
+                            
+                                
+                                
+                                
+                                    <category domain="https://oak4sure.github.io/tags/whatever/">Whatever</category>
                                 
                             
                         
@@ -324,18 +334,20 @@
                 
                 
                 
-                
-                
+                    
+                    
                     
                         
+                        
+                        
                             
-                                
-                                
-                                
-                                    <category domain="https://oak4sure.github.io/categories/whatever/">Whatever</category>
-                                
+                                <category domain="https://oak4sure.github.io/life/">life\</category>
                             
                         
+                    
+                
+                
+                
                     
                         
                             
@@ -349,6 +361,12 @@
                                 
                                 
                                     <category domain="https://oak4sure.github.io/tags/sense-of-purpose/">Sense of Purpose</category>
+                                
+                            
+                                
+                                
+                                
+                                    <category domain="https://oak4sure.github.io/tags/whatever/">Whatever</category>
                                 
                             
                         
@@ -818,6 +836,18 @@ E -&amp;gt; • a
                 
                 
                 
+                    
+                    
+                    
+                        
+                        
+                        
+                            
+                                <category domain="https://oak4sure.github.io/tech/">tech\</category>
+                            
+                        
+                    
+                
                 
                 
                     
@@ -826,11 +856,9 @@ E -&amp;gt; • a
                                 
                                 
                                 
-                                    <category domain="https://oak4sure.github.io/categories/parallel-programming/">Parallel Programming</category>
+                                    <category domain="https://oak4sure.github.io/tags/final-exam/">Final Exam</category>
                                 
                             
-                        
-                    
                         
                     
                 
@@ -1126,6 +1154,18 @@ Cuda的内存模型。&lt;/p&gt;
                 
                 
                 
+                    
+                    
+                    
+                        
+                        
+                        
+                            
+                                <category domain="https://oak4sure.github.io/tech/">tech\</category>
+                            
+                        
+                    
+                
                 
                 
                     
@@ -1134,12 +1174,8 @@ Cuda的内存模型。&lt;/p&gt;
                                 
                                 
                                 
-                                    <category domain="https://oak4sure.github.io/categories/parallel-programming/">Parallel Programming</category>
+                                    <category domain="https://oak4sure.github.io/tags/parallel-programming/">Parallel Programming</category>
                                 
-                            
-                        
-                    
-                        
                             
                                 
                                 
@@ -1737,6 +1773,18 @@ world(2)
                 
                 
                 
+                    
+                    
+                    
+                        
+                        
+                        
+                            
+                                <category domain="https://oak4sure.github.io/tech/">tech\</category>
+                            
+                        
+                    
+                
                 
                 
                     
@@ -1745,12 +1793,8 @@ world(2)
                                 
                                 
                                 
-                                    <category domain="https://oak4sure.github.io/categories/parallel-programming/">Parallel Programming</category>
+                                    <category domain="https://oak4sure.github.io/tags/parallel-programming/">Parallel Programming</category>
                                 
-                            
-                        
-                    
-                        
                             
                                 
                                 
@@ -1880,6 +1924,18 @@ int a=1用一个char指针去指他，对char指针解引用，看看是不是1&
                 
                 
                 
+                    
+                    
+                    
+                        
+                        
+                        
+                            
+                                <category domain="https://oak4sure.github.io/tech/">tech\</category>
+                            
+                        
+                    
+                
                 
                 
                     
@@ -1888,11 +1944,9 @@ int a=1用一个char指针去指他，对char指针解引用，看看是不是1&
                                 
                                 
                                 
-                                    <category domain="https://oak4sure.github.io/categories/autumn-recruitment/">Autumn Recruitment</category>
+                                    <category domain="https://oak4sure.github.io/tags/autumn-recruitment/">Autumn Recruitment</category>
                                 
                             
-                        
-                    
                         
                     
                 
@@ -1914,6 +1968,18 @@ int a=1用一个char指针去指他，对char指针解引用，看看是不是1&
                 
                 
                 
+                    
+                    
+                    
+                        
+                        
+                        
+                            
+                                <category domain="https://oak4sure.github.io/tech/">tech\</category>
+                            
+                        
+                    
+                
                 
                 
                     
@@ -1922,18 +1988,8 @@ int a=1用一个char指针去指他，对char指针解引用，看看是不是1&
                                 
                                 
                                 
-                                    <category domain="https://oak4sure.github.io/categories/software-engineering/">Software Engineering</category>
+                                    <category domain="https://oak4sure.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/">软件工程</category>
                                 
-                            
-                                
-                                
-                                
-                                    <category domain="https://oak4sure.github.io/categories/design-pattern/">Design Pattern</category>
-                                
-                            
-                        
-                    
-                        
                             
                                 
                                 
@@ -2000,6 +2056,18 @@ int a=1用一个char指针去指他，对char指针解引用，看看是不是1&
                 
                 
                 
+                    
+                    
+                    
+                        
+                        
+                        
+                            
+                                <category domain="https://oak4sure.github.io/tech/">tech\</category>
+                            
+                        
+                    
+                
                 
                 
                     
@@ -2008,12 +2076,8 @@ int a=1用一个char指针去指他，对char指针解引用，看看是不是1&
                                 
                                 
                                 
-                                    <category domain="https://oak4sure.github.io/categories/software-engineering/">Software Engineering</category>
+                                    <category domain="https://oak4sure.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/">软件工程</category>
                                 
-                            
-                        
-                    
-                        
                             
                                 
                                 
@@ -2045,6 +2109,18 @@ int a=1用一个char指针去指他，对char指针解引用，看看是不是1&
                 
                 
                 
+                    
+                    
+                    
+                        
+                        
+                        
+                            
+                                <category domain="https://oak4sure.github.io/tech/">tech\</category>
+                            
+                        
+                    
+                
                 
                 
                     
@@ -2053,18 +2129,8 @@ int a=1用一个char指针去指他，对char指针解引用，看看是不是1&
                                 
                                 
                                 
-                                    <category domain="https://oak4sure.github.io/categories/software-engineering/">Software Engineering</category>
+                                    <category domain="https://oak4sure.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/">软件工程</category>
                                 
-                            
-                                
-                                
-                                
-                                    <category domain="https://oak4sure.github.io/categories/design-pattern/">Design Pattern</category>
-                                
-                            
-                        
-                    
-                        
                             
                                 
                                 
@@ -2172,6 +2238,18 @@ int a=1用一个char指针去指他，对char指针解引用，看看是不是1&
                 
                 
                 
+                    
+                    
+                    
+                        
+                        
+                        
+                            
+                                <category domain="https://oak4sure.github.io/tech/">tech\</category>
+                            
+                        
+                    
+                
                 
                 
                     
@@ -2180,18 +2258,8 @@ int a=1用一个char指针去指他，对char指针解引用，看看是不是1&
                                 
                                 
                                 
-                                    <category domain="https://oak4sure.github.io/categories/software-engineering/">Software Engineering</category>
+                                    <category domain="https://oak4sure.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/">软件工程</category>
                                 
-                            
-                                
-                                
-                                
-                                    <category domain="https://oak4sure.github.io/categories/design-pattern/">Design Pattern</category>
-                                
-                            
-                        
-                    
-                        
                             
                                 
                                 
@@ -3207,6 +3275,18 @@ Build for H20
                 
                 
                 
+                    
+                    
+                    
+                        
+                        
+                        
+                            
+                                <category domain="https://oak4sure.github.io/tech/">tech\</category>
+                            
+                        
+                    
+                
                 
                 
                     
@@ -3215,18 +3295,8 @@ Build for H20
                                 
                                 
                                 
-                                    <category domain="https://oak4sure.github.io/categories/software-engineering/">Software Engineering</category>
+                                    <category domain="https://oak4sure.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/">软件工程</category>
                                 
-                            
-                                
-                                
-                                
-                                    <category domain="https://oak4sure.github.io/categories/design-pattern/">Design Pattern</category>
-                                
-                            
-                        
-                    
-                        
                             
                                 
                                 
@@ -3567,6 +3637,18 @@ Build for H20
                 
                 
                 
+                    
+                    
+                    
+                        
+                        
+                        
+                            
+                                <category domain="https://oak4sure.github.io/tech/">tech\</category>
+                            
+                        
+                    
+                
                 
                 
                     
@@ -3575,12 +3657,8 @@ Build for H20
                                 
                                 
                                 
-                                    <category domain="https://oak4sure.github.io/categories/parallel-programming/">Parallel Programming</category>
+                                    <category domain="https://oak4sure.github.io/tags/parallel-programming/">Parallel Programming</category>
                                 
-                            
-                        
-                    
-                        
                             
                                 
                                 
@@ -3787,6 +3865,18 @@ Hello World from GPU!
                 
                 
                 
+                    
+                    
+                    
+                        
+                        
+                        
+                            
+                                <category domain="https://oak4sure.github.io/tech/">tech\</category>
+                            
+                        
+                    
+                
                 
                 
                     
@@ -3795,12 +3885,8 @@ Hello World from GPU!
                                 
                                 
                                 
-                                    <category domain="https://oak4sure.github.io/categories/parallel-programming/">Parallel Programming</category>
+                                    <category domain="https://oak4sure.github.io/tags/parallel-programming/">Parallel Programming</category>
                                 
-                            
-                        
-                    
-                        
                             
                                 
                                 
@@ -3872,18 +3958,20 @@ so that when u try to make a ssh connection, the ssh will parse the link using t
                 
                 
                 
-                
-                
+                    
+                    
                     
                         
+                        
+                        
                             
-                                
-                                
-                                
-                                    <category domain="https://oak4sure.github.io/categories/blog/">Blog</category>
-                                
+                                <category domain="https://oak4sure.github.io/tech/">tech\</category>
                             
                         
+                    
+                
+                
+                
                     
                         
                             
@@ -3914,18 +4002,20 @@ so that when u try to make a ssh connection, the ssh will parse the link using t
                 
                 
                 
-                
-                
+                    
+                    
                     
                         
+                        
+                        
                             
-                                
-                                
-                                
-                                    <category domain="https://oak4sure.github.io/categories/whatever/">Whatever</category>
-                                
+                                <category domain="https://oak4sure.github.io/life/">life\</category>
                             
                         
+                    
+                
+                
+                
                     
                         
                             
@@ -3933,6 +4023,12 @@ so that when u try to make a ssh connection, the ssh will parse the link using t
                                 
                                 
                                     <category domain="https://oak4sure.github.io/tags/watershed/">Watershed</category>
+                                
+                            
+                                
+                                
+                                
+                                    <category domain="https://oak4sure.github.io/tags/whatever/">Whatever</category>
                                 
                             
                         
@@ -4020,18 +4116,20 @@ He reluctantly handed over the keys.（他勉强地交出了钥匙。）&lt;/p&g
                 
                 
                 
-                
-                
+                    
+                    
                     
                         
+                        
+                        
                             
-                                
-                                
-                                
-                                    <category domain="https://oak4sure.github.io/categories/whatever/">Whatever</category>
-                                
+                                <category domain="https://oak4sure.github.io/life/">life\</category>
                             
                         
+                    
+                
+                
+                
                     
                         
                             
@@ -4039,6 +4137,12 @@ He reluctantly handed over the keys.（他勉强地交出了钥匙。）&lt;/p&g
                                 
                                 
                                     <category domain="https://oak4sure.github.io/tags/english/">English</category>
+                                
+                            
+                                
+                                
+                                
+                                    <category domain="https://oak4sure.github.io/tags/whatever/">Whatever</category>
                                 
                             
                         
@@ -4101,18 +4205,20 @@ He reluctantly handed over the keys.（他勉强地交出了钥匙。）&lt;/p&g
                 
                 
                 
-                
-                
+                    
+                    
                     
                         
+                        
+                        
                             
-                                
-                                
-                                
-                                    <category domain="https://oak4sure.github.io/categories/whatever/">Whatever</category>
-                                
+                                <category domain="https://oak4sure.github.io/life/">life\</category>
                             
                         
+                    
+                
+                
+                
                     
                         
                             
@@ -4120,6 +4226,12 @@ He reluctantly handed over the keys.（他勉强地交出了钥匙。）&lt;/p&g
                                 
                                 
                                     <category domain="https://oak4sure.github.io/tags/trip/">Trip</category>
+                                
+                            
+                                
+                                
+                                
+                                    <category domain="https://oak4sure.github.io/tags/whatever/">Whatever</category>
                                 
                             
                         
@@ -4200,18 +4312,20 @@ He reluctantly handed over the keys.（他勉强地交出了钥匙。）&lt;/p&g
                 
                 
                 
-                
-                
+                    
+                    
                     
                         
+                        
+                        
                             
-                                
-                                
-                                
-                                    <category domain="https://oak4sure.github.io/categories/summer-intership/">Summer Intership</category>
-                                
+                                <category domain="https://oak4sure.github.io/tech/">tech\</category>
                             
                         
+                    
+                
+                
+                
                     
                         
                             
@@ -4400,18 +4514,20 @@ Mul 2,3
                 
                 
                 
-                
-                
+                    
+                    
                     
                         
+                        
+                        
                             
-                                
-                                
-                                
-                                    <category domain="https://oak4sure.github.io/categories/summer-intership/">Summer Intership</category>
-                                
+                                <category domain="https://oak4sure.github.io/tech/">tech\</category>
                             
                         
+                    
+                
+                
+                
                     
                         
                             
@@ -4486,18 +4602,20 @@ Mul 2,3
                 
                 
                 
-                
-                
+                    
+                    
                     
                         
+                        
+                        
                             
-                                
-                                
-                                
-                                    <category domain="https://oak4sure.github.io/categories/summer-intership/">Summer Intership</category>
-                                
+                                <category domain="https://oak4sure.github.io/tech/">tech\</category>
                             
                         
+                    
+                
+                
+                
                     
                         
                             
@@ -4565,18 +4683,20 @@ Mul 2,3
                 
                 
                 
-                
-                
+                    
+                    
                     
                         
+                        
+                        
                             
-                                
-                                
-                                
-                                    <category domain="https://oak4sure.github.io/categories/summer-intership/">Summer Intership</category>
-                                
+                                <category domain="https://oak4sure.github.io/tech/">tech\</category>
                             
                         
+                    
+                
+                
+                
                     
                         
                             
@@ -4765,18 +4885,20 @@ Mul 2,3
                 
                 
                 
-                
-                
+                    
+                    
                     
                         
+                        
+                        
                             
-                                
-                                
-                                
-                                    <category domain="https://oak4sure.github.io/categories/summer-intership/">Summer Intership</category>
-                                
+                                <category domain="https://oak4sure.github.io/tech/">tech\</category>
                             
                         
+                    
+                
+                
+                
                     
                         
                             
