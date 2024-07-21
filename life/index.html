@@ -353,37 +353,56 @@
     
 
         
-            <script>
-    function loadComments() {
-        if (!document.getElementById('disqus_thread')) {
-            return;
-        }
-        if (typeof DISQUS === 'undefined') {
-            const disqus_config = function() {
-                this.page.url = 'https:\/\/oak4sure.github.io\/life\/';
-                this.page.identifier = '\/life\/';
-                this.page.title = 'life';
-            };
-            (function() {
-                const d = document, s = d.createElement('script'); s.async = true;
-                s.src = 'https://.disqus.com/embed.js';
-                s.setAttribute('data-timestamp', +new Date());
-                (d.head || d.body).appendChild(s);
-            })();
-        } else {
-            DISQUS.reset({
-                reload: true,
-                config: function() {
-                    this.page.url = 'https:\/\/oak4sure.github.io\/life\/';
-                    this.page.identifier = '\/life\/';
-                    this.page.title = 'life';
-                }
-            });
-        }
-    }
-</script>
 
         
+            <script>
+    function loadComments() {
+        if (!document.getElementById('vcomments')) {
+            return;
+        }
+        if (typeof Valine === 'undefined') {
+            const getScript = (options) => {
+                const script = document.createElement('script');
+                script.defer = true;
+                script.crossOrigin = 'anonymous';
+                Object.keys(options).forEach((key) => {
+                    script[key] = options[key];
+                });
+                document.body.appendChild(script);
+            };
+            getScript({
+                src: 'https:\/\/cdn.jsdelivr.net\/npm\/valine@1.4.14\/dist\/Valine.min.js',
+                onload: () => {
+                    newValine();
+                }
+            });
+        } else {
+            newValine();
+        }
+    }
+    function newValine() {
+        new Valine({
+            el: '#vcomments',
+            appId: '',
+            appKey: '',
+            placeholder: 'Just go go',
+            path: location.pathname,
+            avatar: 'mm',
+            meta: ["nick"],
+            pageSize:  10 ,
+            lang: 'zh-cn',
+            visitor:  false ,
+            highlight:  true ,
+            avatarForce:  false ,
+            recordIP:  true ,
+            serverURLs: '',
+            emojiCDN: '',
+            emojiMaps: {},
+            enableQQ:  false ,
+            requiredFields: []
+        });
+    }
+</script>
 
         
 
@@ -416,10 +435,6 @@
     <script src="https://cdn.jsdelivr.net/npm/instant.page@5.1.0/instantpage.min.js" type="module" defer></script>
 
 
-
-    
-        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    
 
 
 
