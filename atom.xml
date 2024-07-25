@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-hant">
     <title type="text">Oak4Sure</title>
     <subtitle type="html">MemE 是一个强大且可高度定制的 GoHugo 博客主题，专为个人博客设计。</subtitle>
-    <updated>2024-07-25T23:10:56&#43;08:00</updated>
+    <updated>2024-07-25T23:15:03&#43;08:00</updated>
     <id>https://oak4sure.github.io/</id>
     <link rel="alternate" type="text/html" href="https://oak4sure.github.io/" />
     <link rel="self" type="application/atom&#43;xml" href="https://oak4sure.github.io/atom.xml" />
@@ -258,17 +258,16 @@
             <title type="text">Live to learn - Intership</title>
             <link rel="alternate" type="text/html" href="https://oak4sure.github.io/life/live-to-learn-intership/" />
             <id>https://oak4sure.github.io/life/live-to-learn-intership/</id>
-            <updated>2024-07-25T23:10:21&#43;08:00</updated>
+            <updated>2024-07-25T23:13:49&#43;08:00</updated>
             <published>2024-07-15T21:50:32&#43;00:00</published>
             <author>
                     <name>Oak4Sure</name>
                     <uri>https://oak4sure.github.io/</uri>
                     <email>arrebolllll@gmail.com</email>
                     </author>
-            <rights>本文采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 许可协议，转载请注明出处。</rights><summary type="html">Seize the Identity you want for Yourself. Whoever u want to be, Be them with Passion and Abondon. Life Part 7.11 Problem 慢慢相处，说话一天不到，却有点太过自来熟……</summary>
+            <rights>本文采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 许可协议，转载请注明出处。</rights><summary type="html">Seize the Identity you want for Yourself. Whoever u want to be, Be them with Passion and Abondon. 7.11 Problem 慢慢相处，说话一天不到，却有点太过自来熟。说……</summary>
             
                 <content type="html">&lt;p&gt;&lt;em&gt;&lt;strong&gt;Seize the Identity you want for Yourself. Whoever u want to be, Be them with Passion and Abondon.&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;h1 id=&#34;life-part&#34;&gt;Life Part&lt;/h1&gt;
 &lt;h2 id=&#34;711-problem&#34;&gt;7.11 Problem&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;慢慢相处，说话一天不到，却有点太过自来熟。说错话，同事高情商找补
@@ -358,7 +357,6 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&#34;techique-part&#34;&gt;Techique Part&lt;/h1&gt;
 &lt;h2 id=&#34;面试相关-实习给你带来了什么&#34;&gt;面试相关-实习给你带来了什么&lt;/h2&gt;
 &lt;h3 id=&#34;整个任务工作流的流程&#34;&gt;整个任务工作流的流程&lt;/h3&gt;
 &lt;ol&gt;
