@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-hant">
     <title type="text">Oak4Sure</title>
     <subtitle type="html">MemE 是一个强大且可高度定制的 GoHugo 博客主题，专为个人博客设计。</subtitle>
-    <updated>2024-07-25T23:00:31&#43;08:00</updated>
+    <updated>2024-07-25T23:10:56&#43;08:00</updated>
     <id>https://oak4sure.github.io/</id>
     <link rel="alternate" type="text/html" href="https://oak4sure.github.io/" />
     <link rel="self" type="application/atom&#43;xml" href="https://oak4sure.github.io/atom.xml" />
@@ -17,10 +17,10 @@
     <rights>本文采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 许可协议，转载请注明出处。</rights>
     <generator uri="https://gohugo.io/" version="0.129.0">Hugo</generator>
         <entry>
-            <title type="text">July Intership Record-T 七月记录</title>
+            <title type="text">July Intership Record 七月记录</title>
             <link rel="alternate" type="text/html" href="https://oak4sure.github.io/tech/july-intership-record/" />
             <id>https://oak4sure.github.io/tech/july-intership-record/</id>
-            <updated>2024-07-25T22:22:49&#43;08:00</updated>
+            <updated>2024-07-25T23:10:15&#43;08:00</updated>
             <published>2024-07-17T23:55:51&#43;00:00</published>
             <author>
                     <name>Oak4Sure</name>
@@ -258,7 +258,7 @@
             <title type="text">Live to learn - Intership</title>
             <link rel="alternate" type="text/html" href="https://oak4sure.github.io/life/live-to-learn-intership/" />
             <id>https://oak4sure.github.io/life/live-to-learn-intership/</id>
-            <updated>2024-07-25T23:00:28&#43;08:00</updated>
+            <updated>2024-07-25T23:10:21&#43;08:00</updated>
             <published>2024-07-15T21:50:32&#43;00:00</published>
             <author>
                     <name>Oak4Sure</name>
@@ -397,7 +397,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3 id=&#34;快速上手一个技能的能力-to-be-solved&#34;&gt;快速上手一个技能的能力 To Be solved&lt;/h3&gt;
+&lt;h3 id=&#34;快速上手一个技能的能力-to-be-filled&#34;&gt;快速上手一个技能的能力 To Be Filled&lt;/h3&gt;
 &lt;p&gt;我的一个非常nice非常有启发性的领导跟我说：工作教给你的&lt;strong&gt;不是某一领域的技能，而是快速上手相关领域技能的能力，和快速适应新的工作环境的能力&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;适应新环境：&lt;/li&gt;
