@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-hant">
+    <head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#" >
+    <meta charset="UTF-8" />
+
+    <meta name="generator" content="Hugo 0.129.0"><meta name="theme-color" content="#fff" />
+    <meta name="color-scheme" content="light dark">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+    
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <title>Function Object &amp; Lambda 函数对象与匿名函数 | Oak4Sure</title>
+
+    <link rel="stylesheet" href="/css/meme.min.css" />
+
+    
+    
+    
+    <script src="/js/meme.min.js"></script>
+
+    
+    
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto&#43;Serif&#43;TC:wght@400;500;700&amp;family=Noto&#43;Serif&#43;SC:wght@400;500;700&amp;family=Source&#43;Code&#43;Pro:ital,wght@0,400;0,700;1,400;1,700&amp;family=Cinzel&#43;Decorative:wght@700&amp;display=swap" media="print" onload="this.media='all'" />
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto&#43;Serif&#43;TC:wght@400;500;700&amp;family=Noto&#43;Serif&#43;SC:wght@400;500;700&amp;family=Source&#43;Code&#43;Pro:ital,wght@0,400;0,700;1,400;1,700&amp;family=Cinzel&#43;Decorative:wght@700&amp;display=swap" />
+    </noscript>
+
+    <meta name="author" content="Oak4Sure" /><meta name="description" content="函数对象 Lambda 闭包" />
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#2a6df4" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Oak4Sure" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="Oak4Sure" />
+    <meta name="msapplication-starturl" content="../../" />
+    <meta name="msapplication-TileColor" content="#fff" />
+    <meta name="msapplication-TileImage" content="../../icons/mstile-150x150.png" />
+    <link rel="manifest" href="/manifest.json" />
+
+    
+    
+
+    
+    <link rel="canonical" href="https://oak4sure.github.io/tech/%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0/" />
+    
+
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "datePublished": "2024-10-07T16:05:33+08:00",
+        "dateModified": "2024-10-07T16:10:28+08:00",
+        "url": "https://oak4sure.github.io/tech/%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0/",
+        "headline": "Function Object \u0026 Lambda 函数对象与匿名函数",
+        "description": "函数对象 Lambda 闭包",
+        "inLanguage" : "zh-hant",
+        "articleSection": "tech",
+        "wordCount":  7 ,
+        "image": "https://oak4sure.github.io/static/icons/apple-touch-icon.png",
+        "author": {
+            "@type": "Person",
+            "description": "Walk The Talk",
+            "email": "arrebolllll@gmail.com",
+            "image": "https://oak4sure.github.io/icons/apple-touch-icon.png",
+            "url": "https://oak4sure.github.io/",
+            "name": "Oak4Sure"
+        },
+        "license": "本文采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 许可协议，转载请注明出处。",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Oak4Sure",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://oak4sure.github.io/static/icons/apple-touch-icon.png"
+            },
+            "url": "https://oak4sure.github.io/"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebSite",
+            "@id": "https://oak4sure.github.io/"
+        }
+    }
+</script>
+
+    
+
+<meta name="twitter:card" content="summary" />
+
+
+    
+
+
+
+<meta property="og:title" content="Function Object &amp; Lambda 函数对象与匿名函数" />
+<meta property="og:description" content="函数对象 Lambda 闭包" />
+<meta property="og:url" content="https://oak4sure.github.io/tech/%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0/" />
+<meta property="og:site_name" content="Oak4Sure" />
+<meta property="og:locale" content="zh-hant" /><meta property="og:image" content="https://oak4sure.github.io/static/icons/apple-touch-icon.png" />
+    <meta property="og:type" content="article" />
+    <meta property="article:published_time" content="2024-10-07T16:05:33&#43;08:00" />
+    <meta property="article:modified_time" content="2024-10-07T16:10:28&#43;08:00" />
+    
+    <meta property="article:section" content="tech" />
+
+
+
+    
+    
+
+    
+    </head>
+    <body>
+        <div class="container">
+            
+    <header class="header">
+        
+            <div class="header-wrapper">
+                <div class="header-inner single">
+                    
+    <div class="site-brand">
+        
+            <a href="/" class="brand">Oak4Sure</a>
+        
+    </div>
+
+                    <nav class="nav">
+    <ul class="menu" id="menu">
+        
+
+        
+            
+                <li class="menu-item"><a href="/tech/"><span class="menu-item-name">技術</span></a>
+                </li>
+            
+        
+            
+                <li class="menu-item"><a href="/life/"><span class="menu-item-name">生活</span></a>
+                </li>
+            
+        
+            
+                <li class="menu-item"><a href="/tags/"><span class="menu-item-name">標簽</span></a>
+                </li>
+            
+        
+            
+                <li class="menu-item"><a href="https://lihh7.github.io/" target="_blank" rel="external noopener"><span class="menu-item-name">友鏈</span></a>
+                </li>
+            
+        
+            
+                
+                    
+                    
+                        <li class="menu-item">
+                            <a id="theme-switcher" href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon theme-icon-light"><path d="M193.2 104.5l48.8-97.5a18 18 0 0128 0l48.8 97.5 103.4 -34.5a18 18 0 0119.8 19.8l-34.5 103.4l97.5 48.8a18 18 0 010 28l-97.5 48.8 34.5 103.4a18 18 0 01-19.8 19.8l-103.4-34.5-48.8 97.5a18 18 0 01-28 0l-48.8-97.5l-103.4 34.5a18 18 0 01-19.8-19.8l34.5-103.4-97.5-48.8a18 18 0 010-28l97.5-48.8-34.5-103.4a18 18 0 0119.8-19.8zM256 128a128 128 0 10.01 0M256 160a96 96 0 10.01 0"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon theme-icon-dark"><path d="M27 412a256 256 0 10154-407a11.5 11.5 0 00-5 20a201.5 201.5 0 01-134 374a11.5 11.5 0 00-15 13"/></svg></a>
+                        </li>
+                    
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+    </ul>
+</nav>
+
+                    
+                </div>
+            </div>
+            
+    <input type="checkbox" id="nav-toggle" aria-hidden="true" />
+    <label for="nav-toggle" class="nav-toggle"></label>
+    <label for="nav-toggle" class="nav-curtain"></label>
+
+
+        
+    </header>
+
+
+
+
+            
+            
+
+<main class="main single" id="main">
+    <div class="main-inner">
+
+        
+
+        <article class="content post h-entry" data-align="justify" data-type="tech" data-toc-num="true">
+
+            <h1 class="post-title p-name">Function Object &amp; Lambda 函数对象与匿名函数</h1>
+
+            
+
+            
+                
+            
+
+            
+
+            <nav class="contents">
+  <h2 id="contents" class="contents-title">目錄</h2><ol class="toc">
+    <li><a id="contents:函数对象" href="#函数对象">函数对象</a></li>
+    <li><a id="contents:lambda" href="#lambda">Lambda</a></li>
+    <li><a id="contents:闭包" href="#闭包">闭包</a></li>
+  </ol>
+</nav><div class="post-body e-content">
+                <h2 id="函数对象"><a href="#函数对象" class="anchor-link">#</a><a href="#contents:函数对象" class="headings">函数对象</a></h2>
+<h2 id="lambda"><a href="#lambda" class="anchor-link">#</a><a href="#contents:lambda" class="headings">Lambda</a></h2>
+<h2 id="闭包"><a href="#闭包" class="anchor-link">#</a><a href="#contents:闭包" class="headings">闭包</a></h2>
+
+            </div>
+
+            
+
+
+        </article>
+
+        
+
+        
+    <div class="updated-badge-container">
+        <span title="Updated @ 2024-10-07 16:10:28 CST" style="cursor:help">
+
+<svg xmlns="http://www.w3.org/2000/svg" width="130" height="20" class="updated-badge"><linearGradient id="b" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="a"><rect width="130" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#a)"><path class="updated-badge-left" d="M0 0h55v20H0z"/><path class="updated-badge-right" d="M55 0h75v20H55z"/><path fill="url(#b)" d="M0 0h130v20H0z"/></g><g fill="#fff" text-anchor="middle" font-size="110"><text x="285" y="150" fill="#010101" fill-opacity=".3" textLength="450" transform="scale(.1)">updated</text><text x="285" y="140" textLength="450" transform="scale(.1)">updated</text><text x="915" y="150" fill="#010101" fill-opacity=".3" textLength="650" transform="scale(.1)">2024-10-07</text><text x="915" y="140" textLength="650" transform="scale(.1)">2024-10-07</text></g></svg>
+        </span></div>
+
+
+
+        
+
+
+        
+
+
+        
+    
+    
+
+
+
+        
+
+
+        
+    <footer class="minimal-footer">
+        
+        
+            <div class="post-category">
+                <a href="/tech/" class="post-category-link active">tech</a> | <a href="/life/" class="post-category-link">life</a>
+            </div>
+        
+        
+    </footer>
+
+
+
+        
+
+
+        
+    
+        
+        
+    
+    
+    
+    
+        <ul class="post-nav">
+            
+            
+                <li class="post-nav-next">
+                    <a href="/tech/%E7%BB%93%E6%9E%84%E5%8C%96%E7%BB%91%E5%AE%9A/" rel="next">Structured Bindings 结构化绑定 &gt;</a>
+                </li>
+            
+        </ul>
+    
+
+
+
+        
+
+
+    </div>
+</main>
+
+
+            
+    <div id="back-to-top" class="back-to-top">
+        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon arrow-up"><path d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z"/></svg></a>
+    </div>
+
+
+            
+
+        </div>
+        <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('\/sw.js');
+            });
+        }
+    </script>
+
+
+        
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/medium-zoom@latest/dist/medium-zoom.min.js"></script>
+
+<script>
+    let imgNodes = document.querySelectorAll('div.post-body img');
+    imgNodes = Array.from(imgNodes).filter(node => node.parentNode.tagName !== "A");
+
+    mediumZoom(imgNodes, {
+        background: 'hsla(var(--color-bg-h), var(--color-bg-s), var(--color-bg-l), 0.95)'
+    })
+</script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/instant.page@5.1.0/instantpage.min.js" type="module" defer></script>
+
+
+
+
+
+
+    </body>
+</html>

@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html lang="zh-hant">
+    <head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#" >
+    <meta charset="UTF-8" />
+
+    <meta name="generator" content="Hugo 0.129.0"><meta name="theme-color" content="#fff" />
+    <meta name="color-scheme" content="light dark">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+    
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <title>Factory 工厂模式 | Oak4Sure</title>
+
+    <link rel="stylesheet" href="/css/meme.min.css" />
+
+    
+    
+    
+    <script src="/js/meme.min.js"></script>
+
+    
+    
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto&#43;Serif&#43;TC:wght@400;500;700&amp;family=Noto&#43;Serif&#43;SC:wght@400;500;700&amp;family=Source&#43;Code&#43;Pro:ital,wght@0,400;0,700;1,400;1,700&amp;family=Cinzel&#43;Decorative:wght@700&amp;display=swap" media="print" onload="this.media='all'" />
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto&#43;Serif&#43;TC:wght@400;500;700&amp;family=Noto&#43;Serif&#43;SC:wght@400;500;700&amp;family=Source&#43;Code&#43;Pro:ital,wght@0,400;0,700;1,400;1,700&amp;family=Cinzel&#43;Decorative:wght@700&amp;display=swap" />
+    </noscript>
+
+    <meta name="author" content="Oak4Sure" /><meta name="description" content="Introduction to the Factory Pattern and its Implementation in C&#43;&#43;. 工厂模式的介绍及其C&#43;&#43;实现。包含简单工厂模式、工厂方法模式、抽象工厂模式。
+……" />
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#2a6df4" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Oak4Sure" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="Oak4Sure" />
+    <meta name="msapplication-starturl" content="../../" />
+    <meta name="msapplication-TileColor" content="#fff" />
+    <meta name="msapplication-TileImage" content="../../icons/mstile-150x150.png" />
+    <link rel="manifest" href="/manifest.json" />
+
+    
+    
+
+    
+    <link rel="canonical" href="https://oak4sure.github.io/tech/factory/" />
+    
+
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "datePublished": "2024-06-09T16:51:22+00:00",
+        "dateModified": "2024-07-21T10:18:35+08:00",
+        "url": "https://oak4sure.github.io/tech/factory/",
+        "headline": "Factory 工厂模式",
+        "description": "Introduction to the Factory Pattern and its Implementation in C++. 工厂模式的介绍及其C++实现。包含简单工厂模式、工厂方法模式、抽象工厂模式。\n……",
+        "inLanguage" : "zh-hant",
+        "articleSection": "tech",
+        "wordCount":  4000 ,
+        "image": "https://oak4sure.github.io/static/icons/apple-touch-icon.png",
+        "author": {
+            "@type": "Person",
+            "description": "Walk The Talk",
+            "email": "arrebolllll@gmail.com",
+            "image": "https://oak4sure.github.io/icons/apple-touch-icon.png",
+            "url": "https://oak4sure.github.io/",
+            "name": "Oak4Sure"
+        },
+        "license": "本文采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 许可协议，转载请注明出处。",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Oak4Sure",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://oak4sure.github.io/static/icons/apple-touch-icon.png"
+            },
+            "url": "https://oak4sure.github.io/"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebSite",
+            "@id": "https://oak4sure.github.io/"
+        }
+    }
+</script>
+
+    
+
+<meta name="twitter:card" content="summary" />
+
+
+    
+
+
+
+<meta property="og:title" content="Factory 工厂模式" />
+<meta property="og:description" content="Introduction to the Factory Pattern and its Implementation in C&#43;&#43;. 工厂模式的介绍及其C&#43;&#43;实现。包含简单工厂模式、工厂方法模式、抽象工厂模式。
+……" />
+<meta property="og:url" content="https://oak4sure.github.io/tech/factory/" />
+<meta property="og:site_name" content="Oak4Sure" />
+<meta property="og:locale" content="zh-hant" /><meta property="og:image" content="https://oak4sure.github.io/static/icons/apple-touch-icon.png" />
+    <meta property="og:type" content="article" />
+    <meta property="article:published_time" content="2024-06-09T16:51:22&#43;00:00" />
+    <meta property="article:modified_time" content="2024-07-21T10:18:35&#43;08:00" />
+    
+    <meta property="article:section" content="tech" />
+
+
+
+    
+    
+
+    
+    </head>
+    <body>
+        <div class="container">
+            
+    <header class="header">
+        
+            <div class="header-wrapper">
+                <div class="header-inner single">
+                    
+    <div class="site-brand">
+        
+            <a href="/" class="brand">Oak4Sure</a>
+        
+    </div>
+
+                    <nav class="nav">
+    <ul class="menu" id="menu">
+        
+
+        
+            
+                <li class="menu-item"><a href="/tech/"><span class="menu-item-name">技術</span></a>
+                </li>
+            
+        
+            
+                <li class="menu-item"><a href="/life/"><span class="menu-item-name">生活</span></a>
+                </li>
+            
+        
+            
+                <li class="menu-item"><a href="/tags/"><span class="menu-item-name">標簽</span></a>
+                </li>
+            
+        
+            
+                <li class="menu-item"><a href="https://lihh7.github.io/" target="_blank" rel="external noopener"><span class="menu-item-name">友鏈</span></a>
+                </li>
+            
+        
+            
+                
+                    
+                    
+                        <li class="menu-item">
+                            <a id="theme-switcher" href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon theme-icon-light"><path d="M193.2 104.5l48.8-97.5a18 18 0 0128 0l48.8 97.5 103.4 -34.5a18 18 0 0119.8 19.8l-34.5 103.4l97.5 48.8a18 18 0 010 28l-97.5 48.8 34.5 103.4a18 18 0 01-19.8 19.8l-103.4-34.5-48.8 97.5a18 18 0 01-28 0l-48.8-97.5l-103.4 34.5a18 18 0 01-19.8-19.8l34.5-103.4-97.5-48.8a18 18 0 010-28l97.5-48.8-34.5-103.4a18 18 0 0119.8-19.8zM256 128a128 128 0 10.01 0M256 160a96 96 0 10.01 0"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon theme-icon-dark"><path d="M27 412a256 256 0 10154-407a11.5 11.5 0 00-5 20a201.5 201.5 0 01-134 374a11.5 11.5 0 00-15 13"/></svg></a>
+                        </li>
+                    
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+    </ul>
+</nav>
+
+                    
+                </div>
+            </div>
+            
+    <input type="checkbox" id="nav-toggle" aria-hidden="true" />
+    <label for="nav-toggle" class="nav-toggle"></label>
+    <label for="nav-toggle" class="nav-curtain"></label>
+
+
+        
+    </header>
+
+
+
+
+            
+            
+
+<main class="main single" id="main">
+    <div class="main-inner">
+
+        
+
+        <article class="content post h-entry" data-align="justify" data-type="tech" data-toc-num="true">
+
+            <h1 class="post-title p-name">Factory 工厂模式</h1>
+
+            
+
+            
+                
+            
+
+            
+
+            <nav class="contents">
+  <h2 id="contents" class="contents-title">目錄</h2><ol class="toc">
+    <li><a id="contents:简单工厂模式" href="#简单工厂模式">简单工厂模式</a>
+      <ol>
+        <li><a id="contents:情形" href="#情形">情形</a></li>
+        <li><a id="contents:结构" href="#结构">结构</a></li>
+        <li><a id="contents:代码实现" href="#代码实现">代码实现</a>
+          <ol>
+            <li><a id="contents:枚举类" href="#枚举类">枚举类</a></li>
+            <li><a id="contents:工厂类" href="#工厂类">工厂类</a></li>
+            <li><a id="contents:抽象产品类" href="#抽象产品类">抽象产品类</a></li>
+            <li><a id="contents:具体产品类" href="#具体产品类">具体产品类</a></li>
+            <li><a id="contents:main" href="#main">main</a></li>
+          </ol>
+        </li>
+        <li><a id="contents:代码错误改进" href="#代码错误改进">代码错误改进</a>
+          <ol>
+            <li><a id="contents:虚纯虚析构函数需要有函数体" href="#虚纯虚析构函数需要有函数体">虚/纯虚析构函数需要有函数体</a></li>
+            <li><a id="contents:堆区内存未释放" href="#堆区内存未释放">堆区内存未释放</a></li>
+          </ol>
+        </li>
+        <li><a id="contents:输出结果" href="#输出结果">输出结果</a></li>
+        <li><a id="contents:优点" href="#优点">优点</a></li>
+        <li><a id="contents:缺点" href="#缺点">缺点</a></li>
+      </ol>
+    </li>
+    <li><a id="contents:工厂方法模式" href="#工厂方法模式">工厂方法模式</a>
+      <ol>
+        <li><a id="contents:情形-1" href="#情形-1">情形</a></li>
+        <li><a id="contents:结构-1" href="#结构-1">结构</a></li>
+        <li><a id="contents:代码实现-1" href="#代码实现-1">代码实现</a>
+          <ol>
+            <li><a id="contents:抽象工厂类" href="#抽象工厂类">抽象工厂类</a></li>
+            <li><a id="contents:具体工厂类" href="#具体工厂类">具体工厂类</a></li>
+            <li><a id="contents:抽象产品类-1" href="#抽象产品类-1">抽象产品类</a></li>
+            <li><a id="contents:具体产品类-1" href="#具体产品类-1">具体产品类</a></li>
+            <li><a id="contents:main-1" href="#main-1">main</a></li>
+          </ol>
+        </li>
+        <li><a id="contents:输出结果-1" href="#输出结果-1">输出结果</a></li>
+        <li><a id="contents:优点-1" href="#优点-1">优点</a></li>
+        <li><a id="contents:缺点-1" href="#缺点-1">缺点</a></li>
+      </ol>
+    </li>
+    <li><a id="contents:抽象工厂模式" href="#抽象工厂模式">抽象工厂模式</a>
+      <ol>
+        <li><a id="contents:情形-2" href="#情形-2">情形</a></li>
+        <li><a id="contents:结构与工厂方法模式相同" href="#结构与工厂方法模式相同">结构（与工厂方法模式相同）</a></li>
+        <li><a id="contents:代码实现-2" href="#代码实现-2">代码实现</a>
+          <ol>
+            <li><a id="contents:抽象工厂类-1" href="#抽象工厂类-1">抽象工厂类</a></li>
+            <li><a id="contents:具体工厂类-1" href="#具体工厂类-1">具体工厂类</a></li>
+            <li><a id="contents:抽象产品类-2" href="#抽象产品类-2">抽象产品类</a></li>
+            <li><a id="contents:具体产品类-2" href="#具体产品类-2">具体产品类</a></li>
+            <li><a id="contents:main-2" href="#main-2">main</a></li>
+          </ol>
+        </li>
+        <li><a id="contents:输出结果-2" href="#输出结果-2">输出结果</a></li>
+        <li><a id="contents:优点-2" href="#优点-2">优点</a></li>
+        <li><a id="contents:缺点-2" href="#缺点-2">缺点</a></li>
+      </ol>
+    </li>
+    <li><a id="contents:智能指针改进" href="#智能指针改进">智能指针改进</a></li>
+  </ol>
+</nav><div class="post-body e-content">
+                <p>Introduction to the Factory Pattern and its Implementation in C++.
+工厂模式的介绍及其C++实现。包含简单工厂模式、工厂方法模式、抽象工厂模式。</p>
+<hr>
+<h2 id="简单工厂模式"><a href="#简单工厂模式" class="anchor-link">#</a><a href="#contents:简单工厂模式" class="headings">简单工厂模式</a></h2>
+<h3 id="情形"><a href="#情形" class="anchor-link">#</a><a href="#contents:情形" class="headings">情形</a></h3>
+<p>军工厂可以生产各种型号的飞机，比如J-20，Y-20，H-20。目前的态势需要哪种主力机型，军工厂就生产哪个机型。</p>
+<!--more-->
+<h3 id="结构"><a href="#结构" class="anchor-link">#</a><a href="#contents:结构" class="headings">结构</a></h3>
+<p><strong>工厂类</strong><code>AircraftFactory</code>：定义一个用于创建指定的具体实例的接口<code>CreateAircraft()</code>
+<strong>抽象产品类</strong><code>Aircraft</code>：作为所有具体飞机的父类，<em><strong>抽象类</strong></em>。
+<strong>具体产品类</strong><code>J20\Y20\H20</code>：工厂类创建的就是这些类的实例。</p>
+<h3 id="代码实现"><a href="#代码实现" class="anchor-link">#</a><a href="#contents:代码实现" class="headings">代码实现</a></h3>
+<h4 id="枚举类"><a href="#枚举类" class="anchor-link">#</a><a href="#contents:枚举类" class="headings">枚举类</a></h4>
+<p>枚举出<strong>所有飞机的种类</strong></p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="k">enum</span> <span class="nc">AIRCRAFT_TYPE</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">J_20</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">H_20</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Y_20</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table></div>
+</div>
+</div><h4 id="工厂类"><a href="#工厂类" class="anchor-link">#</a><a href="#contents:工厂类" class="headings">工厂类</a></h4>
+<p>通过<code>if</code>或者<code>switch</code>判断<strong>客户传入的参数</strong>来生成对应的产品</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">AircraftFactory</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Aircraft</span><span class="o">*</span> <span class="n">create</span><span class="p">(</span><span class="n">AIRCRAFT_TYPE</span> <span class="n">type</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">switch</span> <span class="p">(</span><span class="n">type</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">case</span> <span class="n">AIRCRAFT_TYPE</span><span class="o">::</span><span class="nl">J_20</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="k">new</span> <span class="n">J20</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">            <span class="k">case</span> <span class="n">AIRCRAFT_TYPE</span><span class="o">::</span><span class="nl">H_20</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="k">new</span> <span class="n">H20</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">            <span class="k">case</span> <span class="n">AIRCRAFT_TYPE</span><span class="o">::</span><span class="nl">Y_20</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="k">new</span> <span class="n">Y20</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">            <span class="k">default</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table></div>
+</div>
+</div><h4 id="抽象产品类"><a href="#抽象产品类" class="anchor-link">#</a><a href="#contents:抽象产品类" class="headings">抽象产品类</a></h4>
+<p>就是一个父类抽象类，父类指针可以指向所有子类对象，返回值什么的用父类指针，调用的时候由于多态调用具体的子类的行为</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Aircraft</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">virtual</span> <span class="o">~</span><span class="n">Aircraft</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1">// 基类的析构函数要为virtual
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">show</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1">// 子类进行具体实现
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span>
+</span></span></code></pre></td></tr></table></div>
+</div>
+</div><h4 id="具体产品类"><a href="#具体产品类" class="anchor-link">#</a><a href="#contents:具体产品类" class="headings">具体产品类</a></h4>
+<p>继承自抽象产品类，定义每个具体产品的行为</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">J20</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Aircraft</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="n">show</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;J20&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">~</span><span class="n">J20</span><span class="p">()</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Y20</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Aircraft</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="n">show</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Y20&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">~</span><span class="n">Y20</span><span class="p">()</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">H20</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Aircraft</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="n">show</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;H20&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">~</span><span class="n">H20</span><span class="p">()</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table></div>
+</div>
+</div><h4 id="main"><a href="#main" class="anchor-link">#</a><a href="#contents:main" class="headings">main</a></h4>
+<p>首先实例化出实际工厂，然后调用工厂提供的接口进行实例化你想要的具体的产品：</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">AircraftFactory</span> <span class="n">factory</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Aircraft</span><span class="o">*</span> <span class="n">myJ20</span> <span class="o">=</span> <span class="n">factory</span><span class="p">.</span><span class="n">create</span><span class="p">(</span><span class="n">J_20</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">myJ20</span><span class="o">-&gt;</span><span class="n">show</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table></div>
+</div>
+</div><h3 id="代码错误改进"><a href="#代码错误改进" class="anchor-link">#</a><a href="#contents:代码错误改进" class="headings">代码错误改进</a></h3>
+<h4 id="虚纯虚析构函数需要有函数体"><a href="#虚纯虚析构函数需要有函数体" class="anchor-link">#</a><a href="#contents:虚纯虚析构函数需要有函数体" class="headings">虚/纯虚析构函数需要有函数体</a></h4>
+<p>虚析构/纯虚析构都具有<em><strong>函数体</strong></em>，这与<em><strong>普通纯虚函数</strong></em>有所不同。<em><strong>【即需要在析构函数中编写函数体】</strong></em></p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Aircraft</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">virtual</span> <span class="o">~</span><span class="n">Aircraft</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1">// 基类的析构函数要为virtual
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">show</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1">// 子类进行具体实现
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="n">Aircraft</span><span class="o">::~</span><span class="n">Aircraft</span><span class="p">()</span> <span class="p">{}</span>    <span class="c1">// 虚/纯虚析构的函数体需要显式定义
+</span></span></span></code></pre></td></tr></table></div>
+</div>
+</div><h4 id="堆区内存未释放"><a href="#堆区内存未释放" class="anchor-link">#</a><a href="#contents:堆区内存未释放" class="headings">堆区内存未释放</a></h4>
+<p>注意到我们在<code>main</code>中初始化出来的工厂<code>factory</code>给我们创建对象的时候是<code>new</code>出来的，所以在使用结束之后需要<code>delete</code>对象</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="n">Aircraft</span><span class="o">*</span> <span class="n">myJ20</span> <span class="o">=</span> <span class="n">factory</span><span class="p">.</span><span class="n">create</span><span class="p">(</span><span class="n">J_20</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">myJ20</span><span class="o">-&gt;</span><span class="n">show</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="k">delete</span> <span class="n">myJ20</span><span class="p">;</span>   <span class="c1">// 使用完毕之后释放对象
+</span></span></span></code></pre></td></tr></table></div>
+</div>
+</div><h3 id="输出结果"><a href="#输出结果" class="anchor-link">#</a><a href="#contents:输出结果" class="headings">输出结果</a></h3>
+<pre tabindex="0"><code>J20
+</code></pre><h3 id="优点"><a href="#优点" class="anchor-link">#</a><a href="#contents:优点" class="headings">优点</a></h3>
+<ul>
+<li>将对象创建的逻辑封装在一个工厂类中，客户端不需要了解具体的类名，客户端不用自己实例化类</li>
+<li>简化了对象创建的过程</li>
+</ul>
+<h3 id="缺点"><a href="#缺点" class="anchor-link">#</a><a href="#contents:缺点" class="headings">缺点</a></h3>
+<p>简单工厂模式并没有被收录到23种设计模式中，严格来说<em><strong>简单工厂并不是一个标准的设计模式</strong></em></p>
+<ul>
+<li><strong>简单性</strong>：所有具体产品的创建逻辑都在一个工厂类中，导致了工厂类会复杂且庞大</li>
+<li><strong>违反开闭原则</strong>：开闭原则指<em><strong>对扩展开放，对修改关闭</strong></em>，
+<ul>
+<li>当需要添加新功能时，应该通过<em><strong>增加新的代码（如新的类、方法）来实现</strong></em>，而不是修改现有的代码。</li>
+<li>在已有功能稳定的前提下，<em><strong>避免对现有代码进行修改</strong></em>，这样可以减少对系统中其他部分的影响。<br>
+即你可以加代码，但你别改我原来的代码。而对于简单工厂来说，每次要加一个新产品，你就得修改工厂类里的<code>switch</code>或者<code>if</code>语句，以支持新产品的初始化，修改了原来稳定的代码，每次修改都会影响到所有产品。</li>
+</ul>
+</li>
+</ul>
+<h2 id="工厂方法模式"><a href="#工厂方法模式" class="anchor-link">#</a><a href="#contents:工厂方法模式" class="headings">工厂方法模式</a></h2>
+<h3 id="情形-1"><a href="#情形-1" class="anchor-link">#</a><a href="#contents:情形-1" class="headings">情形</a></h3>
+<p>现在态势很紧急，我三种先进战机都要大量进行生产，则要针对不同型号的战机开设自己的独立产品线，每个产品线只生产这个类型的战机。</p>
+<h3 id="结构-1"><a href="#结构-1" class="anchor-link">#</a><a href="#contents:结构-1" class="headings">结构</a></h3>
+<p><strong>抽象工厂类</strong><code>AircraftFactory</code>：工厂方法模式的<em><strong>核心类</strong></em>，是抽象类、接口类，所有具体工程的父类。提供具体创建产品的接口，接口的实现由具体工厂负责。
+<strong>具体工厂类</strong><code>J20Factory\Y20Factory\H20Factory</code>： 继承自抽象工厂，实现创建对应具体产品对象的方法。
+<strong>抽象产品类</strong><code>Aircraft</code>：作为所有具体飞机的父类，<em><strong>抽象类</strong></em>。
+<strong>具体产品类</strong><code>J20\Y20\H20</code>：具体工厂类创建的就是这些类的实例。</p>
+<h3 id="代码实现-1"><a href="#代码实现-1" class="anchor-link">#</a><a href="#contents:代码实现-1" class="headings">代码实现</a></h3>
+<h4 id="抽象工厂类"><a href="#抽象工厂类" class="anchor-link">#</a><a href="#contents:抽象工厂类" class="headings">抽象工厂类</a></h4>
+<p>定义具体工厂要实现哪些接口</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">AircraftFactory</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">virtual</span> <span class="n">Aircraft</span><span class="o">*</span> <span class="n">create</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">virtual</span> <span class="o">~</span><span class="n">AircraftFactory</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="n">AircraftFactory</span><span class="o">::~</span><span class="n">AircraftFactory</span><span class="p">()</span> <span class="p">{}</span>
+</span></span></code></pre></td></tr></table></div>
+</div>
+</div><h4 id="具体工厂类"><a href="#具体工厂类" class="anchor-link">#</a><a href="#contents:具体工厂类" class="headings">具体工厂类</a></h4>
+<p>实现对应的接口，一个工厂高速生产单一产品</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">J20Factory</span> <span class="o">:</span><span class="k">public</span> <span class="n">AircraftFactory</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Aircraft</span><span class="o">*</span> <span class="n">create</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">new</span> <span class="nf">J20</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">~</span><span class="n">J20Factory</span><span class="p">()</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Y20Factory</span> <span class="o">:</span><span class="k">public</span> <span class="n">AircraftFactory</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Aircraft</span><span class="o">*</span> <span class="n">create</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">new</span> <span class="nf">Y20</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">~</span><span class="n">Y20Factory</span><span class="p">()</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">H20Factory</span> <span class="o">:</span><span class="k">public</span> <span class="n">AircraftFactory</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Aircraft</span><span class="o">*</span> <span class="n">create</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">new</span> <span class="nf">H20</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">~</span><span class="n">H20Factory</span><span class="p">()</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table></div>
+</div>
+</div><h4 id="抽象产品类-1"><a href="#抽象产品类-1" class="anchor-link">#</a><a href="#contents:抽象产品类-1" class="headings">抽象产品类</a></h4>
+<p>就是一个父类抽象类，父类指针可以指向所有子类对象，返回值什么的用父类指针，调用的时候由于多态调用具体的子类的行为</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Aircraft</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">virtual</span> <span class="o">~</span><span class="n">Aircraft</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1">// 基类的析构函数要为virtual
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">show</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1">// 子类进行具体实现
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span>
+</span></span></code></pre></td></tr></table></div>
+</div>
+</div><h4 id="具体产品类-1"><a href="#具体产品类-1" class="anchor-link">#</a><a href="#contents:具体产品类-1" class="headings">具体产品类</a></h4>
+<p>继承自抽象产品类，定义每个具体产品的行为</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">J20</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Aircraft</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="n">show</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;J20&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">~</span><span class="n">J20</span><span class="p">()</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Y20</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Aircraft</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="n">show</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Y20&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">~</span><span class="n">Y20</span><span class="p">()</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">H20</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Aircraft</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="n">show</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;H20&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">~</span><span class="n">H20</span><span class="p">()</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table></div>
+</div>
+</div><h4 id="main-1"><a href="#main-1" class="anchor-link">#</a><a href="#contents:main-1" class="headings">main</a></h4>
+<ol>
+<li>想要那种产品，<em><strong>就先开设对应产品线</strong></em></li>
+<li>用产品线生产源源不断的产品</li>
+<li>使用产品</li>
+<li>释放资源</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="cm">/* ============ 生产H20 ============ */</span>
+</span></span><span class="line"><span class="cl">    <span class="n">AircraftFactory</span><span class="o">*</span> <span class="n">H20Producer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">H20Factory</span><span class="p">();</span>    <span class="c1">// 开设产品线
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">Aircraft</span><span class="o">*</span> <span class="n">myH20</span> <span class="o">=</span> <span class="n">H20Producer</span><span class="o">-&gt;</span><span class="n">create</span><span class="p">();</span>    <span class="c1">// 生产产品
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">myH20</span><span class="o">-&gt;</span><span class="n">show</span><span class="p">();</span>  <span class="c1">// 使用产品
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// 释放资源
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">delete</span> <span class="n">H20Producer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">delete</span> <span class="n">myH20</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="cm">/* ============ 生产J20 ============ */</span>
+</span></span><span class="line"><span class="cl">    <span class="n">AircraftFactory</span><span class="o">*</span> <span class="n">J20Producer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">J20Factory</span><span class="p">();</span>    <span class="c1">// 开设产品线
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">Aircraft</span><span class="o">*</span> <span class="n">myJ20</span> <span class="o">=</span> <span class="n">J20Producer</span><span class="o">-&gt;</span><span class="n">create</span><span class="p">();</span>    <span class="c1">// 生产产品
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">myJ20</span><span class="o">-&gt;</span><span class="n">show</span><span class="p">();</span>  <span class="c1">// 使用产品
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// 释放资源
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">delete</span> <span class="n">J20Producer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">delete</span> <span class="n">myJ20</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table></div>
+</div>
+</div><h3 id="输出结果-1"><a href="#输出结果-1" class="anchor-link">#</a><a href="#contents:输出结果-1" class="headings">输出结果</a></h3>
+<pre tabindex="0"><code>H20
+J20
+</code></pre><h3 id="优点-1"><a href="#优点-1" class="anchor-link">#</a><a href="#contents:优点-1" class="headings">优点</a></h3>
+<ul>
+<li>遵循了开闭原则<br>
+相比于刚才的简单工厂结构，如果想要开辟新的生产线，不会动到<strong>核心类</strong><code>AircraftFactory</code>，只需要自己新写一个类比如<code>Z20</code>，然后继承自抽象父类，即可建成新的工厂。对于新的产品来说也是这样，只需实现新的产品类<code>Z20</code>，继承自抽象父类即可。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="cm">/* ======== 新增产品Z20 ======== */</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Z20</span> <span class="o">:</span><span class="k">public</span> <span class="n">Aircraft</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="n">show</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Z20&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">~</span><span class="n">Z20</span><span class="p">()</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="cm">/* ======== 新增工厂生产Z20 ======== */</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Z20Factory</span> <span class="o">:</span><span class="k">public</span> <span class="n">AircraftFactory</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Aircraft</span><span class="o">*</span> <span class="n">create</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">new</span> <span class="nf">Z20</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">~</span><span class="n">Z20Factory</span><span class="p">()</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table></div>
+</div>
+</div><h3 id="缺点-1"><a href="#缺点-1" class="anchor-link">#</a><a href="#contents:缺点-1" class="headings">缺点</a></h3>
+<ul>
+<li>每新增一个产品，就需要增加一个对应的产品的具体工厂类。相比简单工厂模式而言，工厂方法模式需要更多的类定义，增加了代码的复杂性。</li>
+<li>一条生产线只能一个产品。</li>
+</ul>
+<h2 id="抽象工厂模式"><a href="#抽象工厂模式" class="anchor-link">#</a><a href="#contents:抽象工厂模式" class="headings">抽象工厂模式</a></h2>
+<h3 id="情形-2"><a href="#情形-2" class="anchor-link">#</a><a href="#contents:情形-2" class="headings">情形</a></h3>
+<p>军工厂<strong>产线升级</strong>（具体工厂能生产更多东西，不是单一产品），不止生产飞行器了，现在还能产飞行器配套的对空导弹或者对地高爆弹。</p>
+<h3 id="结构与工厂方法模式相同"><a href="#结构与工厂方法模式相同" class="anchor-link">#</a><a href="#contents:结构与工厂方法模式相同" class="headings">结构（与工厂方法模式相同）</a></h3>
+<p><strong>抽象工厂类</strong><code>AircraftFactory</code>：工厂方法模式的<em><strong>核心类</strong></em>，是抽象类、接口类，所有具体工程的父类。提供具体创建产品的接口，接口的实现由具体工厂负责。
+<strong>具体工厂类</strong><code>J20Factory\Y20Factory\H20Factory</code>： 继承自抽象工厂，实现创建对应具体产品对象的方法。
+<strong>抽象产品类</strong><code>Aircraft\Dynamite</code>：作为<em><strong>所有具体飞机</strong></em>的父类，作为<em><strong>所有配套导弹</strong></em>的父类，<em><strong>抽象类</strong></em>。
+<strong>具体产品类</strong><code>J20\Y20\H20\J20Missile\H20Bomb</code>：具体工厂类创建的就是这些类的实例。</p>
+<h3 id="代码实现-2"><a href="#代码实现-2" class="anchor-link">#</a><a href="#contents:代码实现-2" class="headings">代码实现</a></h3>
+<h4 id="抽象工厂类-1"><a href="#抽象工厂类-1" class="anchor-link">#</a><a href="#contents:抽象工厂类-1" class="headings">抽象工厂类</a></h4>
+<p>定义具体工厂要实现哪些接口<br>
+区别于工厂方法模式，既然每个具体工厂可以生产不止一样东西，那么接口类也要添加好对应的接口</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">AircraftFactory</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">virtual</span> <span class="n">Aircraft</span><span class="o">*</span> <span class="n">createAircraft</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// 生产飞行器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">virtual</span> <span class="n">Dynamite</span><span class="o">*</span> <span class="nf">createDynamite</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// 生产配套弹药
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">virtual</span> <span class="o">~</span><span class="n">AircraftFactory</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="n">AircraftFactory</span><span class="o">::~</span><span class="n">AircraftFactory</span><span class="p">()</span> <span class="p">{}</span>
+</span></span></code></pre></td></tr></table></div>
+</div>
+</div><h4 id="具体工厂类-1"><a href="#具体工厂类-1" class="anchor-link">#</a><a href="#contents:具体工厂类-1" class="headings">具体工厂类</a></h4>
+<p>实现父类的接口，现在一个工厂不是生产单一的产品了，能<em><strong>生产战机和配套的弹药</strong></em>。</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">J20Factory</span> <span class="o">:</span><span class="k">public</span> <span class="n">AircraftFactory</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Aircraft</span><span class="o">*</span> <span class="n">createAircraft</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">new</span> <span class="nf">J20</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Dynamite</span><span class="o">*</span> <span class="nf">createDynamite</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">new</span> <span class="n">J20Missile</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">~</span><span class="n">J20Factory</span><span class="p">()</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Y20Factory</span> <span class="o">:</span><span class="k">public</span> <span class="n">AircraftFactory</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Aircraft</span><span class="o">*</span> <span class="n">createAircraft</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">new</span> <span class="nf">Y20</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Dynamite</span><span class="o">*</span> <span class="nf">createDynamite</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">~</span><span class="n">Y20Factory</span><span class="p">()</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">H20Factory</span> <span class="o">:</span><span class="k">public</span> <span class="n">AircraftFactory</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Aircraft</span><span class="o">*</span> <span class="n">createAircraft</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">new</span> <span class="nf">H20</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Dynamite</span><span class="o">*</span> <span class="nf">createDynamite</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">new</span> <span class="n">H20Bomb</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">~</span><span class="n">H20Factory</span><span class="p">()</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table></div>
+</div>
+</div><h4 id="抽象产品类-2"><a href="#抽象产品类-2" class="anchor-link">#</a><a href="#contents:抽象产品类-2" class="headings">抽象产品类</a></h4>
+<p>现在有两种产品，那么一共需要两个抽象产品类，<em><strong>飞行器类和弹药类</strong></em>。</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="c1">// 飞行器接口类
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">class</span> <span class="nc">Aircraft</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">virtual</span> <span class="o">~</span><span class="n">Aircraft</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1">// 基类的析构函数要为virtual
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">show</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1">// 子类进行具体实现
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="n">Aircraft</span><span class="o">::~</span><span class="n">Aircraft</span><span class="p">()</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 弹药接口类
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">class</span> <span class="nc">Dynamite</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">virtual</span> <span class="kt">void</span> <span class="n">show</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">virtual</span> <span class="o">~</span><span class="n">Dynamite</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="n">Dynamite</span><span class="o">::~</span><span class="n">Dynamite</span><span class="p">()</span> <span class="p">{}</span>
+</span></span></code></pre></td></tr></table></div>
+</div>
+</div><h4 id="具体产品类-2"><a href="#具体产品类-2" class="anchor-link">#</a><a href="#contents:具体产品类-2" class="headings">具体产品类</a></h4>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">J20</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Aircraft</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="n">show</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;J20&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">~</span><span class="n">J20</span><span class="p">()</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Y20</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Aircraft</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="n">show</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Y20&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">~</span><span class="n">Y20</span><span class="p">()</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">H20</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Aircraft</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="n">show</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;H20&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">~</span><span class="n">H20</span><span class="p">()</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// J20的导弹
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">class</span> <span class="nc">J20Missile</span> <span class="o">:</span><span class="k">public</span> <span class="n">Dynamite</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">show</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Build for J20&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">~</span><span class="n">J20Missile</span><span class="p">()</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// H20的炸弹
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">class</span> <span class="nc">H20Bomb</span> <span class="o">:</span><span class="k">public</span> <span class="n">Dynamite</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">show</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Build for H20&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">~</span><span class="n">H20Bomb</span><span class="p">()</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table></div>
+</div>
+</div><h4 id="main-2"><a href="#main-2" class="anchor-link">#</a><a href="#contents:main-2" class="headings">main</a></h4>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 实例化H20的工厂
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">AircraftFactory</span><span class="o">*</span> <span class="n">H20Producer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">H20Factory</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// H20的工厂生产出H20
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">Aircraft</span><span class="o">*</span> <span class="n">myH20</span> <span class="o">=</span> <span class="n">H20Producer</span><span class="o">-&gt;</span><span class="n">createAircraft</span><span class="p">();</span> 
+</span></span><span class="line"><span class="cl">    <span class="c1">// H20的工厂生产出配套炸药
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">Dynamite</span><span class="o">*</span> <span class="n">myH20Bomb</span> <span class="o">=</span> <span class="n">H20Producer</span><span class="o">-&gt;</span><span class="n">createDynamite</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">myH20</span><span class="o">-&gt;</span><span class="n">show</span><span class="p">();</span> <span class="c1">// 使用产品
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">myH20Bomb</span><span class="o">-&gt;</span><span class="n">show</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 释放资源
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">delete</span> <span class="n">H20Producer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">delete</span> <span class="n">myH20</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">delete</span> <span class="n">myH20Bomb</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table></div>
+</div>
+</div><h3 id="输出结果-2"><a href="#输出结果-2" class="anchor-link">#</a><a href="#contents:输出结果-2" class="headings">输出结果</a></h3>
+<pre tabindex="0"><code>H20
+Build for H20
+</code></pre><h3 id="优点-2"><a href="#优点-2" class="anchor-link">#</a><a href="#contents:优点-2" class="headings">优点</a></h3>
+<ul>
+<li><strong>相比于之前的工厂方法模式一个工厂单一产品</strong>，抽象工厂模式可以生产出一组<strong>相互依赖</strong>的产品，保证了产品族的一致性，比如J20的导弹不会装到H20上去，<strong>J20和他的导弹是同一个产品族，具有依赖关系</strong>。</li>
+<li><strong>微妙地遵循了开闭关系</strong>。如果想要<em><strong>新增具体产品</strong></em>，比如说加个Z20和对应的导弹，那么确实不需要更改到抽象工厂类。但是如果要<em><strong>新增产品类型</strong></em>，比如说飞行员<code>pilot</code>，那么抽象工厂类也要加入新的接口<code>createPilot()</code>。</li>
+</ul>
+<h3 id="缺点-2"><a href="#缺点-2" class="anchor-link">#</a><a href="#contents:缺点-2" class="headings">缺点</a></h3>
+<ul>
+<li><strong>跟之前工厂方法模式一样</strong>，每新增一个产品，就需要增加一个对应的产品的具体工厂类。增加了代码的复杂性。</li>
+</ul>
+<h2 id="智能指针改进"><a href="#智能指针改进" class="anchor-link">#</a><a href="#contents:智能指针改进" class="headings">智能指针改进</a></h2>
+<p>可以注意到之前实现的代码都需要我们在<em><strong>使用完产品之后主动释放对象</strong></em>，可以使用<em><strong>智能指针</strong></em>来替代原始指针，避免手动管理内存。</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;memory&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 飞行器基类
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">class</span> <span class="nc">Aircraft</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">virtual</span> <span class="o">~</span><span class="n">Aircraft</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1">// 基类的析构函数要为virtual
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">show</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1">// 子类进行具体实现
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Aircraft</span><span class="o">::~</span><span class="n">Aircraft</span><span class="p">()</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// J20飞行器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">class</span> <span class="nc">J20</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Aircraft</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="n">show</span><span class="p">()</span> <span class="k">override</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;J20&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">~</span><span class="n">J20</span><span class="p">()</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Y20飞行器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">class</span> <span class="nc">Y20</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Aircraft</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="n">show</span><span class="p">()</span> <span class="k">override</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Y20&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">~</span><span class="n">Y20</span><span class="p">()</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// H20飞行器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">class</span> <span class="nc">H20</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Aircraft</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="n">show</span><span class="p">()</span> <span class="k">override</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;H20&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">~</span><span class="n">H20</span><span class="p">()</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 弹药接口类
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">class</span> <span class="nc">Dynamite</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">virtual</span> <span class="kt">void</span> <span class="n">show</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">virtual</span> <span class="o">~</span><span class="n">Dynamite</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Dynamite</span><span class="o">::~</span><span class="n">Dynamite</span><span class="p">()</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// J20的导弹
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">class</span> <span class="nc">J20Missile</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Dynamite</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">show</span><span class="p">()</span> <span class="k">override</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Build for J20&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">~</span><span class="n">J20Missile</span><span class="p">()</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// H20的炸弹
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">class</span> <span class="nc">H20Bomb</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Dynamite</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">show</span><span class="p">()</span> <span class="k">override</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Build for H20&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">~</span><span class="n">H20Bomb</span><span class="p">()</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 抽象工厂类
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">class</span> <span class="nc">AircraftFactory</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">virtual</span> <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">Aircraft</span><span class="o">&gt;</span> <span class="n">createAircraft</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// 生产飞行器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">virtual</span> <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">Dynamite</span><span class="o">&gt;</span> <span class="n">createDynamite</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// 生产配套弹药
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">virtual</span> <span class="o">~</span><span class="n">AircraftFactory</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">AircraftFactory</span><span class="o">::~</span><span class="n">AircraftFactory</span><span class="p">()</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// J20工厂
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">class</span> <span class="nc">J20Factory</span> <span class="o">:</span> <span class="k">public</span> <span class="n">AircraftFactory</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">Aircraft</span><span class="o">&gt;</span> <span class="n">createAircraft</span><span class="p">()</span> <span class="k">override</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">J20</span><span class="o">&gt;</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">Dynamite</span><span class="o">&gt;</span> <span class="n">createDynamite</span><span class="p">()</span> <span class="k">override</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">J20Missile</span><span class="o">&gt;</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">~</span><span class="n">J20Factory</span><span class="p">()</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Y20工厂
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">class</span> <span class="nc">Y20Factory</span> <span class="o">:</span> <span class="k">public</span> <span class="n">AircraftFactory</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">Aircraft</span><span class="o">&gt;</span> <span class="n">createAircraft</span><span class="p">()</span> <span class="k">override</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">Y20</span><span class="o">&gt;</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">Dynamite</span><span class="o">&gt;</span> <span class="n">createDynamite</span><span class="p">()</span> <span class="k">override</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">nullptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">~</span><span class="n">Y20Factory</span><span class="p">()</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// H20工厂
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">class</span> <span class="nc">H20Factory</span> <span class="o">:</span> <span class="k">public</span> <span class="n">AircraftFactory</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">Aircraft</span><span class="o">&gt;</span> <span class="n">createAircraft</span><span class="p">()</span> <span class="k">override</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">H20</span><span class="o">&gt;</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">Dynamite</span><span class="o">&gt;</span> <span class="n">createDynamite</span><span class="p">()</span> <span class="k">override</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">H20Bomb</span><span class="o">&gt;</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">~</span><span class="n">H20Factory</span><span class="p">()</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="cm">/* ============ 生产H20 ============ */</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">AircraftFactory</span><span class="o">&gt;</span> <span class="n">H20Producer</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">H20Factory</span><span class="o">&gt;</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">Aircraft</span><span class="o">&gt;</span> <span class="n">myH20</span> <span class="o">=</span> <span class="n">H20Producer</span><span class="o">-&gt;</span><span class="n">createAircraft</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="cm">/* ============ 生产H20的炸药 ============ */</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">Dynamite</span><span class="o">&gt;</span> <span class="n">myH20Bomb</span> <span class="o">=</span> <span class="n">H20Producer</span><span class="o">-&gt;</span><span class="n">createDynamite</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">myH20</span><span class="o">-&gt;</span><span class="n">show</span><span class="p">();</span> <span class="c1">// 使用产品
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">myH20Bomb</span><span class="o">-&gt;</span><span class="n">show</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table></div>
+</div>
+</div>
+            </div>
+
+            
+
+
+        </article>
+
+        
+
+        
+    <div class="updated-badge-container">
+        <span title="Updated @ 2024-07-21 10:18:35 CST" style="cursor:help">
+
+<svg xmlns="http://www.w3.org/2000/svg" width="130" height="20" class="updated-badge"><linearGradient id="b" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="a"><rect width="130" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#a)"><path class="updated-badge-left" d="M0 0h55v20H0z"/><path class="updated-badge-right" d="M55 0h75v20H55z"/><path fill="url(#b)" d="M0 0h130v20H0z"/></g><g fill="#fff" text-anchor="middle" font-size="110"><text x="285" y="150" fill="#010101" fill-opacity=".3" textLength="450" transform="scale(.1)">updated</text><text x="285" y="140" textLength="450" transform="scale(.1)">updated</text><text x="915" y="150" fill="#010101" fill-opacity=".3" textLength="650" transform="scale(.1)">2024-07-21</text><text x="915" y="140" textLength="650" transform="scale(.1)">2024-07-21</text></g></svg>
+        </span></div>
+
+
+
+        
+
+
+        
+
+
+        
+    
+    
+        <div class="related-posts">
+            <h2 class="related-title">相關文章：<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon related-icon"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm144 276c0 6.6-5.4 12-12 12h-92v92c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12v-92h-92c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h92v-92c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v92h92c6.6 0 12 5.4 12 12v56z"/></svg></h2>
+            <ul class="related-list">
+                
+                    <li class="related-item">
+                        <a href="/tech/iterator/" class="related-link">Iterator 迭代器模式</a>
+                    </li>
+                
+                    <li class="related-item">
+                        <a href="/tech/composite/" class="related-link">Composite 组合模式</a>
+                    </li>
+                
+                    <li class="related-item">
+                        <a href="/tech/builder/" class="related-link">Builder 建造者模式</a>
+                    </li>
+                
+                    <li class="related-item">
+                        <a href="/tech/cmake/" class="related-link">Cmake</a>
+                    </li>
+                
+                    <li class="related-item">
+                        <a href="/tech/git%E4%BD%BF%E7%94%A8/" class="related-link">Git 使用</a>
+                    </li>
+                
+            </ul>
+        </div>
+    
+
+
+
+        
+
+
+        
+    <footer class="minimal-footer">
+        
+            <div class="post-tag"><a href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" rel="tag" class="post-tag-link">#软件工程</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag" class="post-tag-link">#设计模式</a></div>
+        
+        
+            <div class="post-category">
+                <a href="/tech/" class="post-category-link active">tech</a> | <a href="/life/" class="post-category-link">life</a>
+            </div>
+        
+        
+    </footer>
+
+
+
+        
+
+
+        
+    
+        
+        
+    
+    
+    
+    
+        <ul class="post-nav">
+            
+                <li class="post-nav-prev">
+                    <a href="/tech/builder/" rel="prev">&lt; Builder 建造者模式</a>
+                </li>
+            
+            
+                <li class="post-nav-next">
+                    <a href="/tech/cuda-programming/" rel="next">Cuda Programming C++ 编程 &gt;</a>
+                </li>
+            
+        </ul>
+    
+
+
+
+        
+
+
+    </div>
+</main>
+
+
+            
+    <div id="back-to-top" class="back-to-top">
+        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon arrow-up"><path d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z"/></svg></a>
+    </div>
+
+
+            
+
+        </div>
+        <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('\/sw.js');
+            });
+        }
+    </script>
+
+
+        
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/medium-zoom@latest/dist/medium-zoom.min.js"></script>
+
+<script>
+    let imgNodes = document.querySelectorAll('div.post-body img');
+    imgNodes = Array.from(imgNodes).filter(node => node.parentNode.tagName !== "A");
+
+    mediumZoom(imgNodes, {
+        background: 'hsla(var(--color-bg-h), var(--color-bg-s), var(--color-bg-l), 0.95)'
+    })
+</script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/instant.page@5.1.0/instantpage.min.js" type="module" defer></script>
+
+
+
+
+
+
+    </body>
+</html>

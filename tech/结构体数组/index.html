@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="zh-hant">
+    <head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#" >
+    <meta charset="UTF-8" />
+
+    <meta name="generator" content="Hugo 0.129.0"><meta name="theme-color" content="#fff" />
+    <meta name="color-scheme" content="light dark">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+    
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <title>Structure Array 结构体数组 | Oak4Sure</title>
+
+    <link rel="stylesheet" href="/css/meme.min.css" />
+
+    
+    
+    
+    <script src="/js/meme.min.js"></script>
+
+    
+    
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto&#43;Serif&#43;TC:wght@400;500;700&amp;family=Noto&#43;Serif&#43;SC:wght@400;500;700&amp;family=Source&#43;Code&#43;Pro:ital,wght@0,400;0,700;1,400;1,700&amp;family=Cinzel&#43;Decorative:wght@700&amp;display=swap" media="print" onload="this.media='all'" />
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto&#43;Serif&#43;TC:wght@400;500;700&amp;family=Noto&#43;Serif&#43;SC:wght@400;500;700&amp;family=Source&#43;Code&#43;Pro:ital,wght@0,400;0,700;1,400;1,700&amp;family=Cinzel&#43;Decorative:wght@700&amp;display=swap" />
+    </noscript>
+
+    <meta name="author" content="Oak4Sure" /><meta name="description" content="前置知识 指针常量和常量指针 谁对谁的名字总是记不住 1 2 int* const b; /* 指针常量 */ const int* a; /* 常量指……" />
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#2a6df4" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Oak4Sure" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="Oak4Sure" />
+    <meta name="msapplication-starturl" content="../../" />
+    <meta name="msapplication-TileColor" content="#fff" />
+    <meta name="msapplication-TileImage" content="../../icons/mstile-150x150.png" />
+    <link rel="manifest" href="/manifest.json" />
+
+    
+    
+
+    
+    <link rel="canonical" href="https://oak4sure.github.io/tech/%E7%BB%93%E6%9E%84%E4%BD%93%E6%95%B0%E7%BB%84/" />
+    
+
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "datePublished": "2024-08-10T19:51:22+08:00",
+        "dateModified": "2024-10-07T15:59:15+08:00",
+        "url": "https://oak4sure.github.io/tech/%E7%BB%93%E6%9E%84%E4%BD%93%E6%95%B0%E7%BB%84/",
+        "headline": "Structure Array 结构体数组",
+        "description": "前置知识 指针常量和常量指针 谁对谁的名字总是记不住 1 2 int* const b; /* 指针常量 */ const int* a; /* 常量指……",
+        "inLanguage" : "zh-hant",
+        "articleSection": "tech",
+        "wordCount":  1372 ,
+        "image": ["https://oak4sure.github.io/images/%E7%BB%93%E6%9E%84%E4%BD%93%E6%95%B0%E7%BB%84/image.png"],
+        "author": {
+            "@type": "Person",
+            "description": "Walk The Talk",
+            "email": "arrebolllll@gmail.com",
+            "image": "https://oak4sure.github.io/icons/apple-touch-icon.png",
+            "url": "https://oak4sure.github.io/",
+            "name": "Oak4Sure"
+        },
+        "license": "本文采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 许可协议，转载请注明出处。",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Oak4Sure",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://oak4sure.github.io/static/icons/apple-touch-icon.png"
+            },
+            "url": "https://oak4sure.github.io/"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebSite",
+            "@id": "https://oak4sure.github.io/"
+        }
+    }
+</script>
+
+    
+
+<meta name="twitter:card" content="summary_large_image" />
+
+
+
+    
+
+
+
+<meta property="og:title" content="Structure Array 结构体数组" />
+<meta property="og:description" content="前置知识 指针常量和常量指针 谁对谁的名字总是记不住 1 2 int* const b; /* 指针常量 */ const int* a; /* 常量指……" />
+<meta property="og:url" content="https://oak4sure.github.io/tech/%E7%BB%93%E6%9E%84%E4%BD%93%E6%95%B0%E7%BB%84/" />
+<meta property="og:site_name" content="Oak4Sure" />
+<meta property="og:locale" content="zh-hant" /><meta property="og:image" content="https://oak4sure.github.io/images/%E7%BB%93%E6%9E%84%E4%BD%93%E6%95%B0%E7%BB%84/image.png" />
+<meta property="og:type" content="article" />
+    <meta property="article:published_time" content="2024-08-10T19:51:22&#43;08:00" />
+    <meta property="article:modified_time" content="2024-10-07T15:59:15&#43;08:00" />
+    
+    <meta property="article:section" content="tech" />
+
+
+
+    
+    
+
+    
+    </head>
+    <body>
+        <div class="container">
+            
+    <header class="header">
+        
+            <div class="header-wrapper">
+                <div class="header-inner single">
+                    
+    <div class="site-brand">
+        
+            <a href="/" class="brand">Oak4Sure</a>
+        
+    </div>
+
+                    <nav class="nav">
+    <ul class="menu" id="menu">
+        
+
+        
+            
+                <li class="menu-item"><a href="/tech/"><span class="menu-item-name">技術</span></a>
+                </li>
+            
+        
+            
+                <li class="menu-item"><a href="/life/"><span class="menu-item-name">生活</span></a>
+                </li>
+            
+        
+            
+                <li class="menu-item"><a href="/tags/"><span class="menu-item-name">標簽</span></a>
+                </li>
+            
+        
+            
+                <li class="menu-item"><a href="https://lihh7.github.io/" target="_blank" rel="external noopener"><span class="menu-item-name">友鏈</span></a>
+                </li>
+            
+        
+            
+                
+                    
+                    
+                        <li class="menu-item">
+                            <a id="theme-switcher" href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon theme-icon-light"><path d="M193.2 104.5l48.8-97.5a18 18 0 0128 0l48.8 97.5 103.4 -34.5a18 18 0 0119.8 19.8l-34.5 103.4l97.5 48.8a18 18 0 010 28l-97.5 48.8 34.5 103.4a18 18 0 01-19.8 19.8l-103.4-34.5-48.8 97.5a18 18 0 01-28 0l-48.8-97.5l-103.4 34.5a18 18 0 01-19.8-19.8l34.5-103.4-97.5-48.8a18 18 0 010-28l97.5-48.8-34.5-103.4a18 18 0 0119.8-19.8zM256 128a128 128 0 10.01 0M256 160a96 96 0 10.01 0"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon theme-icon-dark"><path d="M27 412a256 256 0 10154-407a11.5 11.5 0 00-5 20a201.5 201.5 0 01-134 374a11.5 11.5 0 00-15 13"/></svg></a>
+                        </li>
+                    
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+    </ul>
+</nav>
+
+                    
+                </div>
+            </div>
+            
+    <input type="checkbox" id="nav-toggle" aria-hidden="true" />
+    <label for="nav-toggle" class="nav-toggle"></label>
+    <label for="nav-toggle" class="nav-curtain"></label>
+
+
+        
+    </header>
+
+
+
+
+            
+            
+
+<main class="main single" id="main">
+    <div class="main-inner">
+
+        
+
+        <article class="content post h-entry" data-align="justify" data-type="tech" data-toc-num="true">
+
+            <h1 class="post-title p-name">Structure Array 结构体数组</h1>
+
+            
+
+            
+                
+            
+
+            
+
+            <nav class="contents">
+  <h2 id="contents" class="contents-title">目錄</h2><ol class="toc">
+    <li><a id="contents:前置知识" href="#前置知识">前置知识</a>
+      <ol>
+        <li><a id="contents:指针常量和常量指针" href="#指针常量和常量指针">指针常量和常量指针</a></li>
+        <li><a id="contents:数组名和指针" href="#数组名和指针">数组名和指针</a></li>
+      </ol>
+    </li>
+    <li><a id="contents:为什么数组之间不能直接赋值" href="#为什么数组之间不能直接赋值">为什么数组之间不能直接赋值</a>
+      <ol>
+        <li><a id="contents:左值理解" href="#左值理解">左值理解</a></li>
+        <li><a id="contents:指针常量理解" href="#指针常量理解">指针常量理解</a></li>
+      </ol>
+    </li>
+    <li><a id="contents:结构体数组" href="#结构体数组">结构体数组</a></li>
+    <li><a id="contents:结构体的初始化" href="#结构体的初始化">结构体的初始化</a></li>
+  </ol>
+</nav><div class="post-body e-content">
+                <h2 id="前置知识"><a href="#前置知识" class="anchor-link">#</a><a href="#contents:前置知识" class="headings">前置知识</a></h2>
+<h3 id="指针常量和常量指针"><a href="#指针常量和常量指针" class="anchor-link">#</a><a href="#contents:指针常量和常量指针" class="headings">指针常量和常量指针</a></h3>
+<p>谁对谁的名字总是记不住</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">int</span><span class="o">*</span> <span class="k">const</span> <span class="n">b</span><span class="p">;</span>   <span class="cm">/* 指针常量 */</span>
+</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="kt">int</span><span class="o">*</span> <span class="n">a</span><span class="p">;</span>   <span class="cm">/* 常量指针 */</span>
+</span></span></code></pre></td></tr></table></div>
+</div>
+</div><p>观察一下形式，发现<code>*</code>号在左，<code>const</code>在右，<strong>从左往右读</strong>，指针常量。<br>
+反之<code>const</code>在左，<code>*</code>在右，<strong>从左往右读</strong>，常量指针。</p>
+<h3 id="数组名和指针"><a href="#数组名和指针" class="anchor-link">#</a><a href="#contents:数组名和指针" class="headings">数组名和指针</a></h3>
+<p>之前一直都觉得：数组名就是数组开始地址的指针，包括我面试也是这么回答，现在学习到这是错误的或者说不严谨的。</p>
+<p>在C/C++中。<strong>数组就是数组，指针就是指针</strong>，这是两个不同的类型。</p>
+<ul>
+<li>
+<p>数组在内存空间中有确定的空间</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">arr</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  <span class="cm">/* 内存空间占用：16 */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span><span class="o">*</span> <span class="n">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>    <span class="cm">/* 内存占用：8 (64位系统) */</span>
+</span></span></code></pre></td></tr></table></div>
+</div>
+</div></li>
+<li>
+<p>只不过有时候数组名会<strong>临时的</strong>表示数组中第一个元素的指针常量</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="n">printf</span><span class="p">(</span><span class="s">&#34;a = %p </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">printf</span><span class="p">(</span><span class="s">&#34;&amp;a = %p </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table></div>
+</div>
+</div><p>第一个 <code>printf</code> 中，<code>a</code> 会<strong>临时的</strong>代表指向第一个元素的常量指针。<br>
+第二个 <code>printf</code> 中，<code>a</code> 就表示一个数组，与指针没有半毛钱的关系，前面加上取地址符 <code>&amp;</code>，就表示获取这个数组所在的地址，这个地址与第一个元素的地址是重合的。</p>
+</li>
+</ul>
+<h2 id="为什么数组之间不能直接赋值"><a href="#为什么数组之间不能直接赋值" class="anchor-link">#</a><a href="#contents:为什么数组之间不能直接赋值" class="headings">为什么数组之间不能直接赋值</a></h2>
+<h3 id="左值理解"><a href="#左值理解" class="anchor-link">#</a><a href="#contents:左值理解" class="headings">左值理解</a></h3>
+<p><strong>数组就是数组，指针就是指针</strong><br>
+在llvm中间代码中，也是会分为数组类型和指针类型的：</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="c1">/// ElementType：数组元素的类型
+</span></span></span><span class="line"><span class="cl"><span class="c1">/// NumElements：数组元素的个数
+</span></span></span><span class="line"><span class="cl"><span class="c1">/// static ArrayType *llvm::ArrayType::get(Type *ElementType, uint64_t NumElements);
+</span></span></span><span class="line"><span class="cl"><span class="c1">/// 例如：int [10];
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">llvm</span><span class="o">::</span><span class="n">ArrayType</span> <span class="o">*</span><span class="n">arrType1D</span> <span class="o">=</span> <span class="n">llvm</span><span class="o">::</span><span class="n">ArrayType</span><span class="o">::</span><span class="n">get</span><span class="p">(</span><span class="n">Type</span><span class="o">::</span><span class="n">getInt32Ty</span><span class="p">(</span><span class="n">TheContext</span><span class="p">),</span> <span class="mi">10</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">/// ElementType： 指针指向的元素类型
+</span></span></span><span class="line"><span class="cl"><span class="c1">/// AddressSpace：地址空间，0表示默认地址空间
+</span></span></span><span class="line"><span class="cl"><span class="c1">/// static PointerType *llvm::PointerType::get(Type *ElementType, unsigned AddressSpace);
+</span></span></span><span class="line"><span class="cl"><span class="c1">/// 例如：int *
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">llvm</span><span class="o">::</span><span class="n">Type</span> <span class="o">*</span><span class="n">pointer</span> <span class="o">=</span> <span class="n">llvm</span><span class="o">::</span><span class="n">PointerType</span><span class="o">::</span><span class="n">get</span><span class="p">(</span><span class="n">Type</span><span class="o">::</span><span class="n">getInt32Ty</span><span class="p">(</span><span class="n">TheContext</span><span class="p">),</span> <span class="mi">0</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table></div>
+</div>
+</div><div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">b</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>  <span class="cm">/* 表达式必须是可以修改的左值 */</span>
+</span></span></code></pre></td></tr></table></div>
+</div>
+</div><p>在第三条赋值语句中，左侧的b是一个<strong>数组类型，不是一个左值</strong>，C/C++规定的左值只有标量和结构体，而数组名不可以作为左值放在赋值表达式左侧。</p>
+<p>同样既然不是左值，那就无法对其进行运算：</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">++</span><span class="p">;</span>    <span class="cm">/* &#34;++&#34;需要左值 */</span>
+</span></span></code></pre></td></tr></table></div>
+</div>
+</div><h3 id="指针常量理解"><a href="#指针常量理解" class="anchor-link">#</a><a href="#contents:指针常量理解" class="headings">指针常量理解</a></h3>
+<p>在表达式中，数组名被<strong>临时的</strong>当作指针常量，那么</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table></div>
+</div>
+</div><p>肯定是不允许的，因为指针常量不允许改变自己的指向。同理：</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="n">a</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="o">--</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table></div>
+</div>
+</div><p>也是不被允许的。</p>
+<h2 id="结构体数组"><a href="#结构体数组" class="anchor-link">#</a><a href="#contents:结构体数组" class="headings">结构体数组</a></h2>
+<p>结构体数组的好处是：</p>
+<ul>
+<li><strong>可以直接进行赋值</strong></li>
+<li><strong>可以作为表达式返回</strong></li>
+<li><strong>可以作为参数传递</strong></li>
+</ul>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="cm">/* 定义报文结构：128字节的报文 */</span>
+</span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="k">struct</span> <span class="nc">Packt</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">char</span> <span class="n">packet</span><span class="p">[</span><span class="mi">128</span><span class="p">];</span>	<span class="cm">/* 结构体数组 */</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span><span class="n">Packet</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/* 出参: p_ptr */</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">GetPacket1</span><span class="p">(</span><span class="n">Packet</span><span class="o">*</span> <span class="n">p_ptr</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">Packet</span> <span class="n">res</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&#34;123&#34;</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">	<span class="o">*</span><span class="n">p_ptr</span> <span class="o">=</span> <span class="n">res</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/* 返回值类型：Packet */</span>
+</span></span><span class="line"><span class="cl"><span class="n">Packet</span> <span class="nf">GetPacket2</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">Packet</span> <span class="n">res</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&#34;456&#34;</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">res</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">Packet</span> <span class="n">a</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&#34;this is a packet&#34;</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">	<span class="cm">/* 直接赋值 */</span>
+</span></span><span class="line"><span class="cl">	<span class="n">Packet</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">b</span><span class="p">.</span><span class="n">packet</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>	<span class="cm">/* this is a packet */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="cm">/* 使用参数赋值 */</span>
+</span></span><span class="line"><span class="cl">	<span class="n">GetPacket1</span><span class="p">(</span><span class="o">&amp;</span><span class="n">b</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">b</span><span class="p">.</span><span class="n">packet</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>	<span class="cm">/* 123 */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="cm">/* 使用返回值赋值 */</span>
+</span></span><span class="line"><span class="cl">	<span class="n">b</span> <span class="o">=</span> <span class="n">GetPacket2</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">b</span><span class="p">.</span><span class="n">packet</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>	<span class="cm">/* 456 */</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table></div>
+</div>
+</div><p>但是<strong>这并没有直接操作结构体中的数组，操作的是结构体实例</strong>，而实例是一个左值。<br>
+直接操作里面的数组依然是不被允许的：</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">Packet</span> <span class="n">a</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&#34;this is a packet&#34;</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="cm">/* 直接操作结构体里的数组 */</span>
+</span></span><span class="line"><span class="cl">	<span class="n">Packet</span> <span class="n">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">b</span><span class="p">.</span><span class="n">packet</span> <span class="o">=</span> <span class="n">a</span><span class="p">.</span><span class="n">packet</span><span class="p">;</span>	<span class="cm">/* 表达式必须是可修改的左值 */</span>
+</span></span><span class="line"><span class="cl">	<span class="n">b</span><span class="p">.</span><span class="n">packet</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span> <span class="p">};</span>	<span class="cm">/* 表达式必须是可修改的左值 */</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table></div>
+</div>
+</div><h2 id="结构体的初始化"><a href="#结构体的初始化" class="anchor-link">#</a><a href="#contents:结构体的初始化" class="headings">结构体的初始化</a></h2>
+<p>只要声明结构体的时候使用了初始化，即使没有为所有成员都指定初始化，结构体的所有成员都会被初始化。</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="k">typedef</span> <span class="k">struct</span> <span class="n">MyStruct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">len</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">pkt</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">short</span> <span class="n">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">long</span> <span class="kt">long</span> <span class="kt">int</span> <span class="n">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span><span class="n">MyStruct</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">MyStruct</span> <span class="n">a</span><span class="p">;</span>					<span class="cm">/* 无初始化，所有成员都不会被初始化 */</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">PrintStruct</span><span class="p">(</span><span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">MyStruct</span> <span class="n">b</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">0</span> <span class="p">};</span>			<span class="cm">/* 部分，但所有成员都会被初始化 */</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">PrintStruct</span><span class="p">(</span><span class="o">&amp;</span><span class="n">b</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">MyStruct</span> <span class="n">c</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">}</span> <span class="p">};</span>	<span class="cm">/* 同上 */</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">PrintStruct</span><span class="p">(</span><span class="o">&amp;</span><span class="n">c</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table></div>
+</div>
+</div><p><img src="/images/%E7%BB%93%E6%9E%84%E4%BD%93%E6%95%B0%E7%BB%84/image.png" alt="结构体初始化"></p>
+<p>声明在global或者用static的结构体，属于<strong>BSS段</strong>，就像其他变量一样，自动初始化为0，除非手动初始化。</p>
+
+            </div>
+
+            
+
+
+        </article>
+
+        
+
+        
+    <div class="updated-badge-container">
+        <span title="Updated @ 2024-10-07 15:59:15 CST" style="cursor:help">
+
+<svg xmlns="http://www.w3.org/2000/svg" width="130" height="20" class="updated-badge"><linearGradient id="b" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="a"><rect width="130" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#a)"><path class="updated-badge-left" d="M0 0h55v20H0z"/><path class="updated-badge-right" d="M55 0h75v20H55z"/><path fill="url(#b)" d="M0 0h130v20H0z"/></g><g fill="#fff" text-anchor="middle" font-size="110"><text x="285" y="150" fill="#010101" fill-opacity=".3" textLength="450" transform="scale(.1)">updated</text><text x="285" y="140" textLength="450" transform="scale(.1)">updated</text><text x="915" y="150" fill="#010101" fill-opacity=".3" textLength="650" transform="scale(.1)">2024-10-07</text><text x="915" y="140" textLength="650" transform="scale(.1)">2024-10-07</text></g></svg>
+        </span></div>
+
+
+
+        
+
+
+        
+
+
+        
+    
+    
+        <div class="related-posts">
+            <h2 class="related-title">相關文章：<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon related-icon"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm144 276c0 6.6-5.4 12-12 12h-92v92c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12v-92h-92c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h92v-92c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v92h92c6.6 0 12 5.4 12 12v56z"/></svg></h2>
+            <ul class="related-list">
+                
+                    <li class="related-item">
+                        <a href="/tech/%E7%BB%93%E6%9E%84%E5%8C%96%E7%BB%91%E5%AE%9A/" class="related-link">Structured Bindings 结构化绑定</a>
+                    </li>
+                
+                    <li class="related-item">
+                        <a href="/tech/byteorder/" class="related-link">Byteorder 字节序</a>
+                    </li>
+                
+                    <li class="related-item">
+                        <a href="/tech/%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0%E5%87%BD%E6%95%B0/" class="related-link">Variable Arguments 可变参数函数</a>
+                    </li>
+                
+                    <li class="related-item">
+                        <a href="/tech/cmake/" class="related-link">Cmake</a>
+                    </li>
+                
+            </ul>
+        </div>
+    
+
+
+
+        
+
+
+        
+    <footer class="minimal-footer">
+        
+            <div class="post-tag"><a href="/tags/c/c-/" rel="tag" class="post-tag-link">#cc</a></div>
+        
+        
+            <div class="post-category">
+                <a href="/tech/" class="post-category-link active">tech</a> | <a href="/life/" class="post-category-link">life</a>
+            </div>
+        
+        
+    </footer>
+
+
+
+        
+
+
+        
+    
+        
+        
+    
+    
+    
+    
+        <ul class="post-nav">
+            
+                <li class="post-nav-prev">
+                    <a href="/tech/%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0%E5%87%BD%E6%95%B0/" rel="prev">&lt; Variable Arguments 可变参数函数</a>
+                </li>
+            
+            
+                <li class="post-nav-next">
+                    <a href="/tech/git%E4%BD%BF%E7%94%A8/" rel="next">Git 使用 &gt;</a>
+                </li>
+            
+        </ul>
+    
+
+
+
+        
+
+
+    </div>
+</main>
+
+
+            
+    <div id="back-to-top" class="back-to-top">
+        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon arrow-up"><path d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z"/></svg></a>
+    </div>
+
+
+            
+
+        </div>
+        <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('\/sw.js');
+            });
+        }
+    </script>
+
+
+        
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/medium-zoom@latest/dist/medium-zoom.min.js"></script>
+
+<script>
+    let imgNodes = document.querySelectorAll('div.post-body img');
+    imgNodes = Array.from(imgNodes).filter(node => node.parentNode.tagName !== "A");
+
+    mediumZoom(imgNodes, {
+        background: 'hsla(var(--color-bg-h), var(--color-bg-s), var(--color-bg-l), 0.95)'
+    })
+</script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/instant.page@5.1.0/instantpage.min.js" type="module" defer></script>
+
+
+
+
+
+
+    </body>
+</html>
