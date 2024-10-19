@@ -34,7 +34,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto&#43;Serif&#43;TC:wght@400;500;700&amp;family=Noto&#43;Serif&#43;SC:wght@400;500;700&amp;family=Source&#43;Code&#43;Pro:ital,wght@0,400;0,700;1,400;1,700&amp;family=Cinzel&#43;Decorative:wght@700&amp;display=swap" />
     </noscript>
 
-    <meta name="author" content="Oak4Sure" /><meta name="description" content="函数对象 Lambda 闭包" />
+    <meta name="author" content="Oak4Sure" /><meta name="description" content="函数对象 一个重载了括号运算符()的类就是一个函数类。当该类的对象调用()运算符的时候……" />
 
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#2a6df4" />
@@ -61,14 +61,14 @@
         "@context": "https://schema.org",
         "@type": "BlogPosting",
         "datePublished": "2024-10-07T16:05:33+08:00",
-        "dateModified": "2024-10-07T16:10:28+08:00",
+        "dateModified": "2024-10-13T23:47:18+08:00",
         "url": "https://oak4sure.github.io/tech/%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0/",
         "headline": "Function Object \u0026 Lambda 函数对象与匿名函数",
-        "description": "函数对象 Lambda 闭包",
+        "description": "函数对象 一个重载了括号运算符()的类就是一个函数类。当该类的对象调用()运算符的时候……",
         "inLanguage" : "zh-hant",
         "articleSection": "tech",
-        "wordCount":  7 ,
-        "image": "https://oak4sure.github.io/static/icons/apple-touch-icon.png",
+        "wordCount":  970 ,
+        "image": ["https://oak4sure.github.io/images/%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0/image.png","https://oak4sure.github.io/images/%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0/image1.png","https://oak4sure.github.io/images/%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0/image2.png"],
         "author": {
             "@type": "Person",
             "description": "Walk The Talk",
@@ -96,7 +96,8 @@
 
     
 
-<meta name="twitter:card" content="summary" />
+<meta name="twitter:card" content="summary_large_image" />
+
 
 
     
@@ -104,13 +105,13 @@
 
 
 <meta property="og:title" content="Function Object &amp; Lambda 函数对象与匿名函数" />
-<meta property="og:description" content="函数对象 Lambda 闭包" />
+<meta property="og:description" content="函数对象 一个重载了括号运算符()的类就是一个函数类。当该类的对象调用()运算符的时候……" />
 <meta property="og:url" content="https://oak4sure.github.io/tech/%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0/" />
 <meta property="og:site_name" content="Oak4Sure" />
-<meta property="og:locale" content="zh-hant" /><meta property="og:image" content="https://oak4sure.github.io/static/icons/apple-touch-icon.png" />
-    <meta property="og:type" content="article" />
+<meta property="og:locale" content="zh-hant" /><meta property="og:image" content="https://oak4sure.github.io/images/%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0/image.png" />
+<meta property="og:type" content="article" />
     <meta property="article:published_time" content="2024-10-07T16:05:33&#43;08:00" />
-    <meta property="article:modified_time" content="2024-10-07T16:10:28&#43;08:00" />
+    <meta property="article:modified_time" content="2024-10-13T23:47:18&#43;08:00" />
     
     <meta property="article:section" content="tech" />
 
@@ -219,14 +220,276 @@
 
             <nav class="contents">
   <h2 id="contents" class="contents-title">目錄</h2><ol class="toc">
-    <li><a id="contents:函数对象" href="#函数对象">函数对象</a></li>
-    <li><a id="contents:lambda" href="#lambda">Lambda</a></li>
+    <li><a id="contents:函数对象" href="#函数对象">函数对象</a>
+      <ol>
+        <li><a id="contents:对比普通函数的优势" href="#对比普通函数的优势">对比普通函数的优势</a></li>
+      </ol>
+    </li>
+    <li><a id="contents:lambda" href="#lambda">Lambda</a>
+      <ol>
+        <li><a id="contents:值捕获" href="#值捕获">值捕获</a></li>
+        <li><a id="contents:引用捕获" href="#引用捕获">引用捕获</a></li>
+        <li><a id="contents:混合捕获" href="#混合捕获">混合捕获</a></li>
+      </ol>
+    </li>
     <li><a id="contents:闭包" href="#闭包">闭包</a></li>
   </ol>
 </nav><div class="post-body e-content">
                 <h2 id="函数对象"><a href="#函数对象" class="anchor-link">#</a><a href="#contents:函数对象" class="headings">函数对象</a></h2>
+<p>一个重载了括号运算符<code>()</code>的类就是一个函数类。当该类的对象调用<code>()</code>运算符的时候，表现形式就像是函数一样，因此取名<strong>函数对象</strong>。</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Function</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="k">operator</span><span class="p">()(</span><span class="kt">int</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="o">++</span><span class="n">callCount</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;a: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Call Count: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">callCount</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">callCount</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table></div>
+</div>
+</div><h3 id="对比普通函数的优势"><a href="#对比普通函数的优势" class="anchor-link">#</a><a href="#contents:对比普通函数的优势" class="headings">对比普通函数的优势</a></h3>
+<ol>
+<li>
+<p>函数对象有自己的状态，可以保存在类中，比如调用次数<code>CallCount</code>：</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"> <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">     <span class="n">Function</span> <span class="n">f</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">     <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">         <span class="n">f</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> <span class="p">}</span>
+</span></span></code></pre></td></tr></table></div>
+</div>
+</div><p>输出结果：
+<img src="/images/%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0/image.png" alt="函数对象调用"></p>
+</li>
+<li>
+<p>函数对象有自己的类型，类型就是对应的类，而普通函数是没有的。使用这个类型可以用来传参，挂钩子，为STL库的函数的钩子提供自己的实现：</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Compare</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"> <span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">     <span class="kt">bool</span> <span class="k">operator</span><span class="p">()(</span><span class="k">const</span> <span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">         <span class="k">return</span> <span class="n">a</span><span class="p">.</span><span class="n">second</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">.</span><span class="n">second</span><span class="p">;</span> <span class="cm">/* 根据第二个元素构建大根堆 */</span>
+</span></span><span class="line"><span class="cl">     <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">     <span class="cm">/* 传入函数类型，挂钩子 */</span>
+</span></span><span class="line"><span class="cl">     <span class="n">priority_queue</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">,</span> <span class="n">Compare</span><span class="o">&gt;</span> <span class="n">heap</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">     <span class="n">heap</span><span class="p">.</span><span class="n">emplace</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">18</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">     <span class="n">heap</span><span class="p">.</span><span class="n">emplace</span><span class="p">(</span><span class="mi">514</span><span class="p">,</span> <span class="mi">123</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">     <span class="n">heap</span><span class="p">.</span><span class="n">emplace</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">11</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">     <span class="n">heap</span><span class="p">.</span><span class="n">emplace</span><span class="p">(</span><span class="mi">51</span><span class="p">,</span> <span class="mi">21</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">     <span class="n">heap</span><span class="p">.</span><span class="n">emplace</span><span class="p">(</span><span class="mi">53</span><span class="p">,</span> <span class="mi">91</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">     <span class="n">heap</span><span class="p">.</span><span class="n">emplace</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">146</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">     <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">heap</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">         <span class="k">auto</span> <span class="o">&amp;</span><span class="n">ele</span> <span class="o">=</span> <span class="n">heap</span><span class="p">.</span><span class="n">top</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">         <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;1: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">ele</span><span class="p">.</span><span class="n">first</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; 2: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">ele</span><span class="p">.</span><span class="n">second</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">         <span class="n">heap</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">     <span class="p">}</span>
+</span></span><span class="line"><span class="cl">     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> <span class="p">}</span>
+</span></span></code></pre></td></tr></table></div>
+</div>
+</div><p>输出结果：
+<img src="/images/%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0/image1.png" alt="alt text"></p>
+</li>
+<li>
+<p><code>operator()</code>直接定义在类内部，默认是内联函数，编译器会决定是否内联。</p>
+</li>
+</ol>
 <h2 id="lambda"><a href="#lambda" class="anchor-link">#</a><a href="#contents:lambda" class="headings">Lambda</a></h2>
-<h2 id="闭包"><a href="#闭包" class="anchor-link">#</a><a href="#contents:闭包" class="headings">闭包</a></h2>
+<p>就是一个<strong>匿名函数对象</strong>，会有对应的匿名类。</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="p">[</span><span class="err">捕获列表</span><span class="p">](</span><span class="err">参数列表</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="err">返回类型</span> <span class="p">{</span> <span class="err">函数体</span> <span class="p">}</span>
+</span></span></code></pre></td></tr></table></div>
+</div>
+</div><p>返回类型编译器可以自己推导，可以不加。</p>
+<p><strong>捕获</strong>操作就像是在匿名类中添加成员变量，可以用来保存状态：</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">times</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">auto</span> <span class="n">f</span> <span class="o">=</span> <span class="p">[</span><span class="n">times</span><span class="p">](</span><span class="kt">int</span> <span class="n">a</span><span class="p">)</span> <span class="k">mutable</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="o">++</span><span class="n">times</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;a: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Call Count: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">times</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">f</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="cm">/* 
+</span></span></span><span class="line"><span class="cl"><span class="cm">        lambda表达式调用也可以使用括号运算符的方式调用：
+</span></span></span><span class="line"><span class="cl"><span class="cm">        f.operator()(i);
+</span></span></span><span class="line"><span class="cl"><span class="cm">        等价于f(i)
+</span></span></span><span class="line"><span class="cl"><span class="cm">    */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table></div>
+</div>
+</div><p>Lambda可调用括号运算符，有变量保存状态，因此就是等价一个匿名的函数类，编译的时候编译器为其实现一个类：</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">AnonClass</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="cm">/* 重载括号运算符 */</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="k">operator</span><span class="p">()(</span><span class="kt">int</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="o">++</span><span class="n">times</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;a: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Call Count: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">times</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">times</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="cm">/* 捕获的变量会被实现成类的成员变量 */</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table></div>
+</div>
+</div><h3 id="值捕获"><a href="#值捕获" class="anchor-link">#</a><a href="#contents:值捕获" class="headings">值捕获</a></h3>
+<p>值捕获是默认状态，也可以用<code>=</code>显式表示。值捕获时如果要对捕获的变量进行修改，必须加上<code>mutable</code>关键字。</p>
+<p><code>mutable</code>关键字的作用是把值捕获进来的变量变成左值：
+<img src="/images/%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0/image2.png" alt="alt text"></p>
+<h3 id="引用捕获"><a href="#引用捕获" class="anchor-link">#</a><a href="#contents:引用捕获" class="headings">引用捕获</a></h3>
+<p>修改捕获的变量同时会对外部变量进行修改。</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">auto</span> <span class="n">f</span> <span class="o">=</span> <span class="p">[</span><span class="o">&amp;</span><span class="n">result</span><span class="p">](</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="n">f</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="cm">/* 输出9 */</span>
+</span></span></code></pre></td></tr></table></div>
+</div>
+</div><h3 id="混合捕获"><a href="#混合捕获" class="anchor-link">#</a><a href="#contents:混合捕获" class="headings">混合捕获</a></h3>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">auto</span> <span class="n">lambda</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">y</span><span class="p">]()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// x 是值捕获，y 是引用捕获
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;x: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// x: 10
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;y: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">y</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// y: 20
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">y</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>                     <span class="c1">// 修改外部变量 y
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">lambda</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;y: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">y</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// y: 30，因为 y 是通过引用捕获的
+</span></span></span></code></pre></td></tr></table></div>
+</div>
+</div><h2 id="闭包"><a href="#闭包" class="anchor-link">#</a><a href="#contents:闭包" class="headings">闭包</a></h2>
 
             </div>
 
@@ -239,9 +502,9 @@
 
         
     <div class="updated-badge-container">
-        <span title="Updated @ 2024-10-07 16:10:28 CST" style="cursor:help">
+        <span title="Updated @ 2024-10-13 23:47:18 CST" style="cursor:help">
 
-<svg xmlns="http://www.w3.org/2000/svg" width="130" height="20" class="updated-badge"><linearGradient id="b" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="a"><rect width="130" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#a)"><path class="updated-badge-left" d="M0 0h55v20H0z"/><path class="updated-badge-right" d="M55 0h75v20H55z"/><path fill="url(#b)" d="M0 0h130v20H0z"/></g><g fill="#fff" text-anchor="middle" font-size="110"><text x="285" y="150" fill="#010101" fill-opacity=".3" textLength="450" transform="scale(.1)">updated</text><text x="285" y="140" textLength="450" transform="scale(.1)">updated</text><text x="915" y="150" fill="#010101" fill-opacity=".3" textLength="650" transform="scale(.1)">2024-10-07</text><text x="915" y="140" textLength="650" transform="scale(.1)">2024-10-07</text></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="130" height="20" class="updated-badge"><linearGradient id="b" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="a"><rect width="130" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#a)"><path class="updated-badge-left" d="M0 0h55v20H0z"/><path class="updated-badge-right" d="M55 0h75v20H55z"/><path fill="url(#b)" d="M0 0h130v20H0z"/></g><g fill="#fff" text-anchor="middle" font-size="110"><text x="285" y="150" fill="#010101" fill-opacity=".3" textLength="450" transform="scale(.1)">updated</text><text x="285" y="140" textLength="450" transform="scale(.1)">updated</text><text x="915" y="150" fill="#010101" fill-opacity=".3" textLength="650" transform="scale(.1)">2024-10-13</text><text x="915" y="140" textLength="650" transform="scale(.1)">2024-10-13</text></g></svg>
         </span></div>
 
 

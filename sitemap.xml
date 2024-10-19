@@ -2,14 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://oak4sure.github.io/tech/%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0/</loc>
-    <lastmod>2024-10-07T16:10:28+08:00</lastmod>
+    <loc>https://oak4sure.github.io/tags/kernel/</loc>
+    <lastmod>2024-10-19T21:37:55+08:00</lastmod>
+  </url><url>
+    <loc>https://oak4sure.github.io/life/kernel/</loc>
+    <lastmod>2024-10-19T21:37:55+08:00</lastmod>
+  </url><url>
+    <loc>https://oak4sure.github.io/life/</loc>
+    <lastmod>2024-10-19T21:37:55+08:00</lastmod>
   </url><url>
     <loc>https://oak4sure.github.io/</loc>
-    <lastmod>2024-10-07T16:10:28+08:00</lastmod>
+    <lastmod>2024-10-19T21:37:55+08:00</lastmod>
+  </url><url>
+    <loc>https://oak4sure.github.io/tags/</loc>
+    <lastmod>2024-10-19T21:37:55+08:00</lastmod>
+  </url><url>
+    <loc>https://oak4sure.github.io/tech/%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0/</loc>
+    <lastmod>2024-10-13T23:47:18+08:00</lastmod>
   </url><url>
     <loc>https://oak4sure.github.io/tech/</loc>
-    <lastmod>2024-10-07T16:10:28+08:00</lastmod>
+    <lastmod>2024-10-19T20:03:59+08:00</lastmod>
   </url><url>
     <loc>https://oak4sure.github.io/tags/c/c-/</loc>
     <lastmod>2024-10-07T16:00:48+08:00</lastmod>
@@ -17,23 +29,11 @@
     <loc>https://oak4sure.github.io/tech/%E7%BB%93%E6%9E%84%E5%8C%96%E7%BB%91%E5%AE%9A/</loc>
     <lastmod>2024-10-07T15:59:22+08:00</lastmod>
   </url><url>
-    <loc>https://oak4sure.github.io/tags/</loc>
-    <lastmod>2024-10-07T16:00:48+08:00</lastmod>
-  </url><url>
-    <loc>https://oak4sure.github.io/life/</loc>
-    <lastmod>2024-09-28T21:56:20+08:00</lastmod>
-  </url><url>
-    <loc>https://oak4sure.github.io/tags/summer-intership/</loc>
-    <lastmod>2024-10-07T15:58:01+08:00</lastmod>
+    <loc>https://oak4sure.github.io/tags/summer-internship/</loc>
+    <lastmod>2024-10-19T20:04:08+08:00</lastmod>
   </url><url>
     <loc>https://oak4sure.github.io/life/%E5%B7%A5%E4%BD%9C%E6%96%B9%E6%B3%95%E8%AE%BA%E5%9B%A2%E9%98%9F%E4%BA%8B%E5%8A%A1/</loc>
-    <lastmod>2024-09-28T21:56:20+08:00</lastmod>
-  </url><url>
-    <loc>https://oak4sure.github.io/life/hold-my-beer/</loc>
-    <lastmod>2024-09-22T01:44:41+08:00</lastmod>
-  </url><url>
-    <loc>https://oak4sure.github.io/tags/sense-of-purpose/</loc>
-    <lastmod>2024-10-07T15:58:01+08:00</lastmod>
+    <lastmod>2024-10-19T20:03:59+08:00</lastmod>
   </url><url>
     <loc>https://oak4sure.github.io/tech/byteorder/</loc>
     <lastmod>2024-10-07T16:00:48+08:00</lastmod>
@@ -45,22 +45,22 @@
     <lastmod>2024-10-07T15:59:15+08:00</lastmod>
   </url><url>
     <loc>https://oak4sure.github.io/tags/git/</loc>
-    <lastmod>2024-08-17T14:25:55+08:00</lastmod>
+    <lastmod>2024-10-13T16:06:39+08:00</lastmod>
   </url><url>
     <loc>https://oak4sure.github.io/tech/git%E4%BD%BF%E7%94%A8/</loc>
-    <lastmod>2024-08-17T14:25:55+08:00</lastmod>
+    <lastmod>2024-10-13T16:06:39+08:00</lastmod>
   </url><url>
     <loc>https://oak4sure.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/</loc>
-    <lastmod>2024-10-07T15:57:49+08:00</lastmod>
+    <lastmod>2024-10-13T16:06:39+08:00</lastmod>
   </url><url>
     <loc>https://oak4sure.github.io/tech/july-intership-record/</loc>
-    <lastmod>2024-10-06T20:30:24+08:00</lastmod>
+    <lastmod>2024-10-19T20:03:59+08:00</lastmod>
   </url><url>
-    <loc>https://oak4sure.github.io/life/live-to-learn-intership/</loc>
-    <lastmod>2024-08-09T22:17:48+08:00</lastmod>
+    <loc>https://oak4sure.github.io/life/intership-record/</loc>
+    <lastmod>2024-10-19T20:04:08+08:00</lastmod>
   </url><url>
     <loc>https://oak4sure.github.io/tags/whatever/</loc>
-    <lastmod>2024-08-09T22:17:48+08:00</lastmod>
+    <lastmod>2024-10-19T20:04:08+08:00</lastmod>
   </url><url>
     <loc>https://oak4sure.github.io/tags/final-exam/</loc>
     <lastmod>2024-07-21T10:18:51+08:00</lastmod>
@@ -120,10 +120,7 @@
     <lastmod>2024-07-20T21:11:14+08:00</lastmod>
   </url><url>
     <loc>https://oak4sure.github.io/life/after-zhuhai/</loc>
-    <lastmod>2024-07-21T10:15:08+08:00</lastmod>
-  </url><url>
-    <loc>https://oak4sure.github.io/tags/watershed/</loc>
-    <lastmod>2024-07-21T10:15:08+08:00</lastmod>
+    <lastmod>2024-10-19T19:58:33+08:00</lastmod>
   </url><url>
     <loc>https://oak4sure.github.io/tags/english/</loc>
     <lastmod>2024-07-21T10:15:53+08:00</lastmod>
@@ -138,21 +135,24 @@
     <lastmod>2024-07-21T10:15:44+08:00</lastmod>
   </url><url>
     <loc>https://oak4sure.github.io/tech/%E7%81%B5%E7%8A%80%E4%BA%92%E5%A8%B1-%E6%B5%8B%E5%BC%80/</loc>
-    <lastmod>2024-07-21T10:19:51+08:00</lastmod>
+    <lastmod>2024-10-19T20:03:59+08:00</lastmod>
   </url><url>
     <loc>https://oak4sure.github.io/tags/handle-keyboard-input/</loc>
-    <lastmod>2024-10-07T15:58:01+08:00</lastmod>
+    <lastmod>2024-10-19T20:03:59+08:00</lastmod>
+  </url><url>
+    <loc>https://oak4sure.github.io/tags/sense-of-purpose/</loc>
+    <lastmod>2024-10-19T20:03:59+08:00</lastmod>
   </url><url>
     <loc>https://oak4sure.github.io/tech/%E5%8D%8E%E4%B8%BA%E6%95%B0%E9%80%9A%E9%80%9A%E7%94%A8%E8%BD%AF%E5%BC%80/</loc>
-    <lastmod>2024-10-07T15:58:01+08:00</lastmod>
+    <lastmod>2024-10-19T20:03:59+08:00</lastmod>
   </url><url>
     <loc>https://oak4sure.github.io/tech/wxg2/</loc>
-    <lastmod>2024-07-20T21:12:12+08:00</lastmod>
+    <lastmod>2024-10-19T20:03:59+08:00</lastmod>
   </url><url>
     <loc>https://oak4sure.github.io/tech/wxg1/</loc>
-    <lastmod>2024-07-20T21:12:09+08:00</lastmod>
+    <lastmod>2024-10-19T20:03:59+08:00</lastmod>
   </url><url>
     <loc>https://oak4sure.github.io/tech/lazada-%E5%AE%A2%E6%88%B7%E7%AB%AF/</loc>
-    <lastmod>2024-07-21T16:05:08+08:00</lastmod>
+    <lastmod>2024-10-19T20:03:59+08:00</lastmod>
   </url>
 </urlset>
