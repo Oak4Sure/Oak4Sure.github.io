@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-hant">
     <title type="text">Oak4Sure</title>
     <subtitle type="html">MemE 是一个强大且可高度定制的 GoHugo 博客主题，专为个人博客设计。</subtitle>
-    <updated>2024-10-19T21:38:01&#43;08:00</updated>
+    <updated>2024-11-30T11:31:58&#43;08:00</updated>
     <id>https://oak4sure.github.io/</id>
     <link rel="alternate" type="text/html" href="https://oak4sure.github.io/" />
     <link rel="self" type="application/atom&#43;xml" href="https://oak4sure.github.io/atom.xml" />
@@ -20,7 +20,7 @@
             <title type="text">Kernel</title>
             <link rel="alternate" type="text/html" href="https://oak4sure.github.io/life/kernel/" />
             <id>https://oak4sure.github.io/life/kernel/</id>
-            <updated>2024-10-19T21:37:55&#43;08:00</updated>
+            <updated>2024-11-30T11:31:36&#43;08:00</updated>
             <published>2024-10-19T19:53:42&#43;08:00</published>
             <author>
                     <name>Oak4Sure</name>
@@ -90,7 +90,7 @@
             <title type="text">Function Object &amp; Lambda 函数对象与匿名函数</title>
             <link rel="alternate" type="text/html" href="https://oak4sure.github.io/tech/%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0/" />
             <id>https://oak4sure.github.io/tech/%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0/</id>
-            <updated>2024-10-13T23:47:18&#43;08:00</updated>
+            <updated>2024-11-25T23:45:33&#43;08:00</updated>
             <published>2024-10-07T16:05:33&#43;08:00</published>
             <author>
                     <name>Oak4Sure</name>
@@ -353,8 +353,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;y: &amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;y&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;endl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// y: 30，因为 y 是通过引用捕获的
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;闭包&#34;&gt;闭包&lt;/h2&gt;
-</content>
+&lt;/div&gt;</content>
             
             
             
@@ -3628,65 +3627,10 @@ int a=1用一个char指针去指他，对char指针解引用，看看是不是1&
         </entry>
     
         <entry>
-            <title type="text">Iterator 迭代器模式</title>
-            <link rel="alternate" type="text/html" href="https://oak4sure.github.io/tech/iterator/" />
-            <id>https://oak4sure.github.io/tech/iterator/</id>
-            <updated>2024-07-21T10:18:58&#43;08:00</updated>
-            <published>2024-06-14T20:24:11&#43;00:00</published>
-            <author>
-                    <name>Oak4Sure</name>
-                    <uri>https://oak4sure.github.io/</uri>
-                    <email>arrebolllll@gmail.com</email>
-                    </author>
-            <rights>本文采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 许可协议，转载请注明出处。</rights><summary type="html">&lt;p&gt;Introduction to the Iterator Pattern and its Implementation in C++.
-迭代器模式的介绍及其C++实现。&lt;/p&gt;
-&lt;hr&gt;</summary>
-            
-                <content type="html">&lt;p&gt;Introduction to the Iterator Pattern and its Implementation in C++.
-迭代器模式的介绍及其C++实现。&lt;/p&gt;
-&lt;hr&gt;</content>
-            
-            
-            
-                
-                
-                
-                    
-                    
-                    
-                        
-                            <category scheme="https://oak4sure.github.io/tech/" term="tech\" label="tech\" />
-                        
-                    
-                
-            
-            
-            
-                
-                    
-                        
-                            
-                            
-                            
-                                <category scheme="https://oak4sure.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" term="软件工程" label="软件工程" />
-                            
-                        
-                            
-                            
-                            
-                                <category scheme="https://oak4sure.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" term="设计模式" label="设计模式" />
-                            
-                        
-                    
-                
-            
-        </entry>
-    
-        <entry>
-            <title type="text">Cmake</title>
+            <title type="text">CMake</title>
             <link rel="alternate" type="text/html" href="https://oak4sure.github.io/tech/cmake/" />
             <id>https://oak4sure.github.io/tech/cmake/</id>
-            <updated>2024-10-02T13:48:08&#43;08:00</updated>
+            <updated>2024-11-30T11:29:11&#43;08:00</updated>
             <published>2024-06-11T17:25:29&#43;00:00</published>
             <author>
                     <name>Oak4Sure</name>
@@ -3768,64 +3712,6 @@ int a=1用一个char指针去指他，对char指针解引用，看看是不是1&
                             
                             
                                 <category scheme="https://oak4sure.github.io/tags/c/c-/" term="C/C&#43;&#43;" label="C/C&#43;&#43;" />
-                            
-                        
-                    
-                
-            
-        </entry>
-    
-        <entry>
-            <title type="text">Composite 组合模式</title>
-            <link rel="alternate" type="text/html" href="https://oak4sure.github.io/tech/composite/" />
-            <id>https://oak4sure.github.io/tech/composite/</id>
-            <updated>2024-07-21T10:18:01&#43;08:00</updated>
-            <published>2024-06-11T17:14:44&#43;00:00</published>
-            <author>
-                    <name>Oak4Sure</name>
-                    <uri>https://oak4sure.github.io/</uri>
-                    <email>arrebolllll@gmail.com</email>
-                    </author>
-            <rights>本文采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 许可协议，转载请注明出处。</rights><summary type="html">&lt;p&gt;Introduction to the Composite Pattern and its Implementation in C++.
-组合模式的介绍及其C++实现。&lt;/p&gt;
-&lt;hr&gt;……</summary>
-            
-                <content type="html">&lt;p&gt;Introduction to the Composite Pattern and its Implementation in C++.
-组合模式的介绍及其C++实现。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;组合模式&#34;&gt;组合模式&lt;/h2&gt;
-&lt;h3 id=&#34;情形&#34;&gt;情形&lt;/h3&gt;
-&lt;p&gt;组合模式是一种&lt;em&gt;&lt;strong&gt;结构型&lt;/strong&gt;&lt;/em&gt;设计模式，一般用它来将对象组合成&lt;em&gt;&lt;strong&gt;树状结构&lt;/strong&gt;&lt;/em&gt;。比如说Json文件的可视化实现，需要先把Json文件转化为一个树。&lt;/p&gt;</content>
-            
-            
-            
-                
-                
-                
-                    
-                    
-                    
-                        
-                            <category scheme="https://oak4sure.github.io/tech/" term="tech\" label="tech\" />
-                        
-                    
-                
-            
-            
-            
-                
-                    
-                        
-                            
-                            
-                            
-                                <category scheme="https://oak4sure.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" term="软件工程" label="软件工程" />
-                            
-                        
-                            
-                            
-                            
-                                <category scheme="https://oak4sure.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" term="设计模式" label="设计模式" />
                             
                         
                     

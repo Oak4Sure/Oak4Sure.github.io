@@ -23,7 +23,7 @@
         
             <copyright>本文采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 许可协议，转载请注明出处。</copyright>
         
-        <lastBuildDate>Sat, 19 Oct 2024 21:38:01 &#43;0800</lastBuildDate>
+        <lastBuildDate>Sat, 30 Nov 2024 11:31:58 &#43;0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss&#43;xml" href="https://oak4sure.github.io/rss.xml" />
         
@@ -359,8 +359,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;y: &amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;y&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;endl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// y: 30，因为 y 是通过引用捕获的
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;闭包&#34;&gt;闭包&lt;/h2&gt;
-</description>
+&lt;/div&gt;</description>
                 
                 
                 
@@ -3585,57 +3584,7 @@ int a=1用一个char指针去指他，对char指针解引用，看看是不是1&
             </item>
         
             <item>
-                <title>Iterator 迭代器模式</title>
-                <link>https://oak4sure.github.io/tech/iterator/</link>
-                <guid isPermaLink="true">https://oak4sure.github.io/tech/iterator/</guid>
-                <pubDate>Fri, 14 Jun 2024 20:24:11 &#43;0000</pubDate>
-                
-                    <author>arrebolllll@gmail.com (Oak4Sure)</author>
-                
-                <copyright>本文采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 许可协议，转载请注明出处。</copyright>
-                
-                    <description>&lt;p&gt;Introduction to the Iterator Pattern and its Implementation in C++.
-迭代器模式的介绍及其C++实现。&lt;/p&gt;
-&lt;hr&gt;</description>
-                
-                
-                
-                    
-                    
-                    
-                        
-                        
-                        
-                            
-                                <category domain="https://oak4sure.github.io/tech/">tech\</category>
-                            
-                        
-                    
-                
-                
-                
-                    
-                        
-                            
-                                
-                                
-                                
-                                    <category domain="https://oak4sure.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/">软件工程</category>
-                                
-                            
-                                
-                                
-                                
-                                    <category domain="https://oak4sure.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</category>
-                                
-                            
-                        
-                    
-                
-            </item>
-        
-            <item>
-                <title>Cmake</title>
+                <title>CMake</title>
                 <link>https://oak4sure.github.io/tech/cmake/</link>
                 <guid isPermaLink="true">https://oak4sure.github.io/tech/cmake/</guid>
                 <pubDate>Tue, 11 Jun 2024 17:25:29 &#43;0000</pubDate>
@@ -3715,59 +3664,6 @@ int a=1用一个char指针去指他，对char指针解引用，看看是不是1&
                                 
                                 
                                     <category domain="https://oak4sure.github.io/tags/c/c-/">C/C&#43;&#43;</category>
-                                
-                            
-                        
-                    
-                
-            </item>
-        
-            <item>
-                <title>Composite 组合模式</title>
-                <link>https://oak4sure.github.io/tech/composite/</link>
-                <guid isPermaLink="true">https://oak4sure.github.io/tech/composite/</guid>
-                <pubDate>Tue, 11 Jun 2024 17:14:44 &#43;0000</pubDate>
-                
-                    <author>arrebolllll@gmail.com (Oak4Sure)</author>
-                
-                <copyright>本文采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 许可协议，转载请注明出处。</copyright>
-                
-                    <description>&lt;p&gt;Introduction to the Composite Pattern and its Implementation in C++.
-组合模式的介绍及其C++实现。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;组合模式&#34;&gt;组合模式&lt;/h2&gt;
-&lt;h3 id=&#34;情形&#34;&gt;情形&lt;/h3&gt;
-&lt;p&gt;组合模式是一种&lt;em&gt;&lt;strong&gt;结构型&lt;/strong&gt;&lt;/em&gt;设计模式，一般用它来将对象组合成&lt;em&gt;&lt;strong&gt;树状结构&lt;/strong&gt;&lt;/em&gt;。比如说Json文件的可视化实现，需要先把Json文件转化为一个树。&lt;/p&gt;</description>
-                
-                
-                
-                    
-                    
-                    
-                        
-                        
-                        
-                            
-                                <category domain="https://oak4sure.github.io/tech/">tech\</category>
-                            
-                        
-                    
-                
-                
-                
-                    
-                        
-                            
-                                
-                                
-                                
-                                    <category domain="https://oak4sure.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/">软件工程</category>
-                                
-                            
-                                
-                                
-                                
-                                    <category domain="https://oak4sure.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</category>
                                 
                             
                         
