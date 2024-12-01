@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-hant">
     <title type="text">Oak4Sure</title>
     <subtitle type="html">MemE 是一个强大且可高度定制的 GoHugo 博客主题，专为个人博客设计。</subtitle>
-    <updated>2024-12-01T17:04:51&#43;08:00</updated>
+    <updated>2024-12-01T17:07:59&#43;08:00</updated>
     <id>https://oak4sure.github.io/</id>
     <link rel="alternate" type="text/html" href="https://oak4sure.github.io/" />
     <link rel="self" type="application/atom&#43;xml" href="https://oak4sure.github.io/atom.xml" />
@@ -105,7 +105,7 @@
             <title type="text">Reflection-241019</title>
             <link rel="alternate" type="text/html" href="https://oak4sure.github.io/life/reflection-241019/" />
             <id>https://oak4sure.github.io/life/reflection-241019/</id>
-            <updated>2024-11-30T15:08:08&#43;08:00</updated>
+            <updated>2024-12-01T17:07:32&#43;08:00</updated>
             <published>2024-10-19T19:53:42&#43;08:00</published>
             <author>
                     <name>Oak4Sure</name>
@@ -114,7 +114,7 @@
                     </author>
             <rights>本文采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 许可协议，转载请注明出处。</rights><summary type="html">Background 最近接了个任务，主要做的就是把C码中对设备的配置参数转成一个.cfg描述文件。这个……</summary>
             
-                <content type="html">&lt;h3 id=&#34;background&#34;&gt;Background&lt;/h3&gt;
+                <content type="html">&lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;
 &lt;p&gt;最近接了个任务，主要做的就是把C码中对设备的配置参数转成一个.cfg描述文件。这个任务的Timeline比较紧迫，我对这些代码流程又并不熟悉，刚开始接到任务的同时还有另外一个任务还在收尾阶段。&lt;/p&gt;
 &lt;p&gt;几天前我跟我师傅聊起过这个任务，我说咱们部门最近回来的老开发才只用配置化一块板子，我怎么就分到十几块呢。其实我的本意只是诉诉苦，我想要来自他的共鸣——是啊，竟然给你分了十几块板子，你遇到问题可以直接来问我——哪怕是笑笑说，哇竟然给你分十几块，真的啊。&lt;/p&gt;
 &lt;p&gt;都不是。他说这没什么难的。然后接下来说你不用急，不用管量有多少，你要先搞懂一块，哎，你搞明白那个cfg是怎么加载上去的没有？这个要先熟悉代码流程的。&lt;/p&gt;
@@ -125,7 +125,7 @@
 &lt;p&gt;我在意他的看法，因为&lt;strong&gt;我总是处于一个“向外求”的过程&lt;/strong&gt;。在刚认识他是我师傅的时候他不搭理我，我主动上前提出我的诉求——我希望我们关系能很好。在得到他赞扬的时候我很开心，得到他关心的时候我很开心，哪怕是问候，我也很开心。在我叫他去吃饭，他说中午不吃的时候，我会难过——怎么会不吃呢，你每天中午晚上甚至拿夜宵不是跟你师傅一起的吗？但其实确实，没什么可以聊的，工作上业务没有交集，生活上人当然会选择跟一个专家维持好关系，而不是一个什么都不会，还在纠结于能力自证的实习生。&lt;/p&gt;
 &lt;p&gt;我又一次不可避免的认为一个人对我来说举足轻重了，一旦这个前置条件发生，后面就是无可避免的索求更多。&lt;strong&gt;对好朋友索求更多的日常分享，对女人索求遇到困难时的怀抱，对师傅索求态度。可是快乐是自己给的，不是说他人给不了，而是他人即地狱。如果一味向外求，难免会吃苦头——他人不是受你控制的傀儡。&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;回来之后我看了五十度灰，当然，是奔着裸露镜头去的。女主一见面就爱上了年少有为的高富帅，当男主问她为什么还是处女的时候，女主说她在等。女主不会看上一同在五金店内打工帮助她的同事，不会看上相处多年的个人摄影师同学，而是会因为“慕强”立刻爱上男主。即使男主是个dominance，热衷于女主之前都不知道的各种变态play，不会像正常情侣那样和女主相处，甚至不会和女主在同一张床上睡觉。女主也能为他适应，也能为他成为submission。女主会在遇到正常情侣时，在play完他就走开时，在他拒绝她的抚摸时，感到悲伤难过。&lt;strong&gt;But that&#39;s all acceptable. 因为女主“慕强”，因为男主“强”。只要你够强，那么都是acceptable的。&lt;/strong&gt;&lt;/p&gt;
-&lt;h3 id=&#34;features&#34;&gt;Features&lt;/h3&gt;
+&lt;h2 id=&#34;features&#34;&gt;Features&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;内求&lt;/strong&gt;&lt;/p&gt;
