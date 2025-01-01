@@ -23,10 +23,85 @@
         
             <copyright>本文采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 许可协议，转载请注明出处。</copyright>
         
-        <lastBuildDate>Sun, 01 Dec 2024 17:07:59 &#43;0800</lastBuildDate>
+        <lastBuildDate>Wed, 01 Jan 2025 11:18:05 &#43;0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss&#43;xml" href="https://oak4sure.github.io/rss.xml" />
         
+        
+            <item>
+                <title>Win11右键取消显示更多选项</title>
+                <link>https://oak4sure.github.io/tech/win11%E5%8F%B3%E9%94%AE/</link>
+                <guid isPermaLink="true">https://oak4sure.github.io/tech/win11%E5%8F%B3%E9%94%AE/</guid>
+                <pubDate>Wed, 01 Jan 2025 10:59:08 &#43;0800</pubDate>
+                
+                    <author>arrebolllll@gmail.com (Oak4Sure)</author>
+                
+                <copyright>本文采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 许可协议，转载请注明出处。</copyright>
+                
+                    <description>&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;以管理员身份运行cmd&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;输入以下命令&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 向注册表中添加指定的键值（强制覆盖已有值，如果存在的话），此处操作的是与当前用户相关的CLSID下的InprocServer32键，&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 常用于配置COM组件等相关信息，但需谨慎操作，因为注册表修改不当可能影响系统稳定性&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;reg add &lt;span class=&#34;s2&#34;&gt;&amp;#34;HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32&amp;#34;&lt;/span&gt; /f
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 先强制结束Windows资源管理器（explorer.exe）进程，然后再重新启动它，&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 这一步通常用于让一些系统界面相关的配置更改（比如通过前面注册表修改可能影响的界面显示等情况）生效，&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 相当于刷新系统界面使其应用新的设置&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;taskkill /f /im explorer.exe &lt;span class=&#34;p&#34;&gt;&amp;amp;&lt;/span&gt; start explorer.exe
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如果资源管理器有错误，重启计算机&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+                
+                
+                
+                    
+                    
+                    
+                        
+                        
+                        
+                            
+                                <category domain="https://oak4sure.github.io/tech/">tech\</category>
+                            
+                        
+                    
+                
+                
+                
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://oak4sure.github.io/tags/tips/">Tips</category>
+                                
+                            
+                        
+                    
+                
+            </item>
         
             <item>
                 <title>Reflection-241130</title>
@@ -103,6 +178,12 @@
                                 
                                 
                                     <category domain="https://oak4sure.github.io/tags/reflection/">Reflection</category>
+                                
+                            
+                                
+                                
+                                
+                                    <category domain="https://oak4sure.github.io/tags/trip/">Trip</category>
                                 
                             
                         
@@ -459,6 +540,14 @@
                 
                 
                     
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://oak4sure.github.io/tags/c/c-/">C/C&#43;&#43;</category>
+                                
+                            
                         
                     
                 

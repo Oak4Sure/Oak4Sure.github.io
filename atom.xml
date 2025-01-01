@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-hant">
     <title type="text">Oak4Sure</title>
     <subtitle type="html">MemE 是一个强大且可高度定制的 GoHugo 博客主题，专为个人博客设计。</subtitle>
-    <updated>2024-12-01T17:07:59&#43;08:00</updated>
+    <updated>2025-01-01T11:18:05&#43;08:00</updated>
     <id>https://oak4sure.github.io/</id>
     <link rel="alternate" type="text/html" href="https://oak4sure.github.io/" />
     <link rel="self" type="application/atom&#43;xml" href="https://oak4sure.github.io/atom.xml" />
@@ -17,10 +17,88 @@
     <rights>本文采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 许可协议，转载请注明出处。</rights>
     <generator uri="https://gohugo.io/" version="0.129.0">Hugo</generator>
         <entry>
+            <title type="text">Win11右键取消显示更多选项</title>
+            <link rel="alternate" type="text/html" href="https://oak4sure.github.io/tech/win11%E5%8F%B3%E9%94%AE/" />
+            <id>https://oak4sure.github.io/tech/win11%E5%8F%B3%E9%94%AE/</id>
+            <updated>2025-01-01T11:15:47&#43;08:00</updated>
+            <published>2025-01-01T10:59:08&#43;08:00</published>
+            <author>
+                    <name>Oak4Sure</name>
+                    <uri>https://oak4sure.github.io/</uri>
+                    <email>arrebolllll@gmail.com</email>
+                    </author>
+            <rights>本文采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 许可协议，转载请注明出处。</rights><summary type="html">以管理员身份运行cmd 输入以下命令 1 2 3 4 5 6 7 8 # 向注册表中添加指定的键值（强制覆……</summary>
+            
+                <content type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;以管理员身份运行cmd&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;输入以下命令&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 向注册表中添加指定的键值（强制覆盖已有值，如果存在的话），此处操作的是与当前用户相关的CLSID下的InprocServer32键，&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 常用于配置COM组件等相关信息，但需谨慎操作，因为注册表修改不当可能影响系统稳定性&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;reg add &lt;span class=&#34;s2&#34;&gt;&amp;#34;HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32&amp;#34;&lt;/span&gt; /f
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 先强制结束Windows资源管理器（explorer.exe）进程，然后再重新启动它，&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 这一步通常用于让一些系统界面相关的配置更改（比如通过前面注册表修改可能影响的界面显示等情况）生效，&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 相当于刷新系统界面使其应用新的设置&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;taskkill /f /im explorer.exe &lt;span class=&#34;p&#34;&gt;&amp;amp;&lt;/span&gt; start explorer.exe
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如果资源管理器有错误，重启计算机&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+            
+            
+            
+                
+                
+                
+                    
+                    
+                    
+                        
+                            <category scheme="https://oak4sure.github.io/tech/" term="tech\" label="tech\" />
+                        
+                    
+                
+            
+            
+            
+                
+                    
+                        
+                            
+                            
+                            
+                                <category scheme="https://oak4sure.github.io/tags/tips/" term="Tips" label="Tips" />
+                            
+                        
+                    
+                
+            
+        </entry>
+    
+        <entry>
             <title type="text">Reflection-241130</title>
             <link rel="alternate" type="text/html" href="https://oak4sure.github.io/life/reflection-241130/" />
             <id>https://oak4sure.github.io/life/reflection-241130/</id>
-            <updated>2024-12-01T17:04:14&#43;08:00</updated>
+            <updated>2025-01-01T11:15:15&#43;08:00</updated>
             <published>2024-11-30T13:56:25&#43;08:00</published>
             <author>
                     <name>Oak4Sure</name>
@@ -96,6 +174,12 @@
                                 <category scheme="https://oak4sure.github.io/tags/reflection/" term="Reflection" label="Reflection" />
                             
                         
+                            
+                            
+                            
+                                <category scheme="https://oak4sure.github.io/tags/trip/" term="Trip" label="Trip" />
+                            
+                        
                     
                 
             
@@ -105,7 +189,7 @@
             <title type="text">Reflection-241019</title>
             <link rel="alternate" type="text/html" href="https://oak4sure.github.io/life/reflection-241019/" />
             <id>https://oak4sure.github.io/life/reflection-241019/</id>
-            <updated>2024-12-01T17:07:32&#43;08:00</updated>
+            <updated>2025-01-01T11:15:18&#43;08:00</updated>
             <published>2024-10-19T19:53:42&#43;08:00</published>
             <author>
                     <name>Oak4Sure</name>
@@ -174,7 +258,7 @@
             <title type="text">Function Object &amp; Lambda 函数对象与匿名函数</title>
             <link rel="alternate" type="text/html" href="https://oak4sure.github.io/tech/%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0/" />
             <id>https://oak4sure.github.io/tech/%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0/</id>
-            <updated>2024-11-25T23:45:33&#43;08:00</updated>
+            <updated>2025-01-01T11:17:51&#43;08:00</updated>
             <published>2024-10-07T16:05:33&#43;08:00</published>
             <author>
                     <name>Oak4Sure</name>
@@ -456,6 +540,14 @@
             
             
                 
+                    
+                        
+                            
+                            
+                            
+                                <category scheme="https://oak4sure.github.io/tags/c/c-/" term="C/C&#43;&#43;" label="C/C&#43;&#43;" />
+                            
+                        
                     
                 
             
@@ -1585,7 +1677,7 @@
             <title type="text">July Internship Record 七月记录</title>
             <link rel="alternate" type="text/html" href="https://oak4sure.github.io/tech/july-intership-record/" />
             <id>https://oak4sure.github.io/tech/july-intership-record/</id>
-            <updated>2024-10-19T20:03:59&#43;08:00</updated>
+            <updated>2025-01-01T11:15:03&#43;08:00</updated>
             <published>2024-07-17T23:55:51&#43;00:00</published>
             <author>
                     <name>Oak4Sure</name>
@@ -1844,7 +1936,7 @@
             <title type="text">Internship Record (Till Aug 9th)</title>
             <link rel="alternate" type="text/html" href="https://oak4sure.github.io/life/intership-record/" />
             <id>https://oak4sure.github.io/life/intership-record/</id>
-            <updated>2024-10-19T20:04:08&#43;08:00</updated>
+            <updated>2025-01-01T11:15:25&#43;08:00</updated>
             <published>2024-07-15T21:50:32&#43;00:00</published>
             <author>
                     <name>Oak4Sure</name>
@@ -5675,7 +5767,7 @@ so that when u try to make a ssh connection, the ssh will parse the link using t
             <title type="text">ZhuHai blog&#39;s vocab</title>
             <link rel="alternate" type="text/html" href="https://oak4sure.github.io/life/zhuhai-blog/" />
             <id>https://oak4sure.github.io/life/zhuhai-blog/</id>
-            <updated>2024-07-21T10:15:53&#43;08:00</updated>
+            <updated>2025-01-01T11:15:10&#43;08:00</updated>
             <published>2024-06-05T22:44:56&#43;00:00</published>
             <author>
                     <name>Oak4Sure</name>
@@ -5794,7 +5886,7 @@ He reluctantly handed over the keys.（他勉强地交出了钥匙。）&lt;/p&g
             <title type="text">Reflection-240605</title>
             <link rel="alternate" type="text/html" href="https://oak4sure.github.io/life/reflection-240605/" />
             <id>https://oak4sure.github.io/life/reflection-240605/</id>
-            <updated>2024-11-30T16:19:26&#43;08:00</updated>
+            <updated>2025-01-01T11:15:21&#43;08:00</updated>
             <published>2024-06-05T21:44:56&#43;00:00</published>
             <author>
                     <name>Oak4Sure</name>
