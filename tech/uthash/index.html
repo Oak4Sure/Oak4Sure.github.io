@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="zh-hant">
+    <head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#" >
+    <meta charset="UTF-8" />
+
+    <meta name="generator" content="Hugo 0.129.0"><meta name="theme-color" content="#fff" />
+    <meta name="color-scheme" content="light dark">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+    
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <title>uthash.h C语言哈希表 | Oak4Sure</title>
+
+    <link rel="stylesheet" href="/css/meme.min.css" />
+
+    
+    
+    
+    <script src="/js/meme.min.js"></script>
+
+    
+    
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto&#43;Serif&#43;TC:wght@400;500;700&amp;family=Noto&#43;Serif&#43;SC:wght@400;500;700&amp;family=Source&#43;Code&#43;Pro:ital,wght@0,400;0,700;1,400;1,700&amp;family=Cinzel&#43;Decorative:wght@700&amp;display=swap" media="print" onload="this.media='all'" />
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto&#43;Serif&#43;TC:wght@400;500;700&amp;family=Noto&#43;Serif&#43;SC:wght@400;500;700&amp;family=Source&#43;Code&#43;Pro:ital,wght@0,400;0,700;1,400;1,700&amp;family=Cinzel&#43;Decorative:wght@700&amp;display=swap" />
+    </noscript>
+
+    <meta name="author" content="Oak4Sure" /><meta name="description" content="Usage uthash.h实现了C语言的哈希表，是一个Header-only Library Copy the header file into your project,……" />
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#2a6df4" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Oak4Sure" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="Oak4Sure" />
+    <meta name="msapplication-starturl" content="../../" />
+    <meta name="msapplication-TileColor" content="#fff" />
+    <meta name="msapplication-TileImage" content="../../icons/mstile-150x150.png" />
+    <link rel="manifest" href="/manifest.json" />
+
+    
+    
+
+    
+    <link rel="canonical" href="https://oak4sure.github.io/tech/uthash/" />
+    
+
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "datePublished": "2025-02-03T18:50:31+08:00",
+        "dateModified": "2025-02-04T00:08:18+08:00",
+        "url": "https://oak4sure.github.io/tech/uthash/",
+        "headline": "uthash.h C语言哈希表",
+        "description": "Usage uthash.h实现了C语言的哈希表，是一个Header-only Library Copy the header file into your project,……",
+        "inLanguage" : "zh-hant",
+        "articleSection": "tech",
+        "wordCount":  1357 ,
+        "image": "https://oak4sure.github.io/static/icons/apple-touch-icon.png",
+        "author": {
+            "@type": "Person",
+            "description": "Walk The Talk",
+            "email": "arrebolllll@gmail.com",
+            "image": "https://oak4sure.github.io/icons/apple-touch-icon.png",
+            "url": "https://oak4sure.github.io/",
+            "name": "Oak4Sure"
+        },
+        "license": "本文采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 许可协议，转载请注明出处。",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Oak4Sure",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://oak4sure.github.io/static/icons/apple-touch-icon.png"
+            },
+            "url": "https://oak4sure.github.io/"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebSite",
+            "@id": "https://oak4sure.github.io/"
+        }
+    }
+</script>
+
+    
+
+<meta name="twitter:card" content="summary" />
+
+
+    
+
+
+
+<meta property="og:title" content="uthash.h C语言哈希表" />
+<meta property="og:description" content="Usage uthash.h实现了C语言的哈希表，是一个Header-only Library Copy the header file into your project,……" />
+<meta property="og:url" content="https://oak4sure.github.io/tech/uthash/" />
+<meta property="og:site_name" content="Oak4Sure" />
+<meta property="og:locale" content="zh-hant" /><meta property="og:image" content="https://oak4sure.github.io/static/icons/apple-touch-icon.png" />
+    <meta property="og:type" content="article" />
+    <meta property="article:published_time" content="2025-02-03T18:50:31&#43;08:00" />
+    <meta property="article:modified_time" content="2025-02-04T00:08:18&#43;08:00" />
+    
+    <meta property="article:section" content="tech" />
+
+
+
+    
+    
+
+    
+    </head>
+    <body>
+        <div class="container">
+            
+    <header class="header">
+        
+            <div class="header-wrapper">
+                <div class="header-inner single">
+                    
+    <div class="site-brand">
+        
+            <a href="/" class="brand">Oak4Sure</a>
+        
+    </div>
+
+                    <nav class="nav">
+    <ul class="menu" id="menu">
+        
+
+        
+            
+                <li class="menu-item"><a href="/tech/"><span class="menu-item-name">技術</span></a>
+                </li>
+            
+        
+            
+                <li class="menu-item"><a href="/life/"><span class="menu-item-name">生活</span></a>
+                </li>
+            
+        
+            
+                <li class="menu-item"><a href="/tags/"><span class="menu-item-name">標簽</span></a>
+                </li>
+            
+        
+            
+                
+                    
+                    
+                        <li class="menu-item">
+                            <a id="theme-switcher" href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon theme-icon-light"><path d="M193.2 104.5l48.8-97.5a18 18 0 0128 0l48.8 97.5 103.4 -34.5a18 18 0 0119.8 19.8l-34.5 103.4l97.5 48.8a18 18 0 010 28l-97.5 48.8 34.5 103.4a18 18 0 01-19.8 19.8l-103.4-34.5-48.8 97.5a18 18 0 01-28 0l-48.8-97.5l-103.4 34.5a18 18 0 01-19.8-19.8l34.5-103.4-97.5-48.8a18 18 0 010-28l97.5-48.8-34.5-103.4a18 18 0 0119.8-19.8zM256 128a128 128 0 10.01 0M256 160a96 96 0 10.01 0"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon theme-icon-dark"><path d="M27 412a256 256 0 10154-407a11.5 11.5 0 00-5 20a201.5 201.5 0 01-134 374a11.5 11.5 0 00-15 13"/></svg></a>
+                        </li>
+                    
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+    </ul>
+</nav>
+
+                    
+                </div>
+            </div>
+            
+    <input type="checkbox" id="nav-toggle" aria-hidden="true" />
+    <label for="nav-toggle" class="nav-toggle"></label>
+    <label for="nav-toggle" class="nav-curtain"></label>
+
+
+        
+    </header>
+
+
+
+
+            
+            
+
+<main class="main single" id="main">
+    <div class="main-inner">
+
+        
+
+        <article class="content post h-entry" data-align="justify" data-type="tech" data-toc-num="true">
+
+            <h1 class="post-title p-name">uthash.h C语言哈希表</h1>
+
+            
+
+            
+                
+            
+
+            
+
+            <nav class="contents">
+  <h2 id="contents" class="contents-title">目錄</h2><ol class="toc">
+    <li><a id="contents:usage" href="#usage">Usage</a>
+      <ol>
+        <li><a id="contents:structure" href="#structure">Structure</a></li>
+        <li><a id="contents:declaration" href="#declaration">Declaration</a></li>
+      </ol>
+    </li>
+    <li><a id="contents:api" href="#api">API</a>
+      <ol>
+        <li><a id="contents:hash_add_xxx" href="#hash_add_xxx">HASH_ADD_XXX</a>
+          <ol>
+            <li><a id="contents:检查键的唯一性" href="#检查键的唯一性"><em>检查键的唯一性</em></a></li>
+            <li><a id="contents:函数传参" href="#函数传参"><em>函数传参</em></a></li>
+          </ol>
+        </li>
+        <li><a id="contents:hash_find_xxx" href="#hash_find_xxx">HASH_FIND_XXX</a></li>
+        <li><a id="contents:hash_del" href="#hash_del">HASH_DEL</a>
+          <ol>
+            <li><a id="contents:uthash的内存管理" href="#uthash的内存管理"><em>uthash的内存管理</em></a></li>
+            <li><a id="contents:hash_del可能会改变头指针" href="#hash_del可能会改变头指针"><em>HASH_DEL可能会改变头指针</em></a></li>
+          </ol>
+        </li>
+        <li><a id="contents:hash_iter" href="#hash_iter">HASH_ITER</a></li>
+        <li><a id="contents:hash_clear" href="#hash_clear">HASH_CLEAR</a></li>
+        <li><a id="contents:hash_count" href="#hash_count">HASH_COUNT</a></li>
+      </ol>
+    </li>
+    <li><a id="contents:eg" href="#eg">e.g.</a></li>
+  </ol>
+</nav><div class="post-body e-content">
+                <h2 id="usage"><a href="#usage" class="anchor-link">#</a><a href="#contents:usage" class="headings">Usage</a></h2>
+<p><code>uthash.h</code>实现了C语言的哈希表，是一个<em><strong>Header-only Library</strong></em></p>
+<p>Copy the header file into your project, and:</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;uthash.h&#34;</span><span class="cp">
+</span></span></span></code></pre></td></tr></table></div>
+</div>
+</div><h3 id="structure"><a href="#structure" class="anchor-link">#</a><a href="#contents:structure" class="headings">Structure</a></h3>
+<p>uthash允许你将<strong>任何C结构体</strong>存储在哈希表中，只需要在结构体中加入<em><strong>UT_hash_handle</strong></em>成员，并且选择结构体中的一个变量作为<em><strong>key</strong></em></p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">key</span><span class="p">;</span>                 <span class="cm">/* we&#39;ll use this field as the key */</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">name</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="n">UT_hash_handle</span> <span class="n">hh</span><span class="p">;</span>      <span class="cm">/* makes this structure hashable */</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="n">HashItem</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table></div>
+</div>
+</div><h3 id="declaration"><a href="#declaration" class="anchor-link">#</a><a href="#contents:declaration" class="headings">Declaration</a></h3>
+<p>你的哈希表必须首先声明初始化为NULL</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="n">HashItem</span> <span class="n">head</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>  <span class="cm">/* important! initialize to NULL */</span>
+</span></span></code></pre></td></tr></table></div>
+</div>
+</div><h2 id="api"><a href="#api" class="anchor-link">#</a><a href="#contents:api" class="headings">API</a></h2>
+<h3 id="hash_add_xxx"><a href="#hash_add_xxx" class="anchor-link">#</a><a href="#contents:hash_add_xxx" class="headings">HASH_ADD_XXX</a></h3>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="nf">HASH_ADD_INT</span><span class="p">(</span><span class="n">head</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table></div>
+</div>
+</div><ul>
+<li>添加元素到哈希表</li>
+<li><em><strong>head</strong></em>: 之前声明的哈希表头</li>
+<li><em><strong>key</strong></em>: 结构体内被选为键的字段名</li>
+<li><em><strong>s</strong></em>: 要放入哈希表的<strong>结构体指针</strong></li>
+</ul>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">Hash_Add</span><span class="p">(</span><span class="kt">int</span> <span class="n">id</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">HashItem</span> <span class="o">*</span><span class="n">item</span> <span class="o">=</span> <span class="p">(</span><span class="n">HashItem</span><span class="o">*</span><span class="p">)</span><span class="nf">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">HashItem</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">s</span><span class="o">-&gt;</span><span class="n">key</span> <span class="o">=</span> <span class="n">id</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">strcpy</span><span class="p">(</span><span class="n">s</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">,</span> <span class="n">name</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">HASH_ADD_INT</span><span class="p">(</span><span class="n">head</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">item</span><span class="p">);</span>  <span class="cm">/* key: name of the key field */</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table></div>
+</div>
+</div><blockquote>
+<p>注意到，第二个参数只需要写结构体中被选为键的那个成员名，在宏展开后它会被处理成有效的C代码。</p>
+</blockquote>
+<h4 id="检查键的唯一性"><a href="#检查键的唯一性" class="anchor-link">#</a><a href="#contents:检查键的唯一性" class="headings"><em>检查键的唯一性</em></a></h4>
+<p>在添加一个结构体到哈希表前，<strong>用户必须显式检查</strong>键的唯一性。如果没有检查唯一性，并且加入了两个相同的键，将会引发错误。</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">Hash_Add</span><span class="p">(</span><span class="kt">int</span> <span class="n">id</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">HashItem</span> <span class="o">*</span><span class="n">item</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">HASH_FIND_INT</span><span class="p">(</span><span class="n">head</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">id</span><span class="p">,</span> <span class="n">item</span><span class="p">);</span>  <span class="cm">/* Checking uniqueness */</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">item</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">item</span> <span class="o">=</span> <span class="p">(</span><span class="n">HashItem</span><span class="o">*</span><span class="p">)</span><span class="nf">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">HashItem</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="n">s</span><span class="o">-&gt;</span><span class="n">key</span> <span class="o">=</span> <span class="n">id</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">strcpy</span><span class="p">(</span><span class="n">s</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">,</span> <span class="n">name</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">HASH_ADD_INT</span><span class="p">(</span><span class="n">head</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">item</span><span class="p">);</span>  <span class="cm">/* key: name of the key field */</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table></div>
+</div>
+</div><h4 id="函数传参"><a href="#函数传参" class="anchor-link">#</a><a href="#contents:函数传参" class="headings"><em>函数传参</em></a></h4>
+<p>先前使用的<code>head</code>是一个全局变量，如果调用者想把它作为参数传入<code>Hash_Add</code>函数。直觉上只需要传递初始化的头指针<code>head</code>即可，但是这样不会正确工作：</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="cm">/* bad */</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">Hash_Add</span><span class="p">(</span><span class="n">HashItem</span> <span class="o">*</span><span class="n">head</span><span class="p">,</span> <span class="kt">int</span> <span class="n">id</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">HASH_ADD_INT</span><span class="p">(</span><span class="n">head</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">item</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table></div>
+</div>
+</div><p>你需要传递的是头指针的指针：</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="cm">/* good */</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">Hash_Add</span><span class="p">(</span><span class="n">HashItem</span> <span class="o">**</span><span class="n">head</span><span class="p">,</span> <span class="kt">int</span> <span class="n">id</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">HASH_ADD_INT</span><span class="p">(</span><span class="o">*</span><span class="n">head</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">item</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table></div>
+</div>
+</div><p><code>uthash</code>的哈希表头指针（如<code>head</code>）本质是一个动态变化的哨兵节点。当：</p>
+<ul>
+<li>第一次添加元素时，头指针会被赋予第一个元素的地址</li>
+<li>删除最后一个元素时，头指针会被重置为 NULL</li>
+</ul>
+<p><em><strong>所以要修改的是指针的指向</strong></em>，即指针的值。</p>
+<ul>
+<li>当执行<code>HASH_ADD_INT</code>等操作时，宏内部实际上会修改头指针的值
+<ul>
+<li>如果头指针原本是<code>NULL</code>，添加一个元素后，头指针必须被更新为新元素的地址</li>
+<li>传值会创造指针副本，仅修改了副本指针的指向，但不会修改<code>head</code>的指向，是无效的</li>
+</ul>
+</li>
+</ul>
+<h3 id="hash_find_xxx"><a href="#hash_find_xxx" class="anchor-link">#</a><a href="#contents:hash_find_xxx" class="headings">HASH_FIND_XXX</a></h3>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="nf">HASH_FIND_INT</span><span class="p">(</span><span class="n">head</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">search_key</span><span class="p">,</span> <span class="n">find_res</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table></div>
+</div>
+</div><ul>
+<li>在哈希表中寻找元素</li>
+<li><em><strong>head</strong></em>: 之前声明的哈希表头</li>
+<li><em><strong>search_key</strong></em>: 要查找的键的指针，不可传递字面量</li>
+<li><em><strong>find_res</strong></em>: 出参，结构体指针，用于存放查找结果。为空表示未找到。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="n">HashItem</span><span class="o">*</span> <span class="nf">Hash_Find</span><span class="p">(</span><span class="n">HashItem</span> <span class="o">**</span><span class="n">head</span><span class="p">,</span> <span class="kt">int</span> <span class="n">id</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">HashItem</span> <span class="o">*</span><span class="n">item</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">HASH_FIND_INT</span><span class="p">(</span><span class="n">head</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">id</span><span class="p">,</span> <span class="n">item</span><span class="p">);</span>  <span class="cm">/* s: output pointer */</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">item</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table></div>
+</div>
+</div><h3 id="hash_del"><a href="#hash_del" class="anchor-link">#</a><a href="#contents:hash_del" class="headings">HASH_DEL</a></h3>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="nf">HASH_DEL</span><span class="p">(</span><span class="n">head</span><span class="p">,</span> <span class="n">s</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table></div>
+</div>
+</div><ul>
+<li>删除哈希表中的节点</li>
+<li><em><strong>head</strong></em>: 之前声明的哈希表头</li>
+<li><em><strong>s</strong></em>: 要删除的<strong>结构体指针</strong></li>
+</ul>
+<p>要删除一个节点，必须拥有指向这个节点结构体的指针，若你只有key，那么需要先通过<code>HASH_FIND</code>获取到指向结构体的指针：</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">Hash_Delete</span><span class="p">(</span><span class="n">HashItem</span><span class="o">**</span> <span class="n">head</span><span class="p">,</span> <span class="kt">int</span> <span class="n">id</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">HashItem</span> <span class="o">*</span><span class="n">item</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">HASH_FIND_INT</span><span class="p">(</span><span class="n">head</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">id</span><span class="p">,</span> <span class="n">item</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">s</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">HASH_DEL</span><span class="p">(</span><span class="n">head</span><span class="p">,</span> <span class="n">item</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">free</span><span class="p">(</span><span class="n">item</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table></div>
+</div>
+</div><h4 id="uthash的内存管理"><a href="#uthash的内存管理" class="anchor-link">#</a><a href="#contents:uthash的内存管理" class="headings"><em>uthash的内存管理</em></a></h4>
+<p><em><strong>uthash永远不会释放结构体的空间</strong></em>，<code>HASH_DEL</code>仅仅把对应的结构体移除出哈希表，而不会<code>free</code>它。释放空间的时机交由用户进行选择。</p>
+<h4 id="hash_del可能会改变头指针"><a href="#hash_del可能会改变头指针" class="anchor-link">#</a><a href="#contents:hash_del可能会改变头指针" class="headings"><em>HASH_DEL可能会改变头指针</em></a></h4>
+<p>比如你尝试删除哈希表的第一个节点。</p>
+<h3 id="hash_iter"><a href="#hash_iter" class="anchor-link">#</a><a href="#contents:hash_iter" class="headings">HASH_ITER</a></h3>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="nf">HASH_ITER</span><span class="p">(</span><span class="n">hh</span><span class="p">,</span> <span class="n">head</span><span class="p">,</span> <span class="n">cur</span><span class="p">,</span> <span class="n">tmp</span><span class="p">)</span> <span class="p">{...}</span>
+</span></span></code></pre></td></tr></table></div>
+</div>
+</div><ul>
+<li>用于遍历哈希表节点</li>
+<li><em><strong>hh</strong></em>: 哈希句柄，即<code>UT_hash_handle</code>成员名</li>
+<li><em><strong>head</strong></em>: 哈希表头指针</li>
+<li><em><strong>cur</strong></em>: 遍历过程中指向当前元素的指针</li>
+<li><em><strong>tmp</strong></em>: 临时指针，用于安全删除元素时避免遍历错误</li>
+</ul>
+<p><code>HASH_ITER</code>是一个deletion-safe的宏，展开会是一个<code>for</code>循环。</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="cm">/* 删除哈希表中的所有节点 */</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">Hash_Destroy</span><span class="p">(</span><span class="n">HashItem</span> <span class="o">**</span><span class="n">head</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">HashItem</span> <span class="o">*</span><span class="n">cur</span><span class="p">,</span> <span class="o">*</span><span class="n">tmp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">HASH_ITER</span><span class="p">(</span><span class="n">hh</span><span class="p">,</span> <span class="n">head</span><span class="p">,</span> <span class="n">cur</span><span class="p">,</span> <span class="n">tmp</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">HASH_DEL</span><span class="p">(</span><span class="n">head</span><span class="p">,</span> <span class="n">cur</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">free</span><span class="p">(</span><span class="n">cur</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table></div>
+</div>
+</div><h3 id="hash_clear"><a href="#hash_clear" class="anchor-link">#</a><a href="#contents:hash_clear" class="headings">HASH_CLEAR</a></h3>
+<p>如果你只想将所有结构体从哈希表中移除，而不释放它们的空间，可以使用以下的简单宏：</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="nf">HASH_CLEAR</span><span class="p">(</span><span class="n">hh</span><span class="p">,</span> <span class="n">head</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table></div>
+</div>
+</div><p>调用之后head将会被设为<code>NULL</code>。</p>
+<h3 id="hash_count"><a href="#hash_count" class="anchor-link">#</a><a href="#contents:hash_count" class="headings">HASH_COUNT</a></h3>
+<p>获取哈希表的节点个数：</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="nf">HASH_COUNT</span><span class="p">(</span><span class="n">head</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nf">printf</span><span class="p">(</span><span class="s">&#34;num of hash table: %u </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">num</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table></div>
+</div>
+</div><h2 id="eg"><a href="#eg" class="anchor-link">#</a><a href="#contents:eg" class="headings">e.g.</a></h2>
+<p><a href="https://leetcode.cn/problems/insert-delete-getrandom-o1/" target="_blank" rel="noopener">380. O(1) 时间插入、删除和获取随机元素</a></p>
+
+            </div>
+
+            
+
+
+        </article>
+
+        
+
+        
+    <div class="updated-badge-container">
+        <span title="Updated @ 2025-02-04 00:08:18 CST" style="cursor:help">
+
+<svg xmlns="http://www.w3.org/2000/svg" width="130" height="20" class="updated-badge"><linearGradient id="b" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="a"><rect width="130" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#a)"><path class="updated-badge-left" d="M0 0h55v20H0z"/><path class="updated-badge-right" d="M55 0h75v20H55z"/><path fill="url(#b)" d="M0 0h130v20H0z"/></g><g fill="#fff" text-anchor="middle" font-size="110"><text x="285" y="150" fill="#010101" fill-opacity=".3" textLength="450" transform="scale(.1)">updated</text><text x="285" y="140" textLength="450" transform="scale(.1)">updated</text><text x="915" y="150" fill="#010101" fill-opacity=".3" textLength="650" transform="scale(.1)">2025-02-04</text><text x="915" y="140" textLength="650" transform="scale(.1)">2025-02-04</text></g></svg>
+        </span></div>
+
+
+
+        
+
+
+        
+
+
+        
+    
+    
+        <div class="related-posts">
+            <h2 class="related-title">相關文章：<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon related-icon"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm144 276c0 6.6-5.4 12-12 12h-92v92c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12v-92h-92c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h92v-92c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v92h92c6.6 0 12 5.4 12 12v56z"/></svg></h2>
+            <ul class="related-list">
+                
+                    <li class="related-item">
+                        <a href="/tech/c%E8%AF%AD%E8%A8%80%E9%AB%98%E6%80%A7%E8%83%BD%E7%BC%96%E7%A8%8B/" class="related-link">C High Performance Coding</a>
+                    </li>
+                
+                    <li class="related-item">
+                        <a href="/tech/%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0/" class="related-link">Function Object &amp; Lambda 函数对象与匿名函数</a>
+                    </li>
+                
+                    <li class="related-item">
+                        <a href="/tech/%E7%BB%93%E6%9E%84%E5%8C%96%E7%BB%91%E5%AE%9A/" class="related-link">Structured Bindings 结构化绑定</a>
+                    </li>
+                
+                    <li class="related-item">
+                        <a href="/tech/byteorder/" class="related-link">Byteorder 字节序</a>
+                    </li>
+                
+                    <li class="related-item">
+                        <a href="/tech/%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0%E5%87%BD%E6%95%B0/" class="related-link">Variable Arguments 可变参数函数</a>
+                    </li>
+                
+            </ul>
+        </div>
+    
+
+
+
+        
+
+
+        
+    <footer class="minimal-footer">
+        
+            <div class="post-tag"><a href="/tags/c/c-/" rel="tag" class="post-tag-link">#cc</a></div>
+        
+        
+            <div class="post-category">
+                <a href="/tech/" class="post-category-link active">tech</a> | <a href="/life/" class="post-category-link">life</a>
+            </div>
+        
+        
+    </footer>
+
+
+
+        
+
+
+        
+    
+        
+        
+    
+    
+    
+    
+        <ul class="post-nav">
+            
+            
+                <li class="post-nav-next">
+                    <a href="/tech/c%E8%AF%AD%E8%A8%80%E9%AB%98%E6%80%A7%E8%83%BD%E7%BC%96%E7%A8%8B/" rel="next">C High Performance Coding &gt;</a>
+                </li>
+            
+        </ul>
+    
+
+
+
+        
+
+
+    </div>
+</main>
+
+
+            
+    <div id="back-to-top" class="back-to-top">
+        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon arrow-up"><path d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z"/></svg></a>
+    </div>
+
+
+            
+
+        </div>
+        <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('\/sw.js');
+            });
+        }
+    </script>
+
+
+        
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/medium-zoom@latest/dist/medium-zoom.min.js"></script>
+
+<script>
+    let imgNodes = document.querySelectorAll('div.post-body img');
+    imgNodes = Array.from(imgNodes).filter(node => node.parentNode.tagName !== "A");
+
+    mediumZoom(imgNodes, {
+        background: 'hsla(var(--color-bg-h), var(--color-bg-s), var(--color-bg-l), 0.95)'
+    })
+</script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/instant.page@5.1.0/instantpage.min.js" type="module" defer></script>
+
+
+
+
+
+
+    </body>
+</html>
